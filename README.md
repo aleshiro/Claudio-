@@ -21,6 +21,8 @@ Funciona sola, sin servidor: se puede publicar gratis en GitHub Pages o Vercel.
 
 Mientras no lo cambies, el carrito muestra un aviso en rojo y WhatsApp le pide al cliente elegir a quién enviar el mensaje.
 
+El mensaje que recibes incluye los perfumes con sus ml, el total, el correo (si lo dejó) y la **forma de entrega**. El cliente no puede enviar el pedido sin elegir una: Rancagua, Santiago o Blue Express. Esas opciones se editan en `CONFIG.entregas`.
+
 En ese mismo bloque (`CONFIG`) puedes cambiar tu usuario de Instagram y agregar el de TikTok.
 
 ## 2. Perfumes, precios y packs
@@ -37,8 +39,8 @@ Todo está al inicio del bloque `<script>` de `index.html`, con explicaciones en
   categoria: "Nicho",              // "Nicho", "Árabe" o "Diseñador"
   notas: "Nota 1 · Nota 2 · Nota 3",
   precios: { 3: 4990, 5: 6990, 10: 12990 },   // tamaño en ml : precio en pesos
-  color: "#e2b552",                // color del líquido en el dibujo
-  imagen: "",                      // opcional, ver punto 3
+  color: "#e2b552",                // color del líquido en el dibujo del decant
+  imagen: "",                      // foto de la botella, ver punto 3
 },
 ```
 
@@ -48,21 +50,33 @@ Todo está al inicio del bloque `<script>` de `index.html`, con explicaciones en
 - **Los precios y notas que vienen cargados son de ejemplo.** Cámbialos por los tuyos.
 - El sexto perfume quedó como *Armaf Club de Nuit Intense Man*. Si vendes otra versión de Club de Nuit, cambia el nombre.
 
-**Packs:** lista `PACKS`. Cada pack dice qué perfumes incluye (por su `id`), el tamaño y el precio final. El "antes" y el porcentaje de ahorro se calculan solos.
+**Packs:** lista `PACKS`. Cada pack dice qué perfumes incluye (por su `id`), el tamaño y el precio final. El "antes" y el porcentaje de ahorro se calculan solos. Los packs aparecen antes que los perfumes.
 
-## 3. Fotos de producto
+**Pack destacado:** el que se ve al inicio de la página. Se elige en `CONFIG.packDestacado` escribiendo el `id` del pack.
 
-Mientras no haya foto, cada tarjeta muestra un frasco dibujado cuyo nivel sube según el tamaño elegido.
-Para usar una foto real:
+**Atomizaciones:** cada tarjeta muestra cuántas atomizaciones rinde el tamaño elegido. Se calculan con `CONFIG.atomizacionesPorMl` (10 por ml: 3 ml ≈ 30, 5 ml ≈ 50, 10 ml ≈ 100). Cambia ese número si tus atomizadores rinden distinto, o pon `0` para ocultarlo.
 
-1. Sube la imagen a la carpeta `assets/` (idealmente cuadrada o vertical, menos de 300 KB, formato `.jpg` o `.webp`).
-2. En el perfume, escribe la ruta: `imagen: "assets/torino-21.jpg",`
+## 3. Fotos de los perfumes
 
-Usa nombres de archivo descriptivos (`xerjoff-torino-21-decant.jpg`): también ayudan en Google.
+Cada tarjeta muestra a la izquierda la **foto de la botella** y a la derecha el **decant**, cuyo nivel sube o baja según el tamaño elegido.
+Mientras un perfume no tenga foto se ve un recuadro gris que dice FOTO.
+
+Para poner una foto, escribe su dirección entre las comillas de `imagen`:
+
+```js
+imagen: "https://tusitio.com/fotos/torino-21.jpg",   // una dirección de internet
+imagen: "assets/torino-21.jpg",                       // o un archivo subido a la carpeta assets
+```
+
+- Lo más seguro es subir la imagen a la carpeta `assets/` de este repositorio: un link a otra página puede dejar de funcionar.
+- Fotos verticales o cuadradas, con la botella al centro, y de menos de 300 KB. Sobre fondo oscuro se ven mejor.
+- Usa fotos propias o que tengas permiso de usar.
+- Nombres de archivo descriptivos (`xerjoff-torino-21.jpg`) también ayudan en Google.
 
 ## 4. Descuento por dejar el correo
 
 - El porcentaje está en `CONFIG.descuentoCorreo` (5 = 5%). Con `0` se desactiva y la sección desaparece.
+- El formulario está justo después del inicio de la página (no es una ventana emergente) y también dentro del carrito.
 - Cuando el cliente escribe su correo, el descuento se aplica en el carrito y **el correo llega dentro del mensaje de WhatsApp** junto al pedido.
 - Para además guardar los correos en una lista, crea un formulario gratuito en [Formspree](https://formspree.io) y pega su dirección en `CONFIG.guardarCorreosEn`.
 

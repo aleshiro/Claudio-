@@ -57,6 +57,9 @@
   --gold: 201 165 96;       /* acento dorado */
   --gold-soft: 228 201 143; /* dorado claro (hover y brillos) */
   --alert: 232 132 116;     /* avisos y errores */
+  --bronze: 190 127 84;     /* etiqueta "Árabe" (cobre) */
+  --plata: 205 208 214;     /* etiqueta "Diseñador" (plateado) */
+  --margen: clamp(16px, 4vw, 40px);  /* margen lateral de la página */
   /* Tipografías */
   --font-display: "Bodoni Moda", "Didot", "Bodoni MT", "Times New Roman", serif;
   --font-sans: "Jost", "Century Gothic", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
@@ -67,7 +70,7 @@
      Solo hay que regenerarlo si cambias clases de diseño: ver README, sección "Diseño". -->
 <style>
 /* TAILWIND:INICIO */
-*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:var(--font-sans);font-feature-settings:normal;font-variation-settings:normal;tab-size:4;-webkit-tap-highlight-color:transparent}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-size:1em;font-variation-settings:normal}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-feature-settings:inherit;font-size:100%;font-variation-settings:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);border-width:0;white-space:nowrap}.\!visible{visibility:visible!important}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.left-2\.5{left:.625rem}.top-2\.5{top:.625rem}.z-10{z-index:10}.z-40{z-index:40}.my-6{margin-bottom:1.5rem;margin-top:1.5rem}.-ml-2\.5{margin-left:-.625rem}.-mr-2{margin-right:-.5rem}.-mr-2\.5{margin-right:-.625rem}.-mt-2{margin-top:-.5rem}.mb-1\.5{margin-bottom:.375rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-10{margin-top:2.5rem}.mt-14{margin-top:3.5rem}.mt-2{margin-top:.5rem}.mt-2\.5{margin-top:.625rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-9{margin-top:2.25rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-14{height:3.5rem}.h-44{height:11rem}.h-9{height:2.25rem}.h-\[4\.5rem\]{height:4.5rem}.h-full{height:100%}.min-h-\[1\.5rem\]{min-height:1.5rem}.w-14{width:3.5rem}.w-7{width:1.75rem}.w-9{width:2.25rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.flex-none{flex:none}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-\[1fr_auto\]{grid-template-columns:1fr auto}.grid-cols-\[2\.75rem_1fr_2\.75rem\]{grid-template-columns:2.75rem 1fr 2.75rem}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:.375rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-3\.5{gap:.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-7{gap:1.75rem}.gap-8{gap:2rem}.gap-9{gap:2.25rem}.gap-px{gap:1px}.gap-x-12{column-gap:3rem}.gap-y-1\.5{row-gap:.375rem}.gap-y-3{row-gap:.75rem}.justify-self-end{justify-self:end}.justify-self-center{justify-self:center}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overscroll-contain{overscroll-behavior:contain}.text-wrap{text-wrap:wrap}.break-all{word-break:break-all}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-y{border-top-width:1px}.border-b,.border-y{border-bottom-width:1px}.border-t{border-top-width:1px}.border-gold\/50{border-color:rgb(var(--gold)/.5)}.border-line{--tw-border-opacity:1;border-color:rgb(var(--line)/var(--tw-border-opacity,1))}.bg-coal{--tw-bg-opacity:1;background-color:rgb(var(--coal)/var(--tw-bg-opacity,1))}.bg-graphite{--tw-bg-opacity:1;background-color:rgb(var(--graphite)/var(--tw-bg-opacity,1))}.bg-ink{--tw-bg-opacity:1;background-color:rgb(var(--ink)/var(--tw-bg-opacity,1))}.bg-ink\/85{background-color:rgb(var(--ink)/.85)}.bg-line{--tw-bg-opacity:1;background-color:rgb(var(--line)/var(--tw-bg-opacity,1))}.object-cover{object-fit:cover}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.py-1{padding-bottom:.25rem;padding-top:.25rem}.py-10{padding-bottom:2.5rem;padding-top:2.5rem}.py-12{padding-bottom:3rem;padding-top:3rem}.py-14{padding-bottom:3.5rem;padding-top:3.5rem}.py-16{padding-bottom:4rem;padding-top:4rem}.py-2{padding-bottom:.5rem;padding-top:.5rem}.py-2\.5{padding-bottom:.625rem;padding-top:.625rem}.py-3{padding-bottom:.75rem;padding-top:.75rem}.py-3\.5{padding-bottom:.875rem;padding-top:.875rem}.py-4{padding-bottom:1rem;padding-top:1rem}.py-5{padding-bottom:1.25rem;padding-top:1.25rem}.py-6{padding-bottom:1.5rem;padding-top:1.5rem}.py-7{padding-bottom:1.75rem;padding-top:1.75rem}.pb-14{padding-bottom:3.5rem}.pb-4{padding-bottom:1rem}.pt-10{padding-top:2.5rem}.pt-12{padding-top:3rem}.pt-2{padding-top:.5rem}.pt-3{padding-top:.75rem}.pt-4{padding-top:1rem}.pt-5{padding-top:1.25rem}.text-center{text-align:center}.text-right{text-align:right}.font-display{font-family:var(--font-display)}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[\.9375rem\]{font-size:.9375rem}.text-\[1\.0625rem\]{font-size:1.0625rem}.text-\[1\.125rem\]{font-size:1.125rem}.text-\[1\.25rem\]{font-size:1.25rem}.text-\[1\.375rem\]{font-size:1.375rem}.text-\[10\.5px\]{font-size:10.5px}.text-\[11px\]{font-size:11px}.text-\[12\.5px\]{font-size:12.5px}.text-\[2\.7rem\]{font-size:2.7rem}.text-\[2rem\]{font-size:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.tabular-nums{--tw-numeric-spacing:tabular-nums;font-variant-numeric:var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)}.leading-\[1\.04\]{line-height:1.04}.leading-\[1\.08\]{line-height:1.08}.leading-\[1\.15\]{line-height:1.15}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-\[\.14em\]{letter-spacing:.14em}.tracking-\[\.18em\]{letter-spacing:.18em}.tracking-\[\.2em\]{letter-spacing:.2em}.tracking-normal{letter-spacing:0}.text-alert{--tw-text-opacity:1;color:rgb(var(--alert)/var(--tw-text-opacity,1))}.text-gold{--tw-text-opacity:1;color:rgb(var(--gold)/var(--tw-text-opacity,1))}.text-silver{--tw-text-opacity:1;color:rgb(var(--silver)/var(--tw-text-opacity,1))}.text-silver\/80{color:rgb(var(--silver)/.8)}.underline{text-decoration-line:underline}.line-through{text-decoration-line:line-through}.underline-offset-4{text-underline-offset:4px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.outline{outline-style:solid}.grayscale{--tw-grayscale:grayscale(100%)}.filter,.grayscale{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:374px){.max-\[374px\]\:hidden{display:none}}@media (min-width:640px){.sm\:left-3\.5{left:.875rem}.sm\:top-3\.5{top:.875rem}.sm\:h-56{height:14rem}.sm\:flex-1{flex:1 1 0%}.sm\:flex-row{flex-direction:row}.sm\:gap-5{gap:1.25rem}.sm\:p-5{padding:1.25rem}.sm\:p-6{padding:1.5rem}.sm\:pb-6{padding-bottom:1.5rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-sm{font-size:.875rem;line-height:1.25rem}}@media (min-width:768px){.md\:mt-20{margin-top:5rem}.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-\[4\.25rem\]{height:4.25rem}.md\:w-\[25rem\]{width:25rem}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-\[1\.15fr_\.85fr\]{grid-template-columns:1.15fr .85fr}.md\:grid-cols-\[1fr_auto_1fr\]{grid-template-columns:1fr auto 1fr}.md\:flex-row{flex-direction:row}.md\:flex-col{flex-direction:column}.md\:items-end{align-items:flex-end}.md\:items-center{align-items:center}.md\:justify-between{justify-content:space-between}.md\:gap-10{gap:2.5rem}.md\:gap-16{gap:4rem}.md\:gap-6{gap:1.5rem}.md\:justify-self-start{justify-self:start}.md\:justify-self-end{justify-self:end}.md\:px-10{padding-left:2.5rem;padding-right:2.5rem}.md\:py-0{padding-bottom:0;padding-top:0}.md\:py-20{padding-bottom:5rem;padding-top:5rem}.md\:py-24{padding-top:6rem}.md\:pb-24,.md\:py-24{padding-bottom:6rem}.md\:pl-10{padding-left:2.5rem}.md\:pr-10{padding-right:2.5rem}.md\:pt-24{padding-top:6rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-\[4\.6rem\]{font-size:4.6rem}.md\:text-xs{font-size:.75rem;line-height:1rem}.md\:leading-\[1\.02\]{line-height:1.02}}@media (min-width:1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:gap-6{gap:1.5rem}}
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:var(--font-sans);font-feature-settings:normal;font-variation-settings:normal;tab-size:4;-webkit-tap-highlight-color:transparent}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-size:1em;font-variation-settings:normal}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-feature-settings:inherit;font-size:100%;font-variation-settings:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);border-width:0;white-space:nowrap}.\!visible{visibility:visible!important}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.left-2\.5{left:.625rem}.top-2\.5{top:.625rem}.z-10{z-index:10}.z-40{z-index:40}.my-6{margin-bottom:1.5rem;margin-top:1.5rem}.-ml-2\.5{margin-left:-.625rem}.-mr-2{margin-right:-.5rem}.-mr-2\.5{margin-right:-.625rem}.-mt-2{margin-top:-.5rem}.mb-1\.5{margin-bottom:.375rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-10{margin-top:2.5rem}.mt-14{margin-top:3.5rem}.mt-2{margin-top:.5rem}.mt-2\.5{margin-top:.625rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-9{margin-top:2.25rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-14{height:3.5rem}.h-9{height:2.25rem}.h-\[4\.5rem\]{height:4.5rem}.h-\[9\.75rem\]{height:9.75rem}.h-full{height:100%}.min-h-\[1\.5rem\]{min-height:1.5rem}.w-14{width:3.5rem}.w-7{width:1.75rem}.w-9{width:2.25rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.flex-none{flex:none}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-\[1fr_auto\]{grid-template-columns:1fr auto}.grid-cols-\[2\.75rem_1fr_2\.75rem\]{grid-template-columns:2.75rem 1fr 2.75rem}.grid-cols-\[minmax\(0\2c 1fr\)_auto\]{grid-template-columns:minmax(0,1fr) auto}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:.375rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-3\.5{gap:.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-7{gap:1.75rem}.gap-8{gap:2rem}.gap-9{gap:2.25rem}.gap-px{gap:1px}.gap-x-12{column-gap:3rem}.gap-y-1\.5{row-gap:.375rem}.gap-y-3{row-gap:.75rem}.justify-self-end{justify-self:end}.justify-self-center{justify-self:center}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overscroll-contain{overscroll-behavior:contain}.text-wrap{text-wrap:wrap}.break-all{word-break:break-all}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-y{border-top-width:1px}.border-b,.border-y{border-bottom-width:1px}.border-t{border-top-width:1px}.border-gold\/40{border-color:rgb(var(--gold)/.4)}.border-gold\/50{border-color:rgb(var(--gold)/.5)}.border-line{--tw-border-opacity:1;border-color:rgb(var(--line)/var(--tw-border-opacity,1))}.bg-coal{--tw-bg-opacity:1;background-color:rgb(var(--coal)/var(--tw-bg-opacity,1))}.bg-graphite{--tw-bg-opacity:1;background-color:rgb(var(--graphite)/var(--tw-bg-opacity,1))}.bg-ink{--tw-bg-opacity:1;background-color:rgb(var(--ink)/var(--tw-bg-opacity,1))}.bg-ink\/85{background-color:rgb(var(--ink)/.85)}.bg-line{--tw-bg-opacity:1;background-color:rgb(var(--line)/var(--tw-bg-opacity,1))}.object-cover{object-fit:cover}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.py-1{padding-bottom:.25rem;padding-top:.25rem}.py-10{padding-bottom:2.5rem;padding-top:2.5rem}.py-12{padding-bottom:3rem;padding-top:3rem}.py-14{padding-bottom:3.5rem;padding-top:3.5rem}.py-16{padding-bottom:4rem;padding-top:4rem}.py-2{padding-bottom:.5rem;padding-top:.5rem}.py-2\.5{padding-bottom:.625rem;padding-top:.625rem}.py-3{padding-bottom:.75rem;padding-top:.75rem}.py-3\.5{padding-bottom:.875rem;padding-top:.875rem}.py-4{padding-bottom:1rem;padding-top:1rem}.py-5{padding-bottom:1.25rem;padding-top:1.25rem}.py-6{padding-bottom:1.5rem;padding-top:1.5rem}.py-7{padding-bottom:1.75rem;padding-top:1.75rem}.pb-1{padding-bottom:.25rem}.pb-12{padding-bottom:3rem}.pb-4{padding-bottom:1rem}.pl-2{padding-left:.5rem}.pr-8{padding-right:2rem}.pt-10{padding-top:2.5rem}.pt-12{padding-top:3rem}.pt-2{padding-top:.5rem}.pt-4{padding-top:1rem}.pt-5{padding-top:1.25rem}.text-center{text-align:center}.text-right{text-align:right}.font-display{font-family:var(--font-display)}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[\.9375rem\]{font-size:.9375rem}.text-\[1\.0625rem\]{font-size:1.0625rem}.text-\[1\.125rem\]{font-size:1.125rem}.text-\[1\.25rem\]{font-size:1.25rem}.text-\[1\.375rem\]{font-size:1.375rem}.text-\[1\.75rem\]{font-size:1.75rem}.text-\[10\.5px\]{font-size:10.5px}.text-\[11px\]{font-size:11px}.text-\[12\.5px\]{font-size:12.5px}.text-\[2\.7rem\]{font-size:2.7rem}.text-\[2rem\]{font-size:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.tabular-nums{--tw-numeric-spacing:tabular-nums;font-variant-numeric:var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)}.leading-\[1\.04\]{line-height:1.04}.leading-\[1\.08\]{line-height:1.08}.leading-\[1\.15\]{line-height:1.15}.leading-\[1\.1\]{line-height:1.1}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-\[\.14em\]{letter-spacing:.14em}.tracking-\[\.18em\]{letter-spacing:.18em}.tracking-\[\.2em\]{letter-spacing:.2em}.tracking-normal{letter-spacing:0}.text-alert{--tw-text-opacity:1;color:rgb(var(--alert)/var(--tw-text-opacity,1))}.text-gold{--tw-text-opacity:1;color:rgb(var(--gold)/var(--tw-text-opacity,1))}.text-gold-soft{--tw-text-opacity:1;color:rgb(var(--gold-soft)/var(--tw-text-opacity,1))}.text-silver{--tw-text-opacity:1;color:rgb(var(--silver)/var(--tw-text-opacity,1))}.text-silver\/80{color:rgb(var(--silver)/.8)}.underline{text-decoration-line:underline}.line-through{text-decoration-line:line-through}.underline-offset-4{text-underline-offset:4px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.outline{outline-style:solid}.grayscale{--tw-grayscale:grayscale(100%)}.filter,.grayscale{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:374px){.max-\[374px\]\:hidden{display:none}}@media (min-width:640px){.sm\:left-3\.5{left:.875rem}.sm\:top-3\.5{top:.875rem}.sm\:h-56{height:14rem}.sm\:flex-1{flex:1 1 0%}.sm\:flex-row{flex-direction:row}.sm\:gap-5{gap:1.25rem}.sm\:p-5{padding:1.25rem}.sm\:p-6{padding:1.5rem}.sm\:p-7{padding:1.75rem}.sm\:pb-6{padding-bottom:1.5rem}.sm\:pl-5{padding-left:1.25rem}.sm\:pr-12{padding-right:3rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-sm{font-size:.875rem;line-height:1.25rem}}@media (min-width:768px){.md\:mt-20{margin-top:5rem}.md\:flex{display:flex}.md\:grid{display:grid}.md\:hidden{display:none}.md\:h-\[4\.25rem\]{height:4.25rem}.md\:max-w-\[26rem\]{max-width:26rem}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-\[1fr_auto_1fr\]{grid-template-columns:1fr auto 1fr}.md\:grid-cols-\[minmax\(0\2c 1\.1fr\)_minmax\(0\2c \.9fr\)\]{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}.md\:flex-row{flex-direction:row}.md\:flex-col{flex-direction:column}.md\:items-end{align-items:flex-end}.md\:items-center{align-items:center}.md\:justify-between{justify-content:space-between}.md\:gap-10{gap:2.5rem}.md\:gap-12{gap:3rem}.md\:gap-16{gap:4rem}.md\:gap-6{gap:1.5rem}.md\:justify-self-start{justify-self:start}.md\:justify-self-end{justify-self:end}.md\:px-10{padding-left:2.5rem;padding-right:2.5rem}.md\:py-0{padding-bottom:0;padding-top:0}.md\:py-20{padding-bottom:5rem;padding-top:5rem}.md\:py-24{padding-top:6rem}.md\:pb-24,.md\:py-24{padding-bottom:6rem}.md\:pl-10{padding-left:2.5rem}.md\:pr-10{padding-right:2.5rem}.md\:pt-24{padding-top:6rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-\[4\.6rem\]{font-size:4.6rem}.md\:leading-\[1\.02\]{line-height:1.02}}@media (min-width:1024px){.lg\:h-64{height:16rem}.lg\:gap-6{gap:1.5rem}}
 /* TAILWIND:FIN */
 </style>
 
@@ -102,8 +105,18 @@ button, a, summary, label { touch-action: manipulation; }
 /* Margen lateral: nunca menos de 16px y respeta el notch del iPhone en horizontal */
 .wrap {
   width: 100%; max-width: 74rem; margin-inline: auto;
-  padding-left: max(clamp(16px, 4vw, 40px), env(safe-area-inset-left, 0px));
-  padding-right: max(clamp(16px, 4vw, 40px), env(safe-area-inset-right, 0px));
+  padding-left: max(var(--margen), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--margen), env(safe-area-inset-right, 0px));
+}
+/* Packs: fila deslizable en celular, grilla en pantallas grandes */
+@media (max-width: 767.98px) {
+  .carrusel {
+    display: flex; gap: .75rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin-inline: calc(var(--margen) * -1); padding-inline: var(--margen); scroll-padding-inline: var(--margen);
+  }
+  .carrusel::-webkit-scrollbar { display: none; }
+  .carrusel > * { flex: 0 0 84%; scroll-snap-align: start; }
+  .carrusel > :only-child { flex-basis: 100%; }
 }
 .pegado { position: sticky; top: env(safe-area-inset-top, 0px); }
 .skip { position: absolute; left: 16px; top: -100px; z-index: 60; background: rgb(var(--gold)); color: rgb(var(--ink)); padding: .6rem 1rem; }
@@ -158,8 +171,9 @@ button, a, summary, label { touch-action: manipulation; }
 /* ---------- Etiquetas de categoría ---------- */
 .tag { display: inline-block; padding: .2rem .55rem; border: 1px solid; border-radius: 2px; font-size: .625rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; line-height: 1.5; }
 .tag-nicho { background: rgb(var(--gold)); border-color: rgb(var(--gold)); color: rgb(var(--ink)); }
-.tag-arabe { border-color: rgb(var(--gold) / .7); color: rgb(var(--gold-soft)); background: rgb(var(--ink) / .5); }
-.tag-disenador { border-color: rgb(var(--silver) / .6); color: rgb(var(--bone)); background: rgb(var(--ink) / .5); }
+.tag-arabe { background: rgb(var(--bronze)); border-color: rgb(var(--bronze)); color: rgb(var(--ink)); }
+.tag-disenador { background: rgb(var(--plata)); border-color: rgb(var(--plata)); color: rgb(var(--ink)); }
+.tag-ahorro { border-color: rgb(var(--gold) / .7); color: rgb(var(--gold-soft)); background: rgb(var(--ink) / .5); }
 
 /* ---------- Frasco (decant) dibujado con CSS ---------- */
 .vial { --h: 120px; --tint: var(--gold); --level: 1; position: relative; display: inline-flex; flex-direction: column; align-items: center; flex: none; height: var(--h); width: calc(var(--h) * .27); }
@@ -187,11 +201,12 @@ button, a, summary, label { touch-action: manipulation; }
 .vial-scale i::before { content: ""; width: 7px; height: 1px; background: currentColor; }
 .vial-scale i.activa { color: rgb(var(--gold-soft)); }
 
-.escenario { --tint: var(--gold); background: radial-gradient(120% 85% at 50% 108%, rgb(var(--tint) / .2), transparent 62%), rgb(var(--graphite)); }
-.escenario .vial { --h: 106px; transform: translateX(-10px); }
+.escenario { --tint: var(--gold); background: rgb(var(--graphite)); }
+.escenario-frasco { border-left: 1px solid rgb(var(--line)); background: radial-gradient(170% 70% at 50% 108%, rgb(var(--tint) / .26), transparent 66%); }
+.escenario .vial { --h: 94px; }
 @media (min-width: 640px) { .escenario .vial { --h: 148px; } }
-.repisa .vial { --h: calc(var(--k) * 1px); }
-@media (min-width: 768px) { .repisa .vial { --h: calc(var(--k) * 1.9px); } }
+.destacado .vial { --h: 76px; }
+@media (min-width: 640px) { .destacado .vial { --h: 100px; } }
 .hero { background: radial-gradient(70% 60% at 85% 0%, rgb(var(--gold) / .13), transparent 70%); }
 
 /* ---------- Acordeones (preguntas y políticas) ---------- */
@@ -222,7 +237,9 @@ button, a, summary, label { touch-action: manipulation; }
 .panel.abierto { transform: none; visibility: visible; transition: transform .35s cubic-bezier(.3, .7, .2, 1); }
 .panel-lado { padding-left: max(1.25rem, env(safe-area-inset-left, 0px)); padding-right: max(1.25rem, env(safe-area-inset-right, 0px)); }
 .panel-pie { padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px)); }
-.mini { display: flex; align-items: flex-end; justify-content: center; gap: 3px; flex: none; width: 3.25rem; height: 4rem; padding-bottom: .4rem; background: rgb(var(--graphite)); }
+.mini { display: flex; align-items: flex-end; justify-content: center; gap: 3px; flex: none; width: 3.25rem; height: 4rem; padding-bottom: .4rem; background: rgb(var(--graphite)); overflow: hidden; }
+.mini-foto { padding: 0; }
+.mini-foto img { width: 100%; height: 100%; object-fit: cover; }
 .mini .vial { --h: 44px; }
 .mini-pack .vial { --h: 64px; }
 .paso { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; color: rgb(var(--bone)); font-size: 1.125rem; }
@@ -278,6 +295,7 @@ button, a, summary, label { touch-action: manipulation; }
     </button>
     <a href="#inicio" class="logo justify-self-center md:justify-self-start" aria-label="decants_prime, ir al inicio">decants<span>_</span>prime</a>
     <nav class="hidden gap-10 md:flex" aria-label="Principal">
+      <a class="navlink" href="#packs">Packs</a>
       <a class="navlink" href="#catalogo">Catálogo</a>
       <a class="navlink" href="#envios">Envíos</a>
       <a class="navlink" href="#contacto">Contacto</a>
@@ -289,7 +307,8 @@ button, a, summary, label { touch-action: manipulation; }
   </div>
   <nav id="menu-movil" class="border-t border-line md:hidden" aria-label="Menú" hidden>
     <div class="wrap flex flex-col py-2">
-      <a class="navlink py-3.5" href="#catalogo">Catálogo</a>
+      <a class="navlink py-3.5" href="#packs">Packs</a>
+      <a class="navlink border-t border-line py-3.5" href="#catalogo">Catálogo</a>
       <a class="navlink border-t border-line py-3.5" href="#envios">Envíos</a>
       <a class="navlink border-t border-line py-3.5" href="#contacto">Contacto</a>
     </div>
@@ -300,63 +319,24 @@ button, a, summary, label { touch-action: manipulation; }
 
   <!-- ======================= HERO ======================= -->
   <section class="hero" aria-labelledby="titulo-hero">
-    <div class="wrap grid gap-12 pb-14 pt-12 md:grid-cols-[1.15fr_.85fr] md:items-end md:gap-10 md:pb-24 md:pt-24">
+    <div class="wrap grid gap-10 pb-12 pt-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)] md:items-center md:gap-12 md:pb-24 md:pt-24">
       <div>
         <p class="eyebrow">Decants de 3, 5 y 10 ml</p>
         <h1 id="titulo-hero" class="mt-5 font-display text-[2.7rem] leading-[1.04] md:text-[4.6rem] md:leading-[1.02]">La Alta Perfumería, <em class="text-gold">a tu medida</em></h1>
         <p class="mt-6 max-w-md text-[1.0625rem] text-silver">Perfumes nicho, árabes y de diseñador, extraídos de la botella original. Pruébalos en tu piel antes de invertir en el frasco completo.</p>
         <div class="mt-9 flex flex-wrap gap-3">
           <a href="#catalogo" class="btn btn-gold">Ver catálogo</a>
-          <a href="#envios" class="btn btn-line">Cómo comprar</a>
+          <a href="#packs" class="btn btn-line">Ver packs</a>
         </div>
+        <!-- Acceso directo al descuento por correo (no es un pop-up) -->
+        <a href="#descuento" data-con-descuento class="mt-7 inline-flex items-center gap-2 border-b border-gold/50 pb-1 text-sm text-gold-soft">
+          <span><span data-pct>5</span>% de descuento dejando tu correo</span>
+          <svg width="16" height="16"><use href="#i-flecha"/></svg>
+        </a>
       </div>
 
-      <!-- Los tres tamaños, con el precio más bajo de cada uno (se calcula solo) -->
-      <div class="repisa md:w-[25rem] md:justify-self-end" role="img" aria-label="Tres frascos de decant: 3 ml, 5 ml y 10 ml">
-        <div class="grid grid-cols-3 items-end border-b border-gold/50">
-          <span class="flex justify-center"><span class="vial" style="--k:64;--level:.9"><span class="vial-cap"></span><span class="vial-collar"></span><span class="vial-body"><span class="vial-glass"><span class="vial-liquid"></span></span></span></span></span>
-          <span class="flex justify-center"><span class="vial" style="--k:86;--level:.9"><span class="vial-cap"></span><span class="vial-collar"></span><span class="vial-body"><span class="vial-glass"><span class="vial-liquid"></span></span></span></span></span>
-          <span class="flex justify-center"><span class="vial" style="--k:124;--level:.9"><span class="vial-cap"></span><span class="vial-collar"></span><span class="vial-body"><span class="vial-glass"><span class="vial-liquid"></span></span></span></span></span>
-        </div>
-        <div class="grid grid-cols-3 pt-3" aria-hidden="true">
-          <p class="text-center"><span class="block font-display text-xl md:text-2xl">3 ml</span><span class="block text-[11px] leading-tight text-silver md:text-xs" data-desde="3"></span></p>
-          <p class="text-center"><span class="block font-display text-xl md:text-2xl">5 ml</span><span class="block text-[11px] leading-tight text-silver md:text-xs" data-desde="5"></span></p>
-          <p class="text-center"><span class="block font-display text-xl md:text-2xl">10 ml</span><span class="block text-[11px] leading-tight text-silver md:text-xs" data-desde="10"></span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================= CATÁLOGO ======================= -->
-  <section id="catalogo" class="border-t border-line" aria-labelledby="titulo-catalogo">
-    <div class="wrap py-16 md:py-24">
-      <div class="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
-        <div class="max-w-xl">
-          <p class="eyebrow">Catálogo</p>
-          <h2 id="titulo-catalogo" class="mt-4 font-display text-[2rem] leading-[1.08] md:text-5xl">Elige tu perfume y tu tamaño</h2>
-          <p class="mt-3 text-silver">Toca 3, 5 o 10 ml y el precio se actualiza al instante.</p>
-        </div>
-        <div id="filtros" class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por categoría"></div>
-      </div>
-
-      <!-- Las tarjetas se generan desde la lista PRODUCTOS (más abajo, en el <script>) -->
-      <div id="grilla" class="mt-9 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-6"></div>
-      <noscript>
-        <p class="mt-6 text-silver">Activa JavaScript para ver el catálogo y armar tu pedido, o escríbenos por Instagram: <a class="underline" href="https://www.instagram.com/decants_prime/">@decants_prime</a>.</p>
-      </noscript>
-    </div>
-  </section>
-
-  <!-- ======================= PACKS ======================= -->
-  <section id="packs" class="border-t border-line" aria-labelledby="titulo-packs">
-    <div class="wrap py-16 md:py-24">
-      <div class="max-w-xl">
-        <p class="eyebrow">Packs</p>
-        <h2 id="titulo-packs" class="mt-4 font-display text-[2rem] leading-[1.08] md:text-5xl">Lleva más, paga menos</h2>
-        <p class="mt-3 text-silver">Combinaciones armadas con precio especial.</p>
-      </div>
-      <!-- Los packs se generan desde la lista PACKS -->
-      <div id="lista-packs" class="mt-9 grid gap-4 md:grid-cols-3 md:gap-6"></div>
+      <!-- Pack destacado: se elige en CONFIG.packDestacado -->
+      <div id="pack-destacado" class="w-full min-w-0 md:max-w-[26rem] md:justify-self-end"></div>
     </div>
   </section>
 
@@ -377,6 +357,39 @@ button, a, summary, label { touch-action: manipulation; }
         <p id="correo-msg" class="mt-3 min-h-[1.5rem] text-sm" role="status" aria-live="polite"></p>
         <p class="mt-1 text-xs text-silver">Usamos tu correo solo para tu pedido y nuestras novedades. Puedes darte de baja cuando quieras.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ======================= PACKS ======================= -->
+  <section id="packs" aria-labelledby="titulo-packs">
+    <div class="wrap py-16 md:py-24">
+      <div class="max-w-xl">
+        <p class="eyebrow">Packs</p>
+        <h2 id="titulo-packs" class="mt-4 font-display text-[2rem] leading-[1.08] md:text-5xl">Lleva más, paga menos</h2>
+        <p class="mt-3 text-silver">Combinaciones armadas con precio especial.</p>
+      </div>
+      <!-- Los packs se generan desde la lista PACKS -->
+      <div id="lista-packs" class="carrusel mt-9 md:grid md:grid-cols-3 md:gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ======================= CATÁLOGO ======================= -->
+  <section id="catalogo" class="border-t border-line" aria-labelledby="titulo-catalogo">
+    <div class="wrap py-16 md:py-24">
+      <div class="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-xl">
+          <p class="eyebrow">Catálogo</p>
+          <h2 id="titulo-catalogo" class="mt-4 font-display text-[2rem] leading-[1.08] md:text-5xl">Elige tu perfume y tu tamaño</h2>
+          <p class="mt-3 text-silver">Toca 3, 5 o 10 ml y el precio se actualiza al instante.</p>
+        </div>
+        <div id="filtros" class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por categoría"></div>
+      </div>
+
+      <!-- Las tarjetas se generan desde la lista PRODUCTOS (más abajo, en el <script>) -->
+      <div id="grilla" class="mt-9 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:gap-6"></div>
+      <noscript>
+        <p class="mt-6 text-silver">Activa JavaScript para ver el catálogo y armar tu pedido, o escríbenos por Instagram: <a class="underline" href="https://www.instagram.com/decants_prime/">@decants_prime</a>.</p>
+      </noscript>
     </div>
   </section>
 
@@ -473,9 +486,9 @@ button, a, summary, label { touch-action: manipulation; }
       <p class="mt-3 text-sm text-silver">Decants de perfumes nicho, árabes y de diseñador en 3, 5 y 10 ml. Rancagua, Santiago y todo Chile.</p>
     </div>
     <nav class="grid grid-cols-2 gap-x-12 gap-y-3 text-sm" aria-label="Pie de página">
-      <a class="text-silver" href="#catalogo">Catálogo</a>
-      <a class="text-silver" data-enlace="instagram" href="https://www.instagram.com/decants_prime/" target="_blank" rel="noopener">Instagram</a>
       <a class="text-silver" href="#packs">Packs</a>
+      <a class="text-silver" data-enlace="instagram" href="https://www.instagram.com/decants_prime/" target="_blank" rel="noopener">Instagram</a>
+      <a class="text-silver" href="#catalogo">Catálogo</a>
       <a class="text-silver" data-enlace="whatsapp" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
       <a class="text-silver" href="#envios">Envíos</a>
       <a class="text-silver" href="#contacto">Contacto</a>
@@ -514,9 +527,10 @@ button, a, summary, label { touch-action: manipulation; }
     <div id="carrito-lleno" hidden>
       <ul id="carrito-lineas"></ul>
 
-      <fieldset class="mt-6">
+      <fieldset id="bloque-entrega" class="mt-6">
         <legend class="eyebrow">¿Cómo quieres recibirlo?</legend>
         <div id="carrito-entrega" class="mt-3 flex flex-col gap-2"></div>
+        <p id="entrega-msg" class="mt-2.5 text-sm text-alert" role="alert" hidden>Elige una opción de entrega para enviar tu pedido.</p>
       </fieldset>
 
       <div class="my-6 border border-line p-4">
@@ -541,7 +555,7 @@ button, a, summary, label { touch-action: manipulation; }
     <dl class="grid grid-cols-[1fr_auto] gap-y-1.5 text-sm">
       <dt class="text-silver">Subtotal</dt><dd id="t-subtotal" class="text-right tabular-nums"></dd>
       <dt id="t-descuento-etiqueta" class="text-gold" hidden>Descuento por correo</dt><dd id="t-descuento" class="text-right text-gold tabular-nums" hidden></dd>
-      <dt class="text-silver">Entrega</dt><dd class="text-right text-silver">Se coordina por WhatsApp</dd>
+      <dt class="text-silver">Entrega</dt><dd id="t-entrega" class="text-right text-silver"></dd>
       <dt class="pt-2 text-base font-medium">Total</dt><dd id="t-total" class="pt-2 text-right font-display text-2xl tabular-nums"></dd>
     </dl>
     <a id="btn-whatsapp" class="btn btn-gold mt-4 w-full" href="https://wa.me/" target="_blank" rel="noopener">
@@ -550,7 +564,7 @@ button, a, summary, label { touch-action: manipulation; }
     <!-- Botones de pago en línea (aparecen solo si los activas en CONFIG.pagos) -->
     <div id="pagos-online" class="mt-2 flex flex-col gap-2" hidden></div>
     <p id="pago-error" class="mt-2 text-xs text-alert" role="alert" hidden></p>
-    <p class="mt-3 text-xs leading-relaxed text-silver">Se abrirá WhatsApp con tu pedido escrito. Te respondemos con los datos de transferencia.</p>
+    <p class="mt-3 text-xs leading-relaxed text-silver">Se abrirá WhatsApp con tu pedido escrito. El costo de envío se coordina en el chat y te respondemos con los datos de transferencia.</p>
     <p id="aviso-wa" class="mt-2 text-xs leading-relaxed text-alert" hidden>Aviso para el dueño de la tienda: falta configurar el número de WhatsApp. Busca 569XXXXXXXX en index.html y reemplázalo por tu número.</p>
   </div>
 </aside>
@@ -601,6 +615,13 @@ const CONFIG = {
   // Porcentaje de descuento por dejar el correo (0 lo desactiva)
   descuentoCorreo: 5,
 
+  // Pack que se muestra al inicio de la página (escribe el "id" de uno de tus PACKS)
+  packDestacado: "trio-arabe",
+
+  // Atomizaciones (sprays) aproximadas por cada ml. Con 10: 3 ml ≈ 30, 5 ml ≈ 50, 10 ml ≈ 100.
+  // Pon 0 para no mostrar las atomizaciones.
+  atomizacionesPorMl: 10,
+
   // Opcional: dirección para guardar los correos en una lista (por ejemplo un
   // formulario gratuito de Formspree: "https://formspree.io/f/tu-codigo").
   // Si lo dejas vacío, el correo igual te llega dentro del pedido de WhatsApp.
@@ -627,7 +648,10 @@ const CONFIG = {
    notas     → descripción corta de cómo huele
    precios   → tamaño en ml : precio en pesos. Puedes quitar o agregar tamaños.
    color     → color del líquido en el dibujo del frasco
-   imagen    → opcional: ruta de una foto, por ejemplo "assets/torino-21.jpg"
+   imagen    → FOTO DE LA BOTELLA: pega entre las comillas la dirección (URL) de la
+               imagen, por ejemplo "https://tusitio.com/fotos/torino-21.jpg", o sube
+               el archivo a la carpeta assets y escribe "assets/torino-21.jpg".
+               Si lo dejas vacío se muestra un recuadro gris que dice FOTO.
    agotado   → opcional: escribe  agotado: true  para mostrarlo sin stock
 
    ⚠ Los precios de abajo son de EJEMPLO. Cámbialos por los tuyos. */
@@ -738,7 +762,8 @@ const PACKS = [
 const PREGUNTAS = [
   ["¿Qué es un decant?", "Es una muestra de perfume traspasada desde la botella original a un atomizador más pequeño. Así puedes usar un perfume de alta gama durante varios días sin comprar el frasco completo."],
   ["¿Los perfumes son originales?", "Sí. Cada decant se extrae directamente de la botella original."],
-  ["¿Cuánto rinde cada tamaño?", "Como referencia, 3 ml rinden unas 30 atomizaciones, 5 ml unas 50 y 10 ml unas 100. Varía según el atomizador y cuánto te apliques."],
+  // {rendimiento} se reemplaza solo según CONFIG.atomizacionesPorMl
+  ["¿Cuánto rinde cada tamaño?", "Como referencia, {rendimiento}. Varía según el atomizador y cuánto te apliques."],
   ["¿Cómo pago?", "Por transferencia bancaria. Cuando recibimos tu pedido por WhatsApp te enviamos los datos."],
   ["¿Cuánto demora en llegar?", "Las entregas presenciales en Rancagua y Santiago se coordinan por WhatsApp. En los envíos por Blue Express el plazo depende de tu región y te compartimos el número de seguimiento."],
 ];
@@ -779,6 +804,14 @@ const POLITICAS = [
   const ML_MAX = Math.max(10, ...PRODUCTOS.flatMap(tamanosDe));
   const nivel = (ml) => +(ml / ML_MAX * 0.92).toFixed(3);
   const PCT = Math.max(0, Number(CONFIG.descuentoCorreo) || 0);
+  const ATOM = Math.max(0, Number(CONFIG.atomizacionesPorMl) || 0);
+  const atomizaciones = (ml) => (ATOM ? "≈ " + Math.round(ml * ATOM) + " atomizaciones" : "");
+  // Imagen de relleno que se ve mientras un perfume no tiene foto.
+  const SIN_FOTO = "data:image/svg+xml," + encodeURIComponent(
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='#19191c'/>" +
+    "<g fill='none' stroke='#474750' stroke-width='3' stroke-linejoin='round'><rect x='129' y='98' width='42' height='38' rx='4'/>" +
+    "<path d='M139 136v18M161 136v18'/><rect x='101' y='154' width='98' height='146' rx='14'/></g>" +
+    "<text x='150' y='340' text-anchor='middle' font-family='sans-serif' font-size='16' letter-spacing='5' fill='#5c5c65'>FOTO</text></svg>");
   const numeroWa = String(CONFIG.whatsapp).replace(/\D/g, "");
   const waListo = numeroWa.length >= 10 && !/x/i.test(String(CONFIG.whatsapp));
 
@@ -808,7 +841,7 @@ const POLITICAS = [
     if (item.tipo === "producto") {
       const p = porId[item.id];
       if (!p || !p.precios[item.ml] || p.agotado) return null;
-      return { titulo: p.marca + " " + p.nombre, detalle: item.ml + " ml", unitario: p.precios[item.ml], colores: [p.color], cant: item.cant };
+      return { titulo: p.marca + " " + p.nombre, detalle: item.ml + " ml", unitario: p.precios[item.ml], colores: [p.color], foto: p.imagen || "", cant: item.cant };
     }
     const pack = packPorId[item.id];
     if (!packValido(pack)) return null;
@@ -844,7 +877,7 @@ const POLITICAS = [
     }
     m.push("*Total a pagar: " + clp(t.total) + "*");
     m.push("");
-    if (estado.entrega) m.push("Entrega: " + estado.entrega);
+    if (estado.entrega) m.push("*Forma de entrega:* " + estado.entrega);
     if (estado.correo) m.push("Correo: " + estado.correo);
     m.push("", "Quedo atento a los datos de transferencia. ¡Gracias!");
     return m.join("\n");
@@ -866,12 +899,14 @@ const POLITICAS = [
   function tarjeta(p) {
     const tamanos = tamanosDe(p);
     const ml = estado.elegido[p.id];
-    const visual = p.imagen
-      ? '<img class="absolute inset-0 h-full w-full object-cover" src="' + esc(p.imagen) + '" alt="Decant de ' + esc(p.marca + " " + p.nombre) + '" loading="lazy" decoding="async">'
-      : frasco(p.color, nivel(ml), tamanos, ml);
     return '<article class="flex min-w-0 flex-col border border-line bg-coal" data-tarjeta="' + esc(p.id) + '" data-categoria="' + esc(p.categoria) + '">' +
-      '<div class="escenario relative flex h-44 items-end justify-center overflow-hidden pb-4 sm:h-56 sm:pb-6" style="--tint:' + tinte(p.color) + '">' +
-        '<span class="tag ' + (CLASE_TAG[p.categoria] || "tag-disenador") + ' absolute left-2.5 top-2.5 z-10 sm:left-3.5 sm:top-3.5">' + esc(p.categoria) + "</span>" + visual +
+      // Foto de la botella (izquierda) y frasco que sube y baja con el tamaño (derecha)
+      '<div class="escenario relative grid h-[9.75rem] grid-cols-[minmax(0,1fr)_auto] overflow-hidden sm:h-56 lg:h-64" style="--tint:' + tinte(p.color) + '">' +
+        '<div class="relative min-w-0">' +
+          '<img class="absolute inset-0 h-full w-full object-cover" data-foto src="' + esc(p.imagen || SIN_FOTO) + '" alt="' + esc("Perfume " + p.marca + " " + p.nombre) + '" loading="lazy" decoding="async">' +
+        "</div>" +
+        '<div class="escenario-frasco flex items-end justify-center pb-4 pl-2 pr-8 sm:pb-6 sm:pl-5 sm:pr-12">' + frasco(p.color, nivel(ml), tamanos, ml) + "</div>" +
+        '<span class="tag ' + (CLASE_TAG[p.categoria] || "tag-disenador") + ' absolute left-2.5 top-2.5 z-10 sm:left-3.5 sm:top-3.5">' + esc(p.categoria) + "</span>" +
       "</div>" +
       '<div class="flex flex-1 flex-col gap-3.5 p-3 sm:p-5">' +
         "<div>" +
@@ -883,7 +918,10 @@ const POLITICAS = [
           '<div class="grid gap-1.5" style="grid-template-columns:repeat(' + tamanos.length + ',minmax(0,1fr))" role="group" aria-label="Tamaño de ' + esc(p.nombre) + '">' +
             tamanos.map((t) => '<button type="button" class="pill" data-ml="' + t + '" aria-pressed="' + (t === ml) + '">' + t + " ml</button>").join("") +
           "</div>" +
-          '<p class="flex items-baseline gap-1.5"><span class="text-[1.375rem] leading-none tabular-nums" data-precio>' + clp(p.precios[ml]) + '</span><span class="text-xs text-silver" data-precio-ml>' + ml + " ml</span></p>" +
+          "<div>" +
+            '<p class="flex items-baseline gap-1.5"><span class="text-[1.375rem] leading-none tabular-nums" data-precio>' + clp(p.precios[ml]) + '</span><span class="text-xs text-silver" data-precio-ml>' + ml + " ml</span></p>" +
+            (ATOM ? '<p class="mt-1.5 text-xs leading-none text-silver tabular-nums" data-atom>' + atomizaciones(ml) + "</p>" : "") +
+          "</div>" +
           (p.agotado
             ? '<button type="button" class="btn btn-line btn-tarjeta w-full" disabled>Agotado</button>'
             : '<button type="button" class="btn btn-gold btn-tarjeta w-full" data-agregar><span>Agregar<span class="max-[374px]:hidden"> al carrito</span></span></button>') +
@@ -906,6 +944,8 @@ const POLITICAS = [
     $$(".pill", tarjetaEl).forEach((b) => b.setAttribute("aria-pressed", String(Number(b.dataset.ml) === ml)));
     $("[data-precio]", tarjetaEl).textContent = clp(p.precios[ml]);
     $("[data-precio-ml]", tarjetaEl).textContent = ml + " ml";
+    const a = $("[data-atom]", tarjetaEl);
+    if (a) a.textContent = atomizaciones(ml);
     const v = $(".vial", tarjetaEl);
     if (v) {
       v.style.setProperty("--level", nivel(ml));   // el líquido sube o baja
@@ -920,29 +960,56 @@ const POLITICAS = [
   }
 
   /* ---------- Packs ---------- */
+  function ahorroPack(pack) {
+    const antes = sumaPack(pack), ahora = precioPack(pack);
+    return { antes: antes, ahora: ahora, ahorro: antes > ahora ? Math.round((1 - ahora / antes) * 100) : 0 };
+  }
+  function precioPackHtml(d) {
+    return '<p class="leading-none">' + (d.ahorro ? '<span class="mb-1.5 block text-xs text-silver line-through tabular-nums">' + clp(d.antes) + "</span>" : "") +
+      '<span class="text-2xl tabular-nums">' + clp(d.ahora) + "</span></p>";
+  }
   function pintarPacks() {
     const validos = PACKS.filter(packValido);
     $("#packs").hidden = validos.length === 0;
     $("#lista-packs").innerHTML = validos.map((pack) => {
-      const antes = sumaPack(pack), ahora = precioPack(pack);
-      const ahorro = antes > ahora ? Math.round((1 - ahora / antes) * 100) : 0;
+      const d = ahorroPack(pack);
       return '<article class="flex flex-col border border-line bg-coal p-5 sm:p-6" data-pack="' + esc(pack.id) + '">' +
         '<div class="mini-pack flex items-end justify-between gap-4">' +
           '<div class="flex h-[4.5rem] items-end gap-2.5">' + pack.incluye.map((it) => frasco(porId[it.id].color, nivel(it.ml))).join("") + "</div>" +
-          (ahorro ? '<span class="tag tag-arabe">Ahorras ' + ahorro + "%</span>" : "") +
+          (d.ahorro ? '<span class="tag tag-ahorro">Ahorras ' + d.ahorro + "%</span>" : "") +
         "</div>" +
         '<h3 class="mt-5 font-display text-2xl leading-tight">' + esc(pack.nombre) + "</h3>" +
         (pack.descripcion ? '<p class="mt-1.5 text-sm text-silver">' + esc(pack.descripcion) + "</p>" : "") +
         '<ul class="mt-4 border-t border-line text-sm">' +
           pack.incluye.map((it) => '<li class="flex justify-between gap-3 border-b border-line py-2.5"><span class="min-w-0">' + esc(porId[it.id].marca + " " + porId[it.id].nombre) + '</span><span class="flex-none text-silver tabular-nums">' + it.ml + " ml</span></li>").join("") +
         "</ul>" +
-        '<div class="mt-auto flex items-end justify-between gap-4 pt-5">' +
-          '<p class="leading-none">' + (ahorro ? '<span class="mb-1.5 block text-xs text-silver line-through tabular-nums">' + clp(antes) + "</span>" : "") +
-            '<span class="text-2xl tabular-nums">' + clp(ahora) + "</span></p>" +
+        '<div class="mt-auto flex items-end justify-between gap-4 pt-5">' + precioPackHtml(d) +
           '<button type="button" class="btn btn-gold btn-chica" data-agregar-pack>Agregar pack</button>' +
         "</div>" +
       "</article>";
     }).join("");
+
+    // Pack destacado del inicio de la página
+    const cont = $("#pack-destacado");
+    const elegido = packPorId[CONFIG.packDestacado];
+    const pack = packValido(elegido) ? elegido : validos[0];
+    cont.hidden = !pack;
+    if (!pack) return;
+    const d = ahorroPack(pack);
+    cont.innerHTML = '<article class="destacado border border-gold/40 bg-coal p-5 sm:p-7" data-pack="' + esc(pack.id) + '">' +
+      '<div class="flex items-center justify-between gap-3"><p class="eyebrow">Pack destacado</p>' +
+        (d.ahorro ? '<span class="tag tag-ahorro">Ahorras ' + d.ahorro + "%</span>" : "") + "</div>" +
+      '<div class="mt-5 flex items-end gap-5">' +
+        '<div class="flex flex-none items-end gap-2">' + pack.incluye.map((it) => frasco(porId[it.id].color, nivel(it.ml))).join("") + "</div>" +
+        '<div class="min-w-0"><h2 class="font-display text-[1.75rem] leading-[1.1] sm:text-4xl">' + esc(pack.nombre) + "</h2>" +
+          (pack.descripcion ? '<p class="mt-1.5 text-sm text-silver">' + esc(pack.descripcion) + "</p>" : "") + "</div>" +
+      "</div>" +
+      '<p class="mt-5 border-t border-line pt-4 text-sm leading-relaxed text-silver">' +
+        pack.incluye.map((it) => esc(porId[it.id].marca + " " + porId[it.id].nombre) + " " + it.ml + " ml").join(" · ") + "</p>" +
+      '<div class="mt-5 flex items-end justify-between gap-4">' + precioPackHtml(d) +
+        '<button type="button" class="btn btn-gold" data-agregar-pack>Agregar pack</button>' +
+      "</div>" +
+    "</article>";
   }
 
   /* ---------- Carrito ---------- */
@@ -984,7 +1051,9 @@ const POLITICAS = [
     $("#carrito-lineas").innerHTML = estado.carrito.map((item, i) => {
       const l = linea(item);
       return '<li class="flex gap-3.5 border-b border-line py-4" data-linea="' + i + '">' +
-        '<span class="mini" aria-hidden="true">' + l.colores.slice(0, 3).map((c) => frasco(c, 0.8)).join("") + "</span>" +
+        (l.foto
+          ? '<span class="mini mini-foto" aria-hidden="true"><img src="' + esc(l.foto) + '" alt="" loading="lazy"></span>'
+          : '<span class="mini" aria-hidden="true">' + l.colores.slice(0, 3).map((c) => frasco(c, 0.8)).join("") + "</span>") +
         '<div class="min-w-0 flex-1">' +
           '<div class="flex items-start justify-between gap-2">' +
             '<p class="font-display text-[1.125rem] leading-tight">' + esc(l.titulo) + "</p>" +
@@ -1015,6 +1084,8 @@ const POLITICAS = [
     $("#t-subtotal").textContent = clp(t.subtotal);
     $("#t-descuento").textContent = "-" + clp(t.descuento);
     $("#t-total").textContent = clp(t.total);
+    $("#t-entrega").textContent = estado.entrega || "Por elegir";
+    if (estado.entrega) $("#entrega-msg").hidden = true;
     $("#btn-whatsapp").href = enlaceWhatsApp(mensajePedido());
   }
 
@@ -1042,6 +1113,15 @@ const POLITICAS = [
     document.documentElement.classList.remove("bloqueado");
     mostrarBarra();
     if (abiertoPor && abiertoPor.focus && !abiertoPor.hidden) abiertoPor.focus({ preventScroll: true });
+  }
+
+  // La entrega es obligatoria: así el mensaje de WhatsApp siempre dice cómo se recibe el pedido.
+  function faltaEntrega() {
+    if (estado.entrega) return false;
+    $("#entrega-msg").hidden = false;
+    const suave = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    $("#bloque-entrega").scrollIntoView({ behavior: suave ? "smooth" : "auto", block: "center" });
+    return true;
   }
 
   /* ---------- Descuento por correo ---------- */
@@ -1097,6 +1177,7 @@ const POLITICAS = [
   async function pagarEnLinea(id, boton) {
     const error = $("#pago-error");
     error.hidden = true;
+    if (faltaEntrega()) return;
     boton.disabled = true;
     try {
       const r = await fetch(CONFIG.pagos[id].servidor, {
@@ -1127,6 +1208,7 @@ const POLITICAS = [
   }
 
   /* ---------- Textos y enlaces que dependen de CONFIG ---------- */
+  let PREGUNTAS_FINAL = PREGUNTAS;
   function pintarEnlaces() {
     const consulta = enlaceWhatsApp("Hola " + CONFIG.nombre + ", tengo una consulta.");
     $$('[data-enlace="whatsapp"]').forEach((a) => { a.href = consulta; });
@@ -1142,16 +1224,20 @@ const POLITICAS = [
     $("#aviso-wa").hidden = waListo;
     $("#anio").textContent = new Date().getFullYear();
 
-    // "desde $..." bajo cada tamaño del hero
-    $$("[data-desde]").forEach((e) => {
-      const ml = Number(e.dataset.desde);
-      const precios = PRODUCTOS.filter((p) => !p.agotado && p.precios[ml]).map((p) => p.precios[ml]);
-      e.textContent = precios.length ? "desde " + clp(Math.min.apply(null, precios)) : "";
-    });
+    $$("[data-con-descuento]").forEach((e) => { e.hidden = !PCT; });
+
+    // Texto de rendimiento para las preguntas frecuentes: "3 ml rinden unas 30 atomizaciones, 5 ml unas 50..."
+    const tamanosTienda = PRODUCTOS.flatMap(tamanosDe).filter((v, i, a) => a.indexOf(v) === i).sort((a, b) => a - b);
+    const rendimiento = tamanosTienda.map((ml, i) => ml + " ml " + (i === 0 ? "rinden unas " + Math.round(ml * ATOM) + " atomizaciones" : "unas " + Math.round(ml * ATOM)))
+      .join(", ").replace(/, ([^,]*)$/, " y $1");
+    const conDatos = (lista) => lista
+      .filter(([, texto]) => ATOM || texto.indexOf("{rendimiento}") === -1)
+      .map(([titulo, texto]) => [titulo, texto.replace("{rendimiento}", rendimiento)]);
+    PREGUNTAS_FINAL = conDatos(PREGUNTAS);
 
     const acordeon = (lista) => lista.map(([titulo, texto]) =>
       '<details class="acc"><summary><span class="font-medium">' + esc(titulo) + "</span></summary><p>" + esc(texto) + "</p></details>").join("");
-    $("#preguntas").innerHTML = acordeon(PREGUNTAS);
+    $("#preguntas").innerHTML = acordeon(PREGUNTAS_FINAL);
     $("#lista-politicas").innerHTML = acordeon(POLITICAS);
 
     $("#carrito-entrega").innerHTML = CONFIG.entregas.map((texto, i) =>
@@ -1195,7 +1281,7 @@ const POLITICAS = [
     };
     const faq = {
       "@context": "https://schema.org", "@type": "FAQPage",
-      mainEntity: PREGUNTAS.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+      mainEntity: PREGUNTAS_FINAL.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
     };
     const s = document.createElement("script");
     s.type = "application/ld+json";
@@ -1222,7 +1308,7 @@ const POLITICAS = [
       const b = e.target.closest("[data-filtro]");
       if (b) filtrar(b.dataset.filtro);
     });
-    $("#lista-packs").addEventListener("click", (e) => {
+    document.addEventListener("click", (e) => {   // packs: lista y pack destacado
       const boton = e.target.closest("[data-agregar-pack]");
       if (!boton) return;
       const pack = packPorId[boton.closest("[data-pack]").dataset.pack];
@@ -1236,6 +1322,12 @@ const POLITICAS = [
       if (abrir) abrirCarrito(abrir);
     });
     $("#cerrar-carrito").addEventListener("click", cerrarCarrito);
+    $("#btn-whatsapp").addEventListener("click", (e) => { if (faltaEntrega()) e.preventDefault(); });
+    // Si la dirección de una foto falla, se muestra el recuadro de relleno
+    $("#grilla").addEventListener("error", (e) => {
+      const img = e.target;
+      if (img.matches && img.matches("img[data-foto]") && img.src !== SIN_FOTO) img.src = SIN_FOTO;
+    }, true);
     velo.addEventListener("click", cerrarCarrito);
     $("#carrito-lineas").addEventListener("click", (e) => {
       const li = e.target.closest("[data-linea]");
