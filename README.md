@@ -8,7 +8,7 @@ Funciona sola, sin servidor: se puede publicar gratis en GitHub Pages o Vercel.
 | Archivo | Para qué sirve |
 | --- | --- |
 | `index.html` | **La página completa.** Es lo único que necesitas editar. |
-| `assets/` | Imágenes: ícono, imagen que se ve al compartir el link, y aquí van tus fotos. |
+| `assets/` | Imágenes: ícono e imagen que se ve al compartir el link. En `assets/perfumes/` van las fotos de las botellas. |
 | `robots.txt`, `sitemap.xml` | Ayudan a Google a encontrar la página. |
 | `tools/` | Herramientas para quien programe. Puedes ignorarla. |
 
@@ -21,11 +21,11 @@ Funciona sola, sin servidor: se puede publicar gratis en GitHub Pages o Vercel.
 
 Mientras no lo cambies, el carrito muestra un aviso en rojo y WhatsApp le pide al cliente elegir a quién enviar el mensaje.
 
-El mensaje que recibes incluye los perfumes con sus ml, el total, el correo (si lo dejó) y la **forma de entrega**. El cliente no puede enviar el pedido sin elegir una: Rancagua, Santiago o Blue Express. Esas opciones se editan en `CONFIG.entregas`.
+El mensaje que recibes incluye los perfumes con sus ml, la **forma de entrega** y el **total final a pagar**, con el 5% ya descontado si el cliente dejó su correo. El correo no va en el mensaje: se guarda aparte (punto 4). El cliente no puede enviar el pedido sin elegir una: Rancagua, Santiago o Blue Express. Esas opciones se editan en `CONFIG.entregas`.
 
 En ese mismo bloque (`CONFIG`) puedes cambiar tu usuario de Instagram y agregar el de TikTok.
 
-## 2. Perfumes, precios y packs
+## 2. Perfumes, precios de oferta y packs
 
 Todo está al inicio del bloque `<script>` de `index.html`, con explicaciones en español.
 
@@ -33,24 +33,26 @@ Todo está al inicio del bloque `<script>` de `index.html`, con explicaciones en
 
 ```js
 {
-  id: "nombre-unico-sin-espacios",
-  nombre: "Nombre del perfume",
-  marca: "Marca",
-  categoria: "Nicho",              // "Nicho", "Árabe" o "Diseñador"
+  id: "nombre-unico-sin-espacios", nombre: "Nombre del perfume", marca: "Marca", categoria: "Árabe",
   notas: "Nota 1 · Nota 2 · Nota 3",
-  precios: { 3: 4990, 5: 6990, 10: 12990 },   // tamaño en ml : precio en pesos
-  color: "#e2b552",                // color del líquido en el dibujo del decant
-  imagen: "",                      // foto de la botella, ver punto 3
+  normal: { 3: 3490, 5: 4990, 10: 8490 },   // precio normal: se ve tachado y en gris
+  oferta: { 3: 2990, 5: 3990, 10: 6990 },   // precio oferta: es el que se cobra, se ve destacado
+  color: "#49b6e6",
+  imagen: "",
 },
 ```
 
-- Los precios van sin puntos ni `$`.
-- Si un perfume no tiene algún tamaño, borra ese tamaño de `precios`.
+- `categoria` puede ser `"Nicho"`, `"Árabe"` o `"Diseñador"`.
+- Los precios van sin puntos ni `$`. Al tocar 3, 5 o 10 ml cambian el precio normal, el precio oferta y el porcentaje de descuento de la etiqueta.
+- Si borras la línea `oferta`, ese perfume se vende a precio normal, sin tachado.
+- Si un perfume no tiene algún tamaño, bórralo de `normal` y de `oferta`.
 - Para marcarlo sin stock agrega la línea `agotado: true,`.
-- **Los precios y notas que vienen cargados son de ejemplo.** Cámbialos por los tuyos.
-- El sexto perfume quedó como *Armaf Club de Nuit Intense Man*. Si vendes otra versión de Club de Nuit, cambia el nombre.
+- **Todos los precios cargados son de ejemplo.** Cámbialos por los tuyos. El precio normal debe ser uno que realmente cobres cuando no hay oferta.
+- Las `notas` son orientativas, tomadas de tiendas y bases de datos de perfumes. Revísalas. Las de *Fragaby 1* y *Fragaby 2* quedaron vacías.
 
-**Packs:** lista `PACKS`. Cada pack dice qué perfumes incluye (por su `id`), el tamaño y el precio final. El "antes" y el porcentaje de ahorro se calculan solos. Los packs aparecen antes que los perfumes.
+**Buscador y filtros:** el catálogo tiene un buscador por nombre, marca o nota, y filtros por categoría. Funcionan solos con lo que haya en `PRODUCTOS`.
+
+**Packs:** lista `PACKS`. Cada pack dice qué perfumes incluye (por su `id`), el tamaño y el precio final. El "antes" (la suma de los precios oferta de sus decants) y el porcentaje de ahorro se calculan solos. Los packs aparecen antes que los perfumes.
 
 **Pack destacado:** el que se ve al inicio de la página. Se elige en `CONFIG.packDestacado` escribiendo el `id` del pack.
 
@@ -61,24 +63,67 @@ Todo está al inicio del bloque `<script>` de `index.html`, con explicaciones en
 Cada tarjeta muestra a la izquierda la **foto de la botella** y a la derecha el **decant**, cuyo nivel sube o baja según el tamaño elegido.
 Mientras un perfume no tenga foto se ve un recuadro gris que dice FOTO.
 
-Para poner una foto, escribe su dirección entre las comillas de `imagen`:
+Ya están puestas las fotos de Torino 21, Erba Gold, Cherry Ink y Sauvage EDP, en `assets/perfumes/`, como PNG con fondo transparente.
+
+Para poner otra, escribe su dirección entre las comillas de `imagen`:
 
 ```js
-imagen: "https://tusitio.com/fotos/torino-21.jpg",   // una dirección de internet
-imagen: "assets/torino-21.jpg",                       // o un archivo subido a la carpeta assets
+imagen: "assets/perfumes/rasasi-hawas-ice.png",       // un archivo subido a la carpeta assets/perfumes
+imagen: "https://tusitio.com/fotos/hawas-ice.jpg",    // o una dirección de internet
 ```
 
-- Lo más seguro es subir la imagen a la carpeta `assets/` de este repositorio: un link a otra página puede dejar de funcionar.
-- Fotos verticales o cuadradas, con la botella al centro, y de menos de 300 KB. Sobre fondo oscuro se ven mejor.
+- **PNG con fondo transparente:** la botella se ve completa sobre el fondo oscuro, con un brillo del color del perfume. Es lo que mejor calza con la página.
+- **JPG:** la foto rellena el recuadro, con su fondo incluido.
+- Lo más seguro es subir la imagen a este repositorio: un link a otra página puede dejar de funcionar.
 - Usa fotos propias o que tengas permiso de usar.
-- Nombres de archivo descriptivos (`xerjoff-torino-21.jpg`) también ayudan en Google.
 
-## 4. Descuento por dejar el correo
+**Para quien programe:** `tools/recortar-fotos.py` quita el fondo blanco de una foto de producto, la recorta al contorno de la botella y la guarda lista en `assets/perfumes/`.
+
+```bash
+pip install pillow numpy
+python3 tools/recortar-fotos.py foto-original.jpg rasasi-hawas-ice
+```
+
+## 4. Descuento por correo y dónde se guardan los correos
 
 - El porcentaje está en `CONFIG.descuentoCorreo` (5 = 5%). Con `0` se desactiva y la sección desaparece.
 - El formulario está justo después del inicio de la página (no es una ventana emergente) y también dentro del carrito.
-- Cuando el cliente escribe su correo, el descuento se aplica en el carrito y **el correo llega dentro del mensaje de WhatsApp** junto al pedido.
-- Para además guardar los correos en una lista, crea un formulario gratuito en [Formspree](https://formspree.io) y pega su dirección en `CONFIG.guardarCorreosEn`.
+- Cuando el cliente escribe su correo y presiona el botón, el descuento se aplica de inmediato al total del carrito.
+- El correo **no** se incluye en el mensaje de WhatsApp. La página lo envía en segundo plano, sin recargar, a la dirección que pongas en `CONFIG.guardarCorreosEn`.
+
+**⚠ Mientras `guardarCorreosEn` esté vacío, los correos no se guardan en ninguna parte.** La página lo recuerda con un aviso en rojo bajo el formulario, que desaparece al configurarlo.
+
+### Crear tu link de Formspree (gratis)
+
+1. Entra a [formspree.io](https://formspree.io) y crea una cuenta con tu correo.
+2. Presiona **+ New Form**, ponle un nombre (por ejemplo "Correos decants_prime") y créalo.
+3. Formspree te muestra un link parecido a `https://formspree.io/f/abcdwxyz`. Cópialo.
+4. En `index.html` busca `guardarCorreosEn` y pega el link entre las comillas:
+
+```js
+guardarCorreosEn: "https://formspree.io/f/abcdwxyz",
+```
+
+5. Guarda. Haz una prueba dejando un correo en la página: debería llegarte un email de Formspree y aparecer en la pestaña **Submissions** de tu formulario, desde donde se pueden descargar todos como planilla.
+
+Datos útiles:
+
+- El plan gratuito tiene un tope mensual de correos (unos 50; revisa el número vigente en su página de planes).
+- Si la prueba no llega, entra al formulario en Formspree → **Settings** y revisa que no tenga activada una verificación tipo reCAPTCHA, porque bloquea los envíos hechos en segundo plano.
+- Si un envío falla (por ejemplo, el cliente se quedó sin señal), la página lo reintenta sola en su próxima visita.
+
+### Alternativa sin tope: Google Forms
+
+1. Crea un formulario en [forms.google.com](https://forms.google.com) con una sola pregunta de respuesta corta llamada "Correo".
+2. En el menú ⋮ elige **Obtener enlace prellenado**, escribe `x` en la pregunta y presiona **Obtener enlace**. El link copiado termina en algo como `entry.123456789=x`.
+3. En `index.html` pega el link del formulario en `guardarCorreosEn` (sirve el que termina en `/viewform`) y el nombre del campo en `campoGoogleForms`:
+
+```js
+guardarCorreosEn: "https://docs.google.com/forms/d/e/XXXXXXXX/viewform",
+campoGoogleForms: "entry.123456789",
+```
+
+Los correos quedan en la pestaña **Respuestas** del formulario y se pueden abrir en una planilla de Google.
 
 ## 5. Publicar la página gratis
 
