@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Prepara la foto de una botella para la tienda: quita el fondo blanco, recorta al
-contorno de la botella y la guarda como PNG transparente en assets/perfumes/.
+Prepara la foto de una botella para la tienda: quita el fondo blanco (si la foto
+no viene ya con fondo transparente), recorta al contorno de la botella y la guarda
+como PNG transparente en assets/perfumes/.
 
 Uso (desde la carpeta del repositorio):
     python3 tools/recortar-fotos.py FOTO NOMBRE [UMBRAL]
@@ -29,7 +30,11 @@ DESTINO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets
 
 def recortar(origen, nombre, umbral=246):
     imagen = Image.open(origen).convert("RGBA")
-    # Si la foto ya trae transparencia, se aplana sobre blanco para tratarla igual que el resto.
+    # Si la foto ya viene con fondo transparente, solo se recorta al contorno y se ajusta el tamaño.
+    canal_alfa = np.asarray(imagen.getchannel("A"))
+    if (canal_alfa < 10).mean() > 0.05:
+        return guardar(imagen.crop(Image.fromarray((canal_alfa > 10).astype(np.uint8) * 255).getbbox()), nombre)
+    # Si no, se aplana sobre blanco y se quita ese fondo.
     plana = Image.new("RGBA", imagen.size, (255, 255, 255, 255))
     plana.alpha_composite(imagen)
     datos = np.asarray(plana.convert("RGB")).astype(np.float32)
@@ -65,7 +70,10 @@ def recortar(origen, nombre, umbral=246):
         raise SystemExit("No se encontró la botella: prueba con un UMBRAL más alto.")
     margen = int(0.012 * alto)
     caja = (max(0, caja[0] - margen), max(0, caja[1] - margen), min(ancho, caja[2] + margen), min(alto, caja[3] + margen))
-    resultado = resultado.crop(caja)
+    return guardar(resultado.crop(caja), nombre)
+
+
+def guardar(resultado, nombre):
     if resultado.height > ALTO_FINAL:
         resultado = resultado.resize((round(resultado.width * ALTO_FINAL / resultado.height), ALTO_FINAL), Image.LANCZOS)
 

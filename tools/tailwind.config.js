@@ -2,7 +2,7 @@
  * Configuración de Tailwind para decants_prime.
  * Los colores y tipografías reales viven como variables CSS en el bloque
  * ":root" de ../index.html. Aquí solo se les da nombre para usarlos como
- * clases (bg-ink, text-gold, font-display, etc.).
+ * clases (bg-fondo, text-tinta, font-display, etc.).
  */
 const canal = (nombre) => `rgb(var(--${nombre}) / <alpha-value>)`;
 
@@ -16,17 +16,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: canal("ink"),
-        coal: canal("coal"),
-        graphite: canal("graphite"),
-        line: canal("line"),
-        bone: canal("bone"),
-        silver: canal("silver"),
-        alert: canal("alert"),
-        gold: {
-          DEFAULT: canal("gold"),
-          soft: canal("gold-soft"),
-        },
+        fondo: canal("fondo"),
+        papel: canal("papel"),
+        piedra: canal("piedra"),
+        linea: canal("linea"),
+        tinta: canal("tinta"),
+        humo: canal("humo"),
+        oro: canal("oro"),
+        alerta: canal("alerta"),
       },
       fontFamily: {
         display: "var(--font-display)",
