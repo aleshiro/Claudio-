@@ -23,7 +23,11 @@ Todo lo editable está al inicio del bloque `<script>` de `index.html`, con expl
 
 Mientras no lo cambies, el carrito muestra un aviso en rojo y WhatsApp le pide al cliente elegir a quién enviar el mensaje.
 
-El mensaje que recibes incluye los perfumes con sus ml, la **forma de entrega**, la **forma de pago** y el **total final a pagar**, con el 5% ya descontado si el cliente dejó su correo. El cliente no puede enviar el pedido sin elegir la entrega (Rancagua, Santiago o Blue Express); esas opciones se editan en `CONFIG.entregas`.
+El mensaje que recibes incluye los perfumes con sus ml, la **forma de entrega**, la **forma de pago** y el **total final a pagar**, con el 5% ya descontado si el cliente dejó su correo. El cliente no puede enviar el pedido sin elegir la entrega.
+
+**Costo de entrega:** en `CONFIG.entregas` cada opción tiene su `costo`, que se suma al total (0 = gratis). Hoy las entregas presenciales valen $0 y Blue Express $3.990.
+
+**Beneficios por monto:** el carrito muestra una barra de progreso con dos metas, definidas en `CONFIG.beneficios`: `vialGratisDesde` (vial sorpresa de 2 ml de regalo, hoy $25.000) y `envioGratisDesde` (envío gratis por Blue Express, hoy $35.000). Se calculan con el subtotal de productos y el beneficio desbloqueado queda escrito en el pedido de WhatsApp. Con `0` se desactivan.
 
 ## 2. Perfumes y precios
 
@@ -42,11 +46,17 @@ El mensaje que recibes incluye los perfumes con sus ml, la **forma de entrega**,
 - `categoria` puede ser `"Nicho"`, `"Árabe"` o `"Diseñador"`.
 - `precios` es lo que paga el cliente por cada tamaño, sin puntos ni `$`. Puedes quitar o agregar tamaños: los nicho traen también 2 ml.
 - `acordes` describe cómo huele en pocas palabras (dulce, cítrico, amaderado). Son orientativos: revísalos.
+- `inspiracion` es el texto corto bajo el nombre ("Inspirado en: Creed Aventus", "ADN 100% Original"). Vacío (`""`) no muestra nada.
+- `ocasion` dice para qué sirve. Usa estas etiquetas tal cual: `"Calor / Verano"`, `"Fiesta / Noche"`, `"Citas"`, `"Todo Terreno"`, `"Modo Bestia"`. Con ellas funcionan los filtros por ocasión y el Match olfativo.
+- `etiqueta: "Más vendido",` muestra ese texto sobre la foto (también sirve en los packs).
 - Para marcarlo sin stock agrega la línea `agotado: true,`.
+- El catálogo se ordena solo: primero Nicho, después Diseñador y al final Árabe.
 
 **Precio normal tachado:** `CONFIG.ofertaPorcentaje` (hoy en 15) hace que cada tarjeta muestre además un precio normal tachado, calculado como ese porcentaje por sobre tu precio. Úsalo solo si ese es de verdad tu precio fuera de oferta. Con `0` se muestra un solo precio. Para fijar el precio normal exacto de un perfume, agrégale la línea `normal: { 3: 5490, 5: 8490, 10: 13990 },`.
 
 **Marcas:** la fila de círculos del catálogo se arma sola con las marcas de `PRODUCTOS`. Las letras de cada círculo se definen en `CONFIG.monogramas`.
+
+**Match olfativo:** el bloque "Encuentra tu perfume en 3 toques" muestra los tres perfumes que mejor calzan con el momento y el aroma elegidos. Se calcula con `ocasion` y con `acordes` (el primer acorde pesa más), así que no hay nada extra que mantener.
 
 **Buscador y filtros:** el buscador de la cabecera busca por nombre, marca o acorde. También se puede filtrar por marca y por categoría.
 
