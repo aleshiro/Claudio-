@@ -62,8 +62,6 @@ El mensaje que recibes incluye los perfumes con sus ml, la **forma de entrega**,
 
 **Packs:** lista `PACKS`. Cada pack dice qué perfumes incluye (por su `id`), el tamaño y el precio final. El "antes" (lo que costarían por separado) y el porcentaje de ahorro se calculan solos. **Los precios de los packs son de ejemplo.**
 
-**Pack destacado:** el que se ve al inicio de la página. Se elige en `CONFIG.packDestacado` escribiendo el `id` del pack.
-
 **Atomizaciones:** cada tarjeta muestra cuántas atomizaciones rinde el tamaño elegido. Se calculan con `CONFIG.atomizacionesPorMl` (10 por ml). Con `0` se ocultan.
 
 ## 3. Fotos de los perfumes
@@ -93,11 +91,11 @@ python3 tools/recortar-fotos.py foto-original.jpg rasasi-hawas-ice
 ## 4. Descuento por correo y dónde se guardan los correos
 
 - El porcentaje está en `CONFIG.descuentoCorreo` (5 = 5%). Con `0` se desactiva y la sección desaparece.
-- El formulario está en la franja negra bajo el inicio (no es una ventana emergente) y también dentro del carrito.
+- Se ofrece en una ventana emergente que aparece sola a los 4 segundos de entrar (`CONFIG.ventanaDescuentoSegundos`; con `0` no aparece sola). No aparece si la persona ya dejó su correo o si la cerró en las últimas 24 horas. También se abre al tocar "5% de descuento dejando tu correo" en el inicio o en el pie de página, y el formulario sigue disponible dentro del carrito.
 - Cuando el cliente escribe su correo, el descuento se aplica de inmediato al total del carrito.
 - El correo **no** va en el mensaje de WhatsApp. La página lo envía en segundo plano, sin recargar, a la dirección que pongas en `CONFIG.guardarCorreosEn`.
 
-**⚠ Mientras `guardarCorreosEn` esté vacío, los correos no se guardan en ninguna parte.** La página lo recuerda con un aviso bajo el formulario, que desaparece al configurarlo.
+**⚠ Mientras `guardarCorreosEn` esté vacío, los correos no se guardan en ninguna parte.** La ventana lo recuerda con un aviso en rojo, que desaparece al configurarlo.
 
 ### Crear tu link de Formspree (gratis)
 
@@ -209,7 +207,7 @@ Recomendación: parte con esta página gratuita y WhatsApp. Cuando los pedidos p
 
 La página usa Tailwind CSS ya compilado e incrustado dentro de `index.html`, por eso carga rápido y no depende de nada externo salvo las tipografías.
 
-- Colores y tipografías: variables en el bloque `:root` al inicio de `index.html`.
+- Colores y tipografías: variables en el bloque `:root` al inicio de `index.html`. El fondo es azul y las superficies claras (tarjetas, packs, recuadros, carrito) llevan la clase `claro`, que cambia solos los colores de texto y bordes.
 - Editar productos, precios o textos **no** requiere recompilar.
 - Si agregas o cambias clases de Tailwind, regenera el CSS:
 

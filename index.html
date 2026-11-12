@@ -16,7 +16,7 @@
 <meta name="geo.region" content="CL">
 <meta name="geo.placename" content="Rancagua, Santiago">
 <meta name="format-detection" content="telephone=no">
-<meta name="theme-color" content="#f6f3ed">
+<meta name="theme-color" content="#1b2a4a">
 
 <!-- Vista previa al compartir el link en WhatsApp, Instagram, TikTok, etc. -->
 <meta property="og:type" content="website">
@@ -40,26 +40,42 @@
 <!-- Tipografías -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Jost:wght@300..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Jost:wght@300..600&display=swap">
 
 <style>
-/* Concepto: boutique de perfumería sobria. Papel crema, tinta negra, líneas finas;
-   las botellas son el único color y cada tarjeta lleva su decant, que se llena según el tamaño. */
+/* Concepto: vitrina de perfumería de noche. Fondo azul acero y, sobre él, tarjetas de papel
+   crema donde las botellas son el único color; cada tarjeta lleva su decant, que se llena según el tamaño. */
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   /* Colores (formato "R G B"). Cambia estos valores para cambiar toda la paleta. */
-  --fondo: 246 243 237;     /* fondo general (crema) */
-  --papel: 255 253 249;     /* tarjetas y paneles */
-  --piedra: 236 231 222;    /* fondo detrás de las fotos */
-  --linea: 221 215 204;     /* bordes finos */
-  --tinta: 24 23 21;        /* texto y botones (negro carbón) */
-  --humo: 106 100 92;       /* texto secundario */
-  --oro: 150 118 58;        /* acento: estrellas y detalles */
-  --alerta: 170 58 40;      /* avisos y errores */
+  --fondo: 27 42 74;        /* fondo general: azul acero (#1B2A4A) */
+  --papel: 255 253 249;     /* tarjetas, packs, recuadros (#FFFDF9) */
+  --piedra: 236 231 222;    /* fondo detrás de las fotos (#ECE7DE) */
+  --crema: 246 243 237;     /* panel del carrito */
+  --carbon: 24 23 21;       /* texto oscuro sobre crema (#181715) */
+  --dorado: 197 160 89;     /* dorado de etiquetas y detalles (#C5A059) */
+  /* Estos cinco cambian solos según el fondo: aquí valen para el fondo AZUL... */
+  --tinta: 246 243 237;     /* texto principal: blanco marfil (#F6F3ED) */
+  --humo: 203 213 225;      /* texto secundario: gris claro (#CBD5E1) */
+  --linea: 62 80 118;       /* bordes finos */
+  --oro: 197 160 89;        /* acento */
+  --sobre: 27 42 74;        /* texto encima de un botón principal */
+  --alerta: 255 176 158;    /* avisos y errores */
   --margen: clamp(16px, 4vw, 40px);  /* margen lateral de la página */
   /* Tipografías */
-  --font-display: "Bodoni Moda", "Didot", "Bodoni MT", "Times New Roman", serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-sans: "Jost", "Century Gothic", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+}
+/* ...y dentro de cualquier superficie clara (tarjetas, packs, recuadros, carrito, campos) valen así: */
+.claro, .campo {
+  color-scheme: light;
+  --tinta: 24 23 21;
+  --humo: 106 100 92;
+  --linea: 221 215 204;
+  --oro: 150 118 58;
+  --sobre: 255 253 249;
+  --alerta: 170 58 40;
+  color: rgb(var(--tinta));
 }
 </style>
 
@@ -67,7 +83,7 @@
      Solo hay que regenerarlo si cambias clases de diseño: ver README, sección "Diseño". -->
 <style>
 /* TAILWIND:INICIO */
-*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:var(--font-sans);font-feature-settings:normal;font-variation-settings:normal;tab-size:4;-webkit-tap-highlight-color:transparent}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-size:1em;font-variation-settings:normal}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-feature-settings:inherit;font-size:100%;font-variation-settings:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);border-width:0;white-space:nowrap}.pointer-events-none{pointer-events:none}.\!visible{visibility:visible!important}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.bottom-2{bottom:.5rem}.left-2{left:.5rem}.left-3\.5{left:.875rem}.right-2{right:.5rem}.top-1\/2{top:50%}.top-2{top:.5rem}.z-10{z-index:10}.z-40{z-index:40}.my-6{margin-bottom:1.5rem;margin-top:1.5rem}.-ml-2\.5{margin-left:-.625rem}.-mr-2{margin-right:-.5rem}.-mr-2\.5{margin-right:-.625rem}.-mt-2{margin-top:-.5rem}.mb-1\.5{margin-bottom:.375rem}.ml-auto{margin-left:auto}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-12{margin-top:3rem}.mt-2{margin-top:.5rem}.mt-2\.5{margin-top:.625rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.mt-9{margin-top:2.25rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-square{aspect-ratio:1/1}.h-12{height:3rem}.h-14{height:3.5rem}.h-9{height:2.25rem}.h-\[4\.5rem\]{height:4.5rem}.h-full{height:100%}.w-12{width:3rem}.w-64{width:16rem}.w-7{width:1.75rem}.w-9{width:2.25rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-2xl{max-width:42rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.flex-none{flex:none}.-translate-y-1\/2{--tw-translate-y:-50%}.-translate-y-1\/2,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.resize{resize:both}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-\[auto_1fr\]{grid-template-columns:auto 1fr}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-3\.5{gap:.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-9{gap:2.25rem}.gap-px{gap:1px}.gap-x-12{column-gap:3rem}.gap-x-2{column-gap:.5rem}.gap-x-3{column-gap:.75rem}.gap-x-4{column-gap:1rem}.gap-x-6{column-gap:1.5rem}.gap-y-0\.5{row-gap:.125rem}.gap-y-1{row-gap:.25rem}.gap-y-1\.5{row-gap:.375rem}.gap-y-3{row-gap:.75rem}.gap-y-4{row-gap:1rem}.gap-y-6{row-gap:1.5rem}.self-start{align-self:flex-start}.justify-self-center{justify-self:center}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overscroll-contain{overscroll-behavior:contain}.whitespace-nowrap{white-space:nowrap}.text-wrap{text-wrap:wrap}.break-all{word-break:break-all}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-y{border-top-width:1px}.border-b,.border-y{border-bottom-width:1px}.border-t{border-top-width:1px}.border-linea{--tw-border-opacity:1;border-color:rgb(var(--linea)/var(--tw-border-opacity,1))}.border-tinta{--tw-border-opacity:1;border-color:rgb(var(--tinta)/var(--tw-border-opacity,1))}.border-tinta\/30{border-color:rgb(var(--tinta)/.3)}.border-tinta\/40{border-color:rgb(var(--tinta)/.4)}.bg-fondo{--tw-bg-opacity:1;background-color:rgb(var(--fondo)/var(--tw-bg-opacity,1))}.bg-fondo\/90{background-color:rgb(var(--fondo)/.9)}.bg-linea{--tw-bg-opacity:1;background-color:rgb(var(--linea)/var(--tw-bg-opacity,1))}.bg-papel{--tw-bg-opacity:1;background-color:rgb(var(--papel)/var(--tw-bg-opacity,1))}.bg-piedra{--tw-bg-opacity:1;background-color:rgb(var(--piedra)/var(--tw-bg-opacity,1))}.bg-tinta{--tw-bg-opacity:1;background-color:rgb(var(--tinta)/var(--tw-bg-opacity,1))}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.py-1{padding-bottom:.25rem;padding-top:.25rem}.py-1\.5{padding-bottom:.375rem;padding-top:.375rem}.py-10{padding-bottom:2.5rem;padding-top:2.5rem}.py-12{padding-bottom:3rem;padding-top:3rem}.py-14{padding-bottom:3.5rem;padding-top:3.5rem}.py-2{padding-bottom:.5rem;padding-top:.5rem}.py-2\.5{padding-bottom:.625rem;padding-top:.625rem}.py-3{padding-bottom:.75rem;padding-top:.75rem}.py-3\.5{padding-bottom:.875rem;padding-top:.875rem}.py-4{padding-bottom:1rem;padding-top:1rem}.py-5{padding-bottom:1.25rem;padding-top:1.25rem}.py-6{padding-bottom:1.5rem;padding-top:1.5rem}.py-7{padding-bottom:1.75rem;padding-top:1.75rem}.pb-1{padding-bottom:.25rem}.pb-12{padding-bottom:3rem}.pt-11{padding-top:2.75rem}.pt-2{padding-top:.5rem}.pt-3\.5{padding-top:.875rem}.pt-4{padding-top:1rem}.pt-5{padding-top:1.25rem}.pt-6{padding-top:1.5rem}.pt-9{padding-top:2.25rem}.text-center{text-align:center}.text-right{text-align:right}.font-display{font-family:var(--font-display)}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[\.9375rem\]{font-size:.9375rem}.text-\[1\.0625rem\]{font-size:1.0625rem}.text-\[1\.125rem\]{font-size:1.125rem}.text-\[1\.1875rem\]{font-size:1.1875rem}.text-\[1\.3125rem\]{font-size:1.3125rem}.text-\[1\.75rem\]{font-size:1.75rem}.text-\[10px\]{font-size:10px}.text-\[11\.5px\]{font-size:11.5px}.text-\[11px\]{font-size:11px}.text-\[12\.5px\]{font-size:12.5px}.text-\[13px\]{font-size:13px}.text-\[2\.7rem\]{font-size:2.7rem}.text-\[2rem\]{font-size:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.italic{font-style:italic}.tabular-nums{--tw-numeric-spacing:tabular-nums;font-variant-numeric:var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)}.leading-\[1\.04\]{line-height:1.04}.leading-\[1\.08\]{line-height:1.08}.leading-\[1\.15\]{line-height:1.15}.leading-\[1\.1\]{line-height:1.1}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-\[\.2em\]{letter-spacing:.2em}.tracking-normal{letter-spacing:0}.text-\[\#f0a090\]{--tw-text-opacity:1;color:rgb(240 160 144/var(--tw-text-opacity,1))}.text-alerta{--tw-text-opacity:1;color:rgb(var(--alerta)/var(--tw-text-opacity,1))}.text-humo{--tw-text-opacity:1;color:rgb(var(--humo)/var(--tw-text-opacity,1))}.text-oro{--tw-text-opacity:1;color:rgb(var(--oro)/var(--tw-text-opacity,1))}.text-papel{--tw-text-opacity:1;color:rgb(var(--papel)/var(--tw-text-opacity,1))}.text-papel\/60{color:rgb(var(--papel)/.6)}.text-papel\/75{color:rgb(var(--papel)/.75)}.text-tinta{--tw-text-opacity:1;color:rgb(var(--tinta)/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.line-through{text-decoration-line:line-through}.underline-offset-4{text-underline-offset:4px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.drop-shadow{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow{--tw-drop-shadow:drop-shadow(0 1px 2px rgba(0,0,0,.1)) drop-shadow(0 1px 1px rgba(0,0,0,.06))}.grayscale{--tw-grayscale:grayscale(100%)}.filter,.grayscale{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:374px){.max-\[374px\]\:hidden{display:none}}@media (min-width:640px){.sm\:bottom-3{bottom:.75rem}.sm\:left-3{left:.75rem}.sm\:right-3{right:.75rem}.sm\:top-3{top:.75rem}.sm\:flex-1{flex:1 1 0%}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-start{align-items:flex-start}.sm\:gap-3\.5{gap:.875rem}.sm\:gap-5{gap:1.25rem}.sm\:p-4{padding:1rem}.sm\:p-6{padding:1.5rem}.sm\:p-7{padding:1.75rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-\[1\.375rem\]{font-size:1.375rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width:768px){.md\:mt-16{margin-top:4rem}.md\:block{display:block}.md\:flex{display:flex}.md\:grid{display:grid}.md\:hidden{display:none}.md\:h-\[4\.5rem\]{height:4.5rem}.md\:max-w-\[26rem\]{max-width:26rem}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:grid-cols-\[minmax\(0\2c 1\.1fr\)_minmax\(0\2c \.9fr\)\]{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}.md\:grid-cols-\[minmax\(0\2c 1fr\)_minmax\(0\2c 24rem\)\]{grid-template-columns:minmax(0,1fr) minmax(0,24rem)}.md\:flex-row{flex-direction:row}.md\:flex-col{flex-direction:column}.md\:flex-wrap{flex-wrap:wrap}.md\:items-center{align-items:center}.md\:justify-between{justify-content:space-between}.md\:gap-10{gap:2.5rem}.md\:gap-12{gap:3rem}.md\:gap-16{gap:4rem}.md\:gap-6{gap:1.5rem}.md\:gap-8{gap:2rem}.md\:gap-x-3{column-gap:.75rem}.md\:gap-y-5{row-gap:1.25rem}.md\:justify-self-end{justify-self:end}.md\:px-10{padding-left:2.5rem;padding-right:2.5rem}.md\:py-0{padding-bottom:0;padding-top:0}.md\:py-12{padding-bottom:3rem;padding-top:3rem}.md\:py-20{padding-bottom:5rem;padding-top:5rem}.md\:py-8{padding-bottom:2rem;padding-top:2rem}.md\:pb-20{padding-bottom:5rem}.md\:pl-10{padding-left:2.5rem}.md\:pr-10{padding-right:2.5rem}.md\:pt-20{padding-top:5rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-\[4\.5rem\]{font-size:4.5rem}.md\:leading-\[1\.02\]{line-height:1.02}}@media (min-width:1024px){.lg\:ml-2{margin-left:.5rem}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:w-40{width:10rem}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (min-width:1280px){.xl\:w-60{width:15rem}.xl\:gap-8{gap:2rem}}
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:var(--font-sans);font-feature-settings:normal;font-variation-settings:normal;tab-size:4;-webkit-tap-highlight-color:transparent}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-size:1em;font-variation-settings:normal}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-feature-settings:inherit;font-size:100%;font-variation-settings:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);border-width:0;white-space:nowrap}.pointer-events-none{pointer-events:none}.\!visible{visibility:visible!important}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.bottom-2{bottom:.5rem}.left-2{left:.5rem}.left-3\.5{left:.875rem}.right-1\.5{right:.375rem}.right-2{right:.5rem}.top-1\.5{top:.375rem}.top-1\/2{top:50%}.top-2{top:.5rem}.z-10{z-index:10}.z-40{z-index:40}.my-6{margin-bottom:1.5rem;margin-top:1.5rem}.-ml-2\.5{margin-left:-.625rem}.-mr-2{margin-right:-.5rem}.-mr-2\.5{margin-right:-.625rem}.-mt-2{margin-top:-.5rem}.mb-1\.5{margin-bottom:.375rem}.ml-auto{margin-left:auto}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-12{margin-top:3rem}.mt-2{margin-top:.5rem}.mt-2\.5{margin-top:.625rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.mt-9{margin-top:2.25rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-square{aspect-ratio:1/1}.h-12{height:3rem}.h-14{height:3.5rem}.h-9{height:2.25rem}.h-\[4\.5rem\]{height:4.5rem}.h-full{height:100%}.w-12{width:3rem}.w-64{width:16rem}.w-7{width:1.75rem}.w-9{width:2.25rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.flex-none{flex:none}.-translate-y-1\/2{--tw-translate-y:-50%}.-translate-y-1\/2,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.resize{resize:both}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-\[auto_1fr\]{grid-template-columns:auto 1fr}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-3\.5{gap:.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-9{gap:2.25rem}.gap-px{gap:1px}.gap-x-12{column-gap:3rem}.gap-x-2{column-gap:.5rem}.gap-x-3{column-gap:.75rem}.gap-x-4{column-gap:1rem}.gap-x-6{column-gap:1.5rem}.gap-y-0\.5{row-gap:.125rem}.gap-y-1{row-gap:.25rem}.gap-y-1\.5{row-gap:.375rem}.gap-y-3{row-gap:.75rem}.gap-y-4{row-gap:1rem}.gap-y-6{row-gap:1.5rem}.self-start{align-self:flex-start}.justify-self-center{justify-self:center}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overscroll-contain{overscroll-behavior:contain}.whitespace-nowrap{white-space:nowrap}.text-wrap{text-wrap:wrap}.break-all{word-break:break-all}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-y{border-top-width:1px}.border-b,.border-y{border-bottom-width:1px}.border-t{border-top-width:1px}.border-linea{--tw-border-opacity:1;border-color:rgb(var(--linea)/var(--tw-border-opacity,1))}.border-tinta\/30{border-color:rgb(var(--tinta)/.3)}.border-tinta\/40{border-color:rgb(var(--tinta)/.4)}.bg-fondo{--tw-bg-opacity:1;background-color:rgb(var(--fondo)/var(--tw-bg-opacity,1))}.bg-fondo\/95{background-color:rgb(var(--fondo)/.95)}.bg-linea{--tw-bg-opacity:1;background-color:rgb(var(--linea)/var(--tw-bg-opacity,1))}.bg-papel{--tw-bg-opacity:1;background-color:rgb(var(--papel)/var(--tw-bg-opacity,1))}.bg-piedra{--tw-bg-opacity:1;background-color:rgb(var(--piedra)/var(--tw-bg-opacity,1))}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.py-1{padding-bottom:.25rem;padding-top:.25rem}.py-1\.5{padding-bottom:.375rem;padding-top:.375rem}.py-10{padding-bottom:2.5rem;padding-top:2.5rem}.py-12{padding-bottom:3rem;padding-top:3rem}.py-14{padding-bottom:3.5rem;padding-top:3.5rem}.py-2{padding-bottom:.5rem;padding-top:.5rem}.py-2\.5{padding-bottom:.625rem;padding-top:.625rem}.py-3{padding-bottom:.75rem;padding-top:.75rem}.py-3\.5{padding-bottom:.875rem;padding-top:.875rem}.py-4{padding-bottom:1rem;padding-top:1rem}.py-5{padding-bottom:1.25rem;padding-top:1.25rem}.py-6{padding-bottom:1.5rem;padding-top:1.5rem}.py-7{padding-bottom:1.75rem;padding-top:1.75rem}.pb-1{padding-bottom:.25rem}.pb-11{padding-bottom:2.75rem}.pt-10{padding-top:2.5rem}.pt-2{padding-top:.5rem}.pt-3\.5{padding-top:.875rem}.pt-4{padding-top:1rem}.pt-5{padding-top:1.25rem}.pt-6{padding-top:1.5rem}.pt-9{padding-top:2.25rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-display{font-family:var(--font-display)}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[\.9375rem\]{font-size:.9375rem}.text-\[1\.0625rem\]{font-size:1.0625rem}.text-\[1\.125rem\]{font-size:1.125rem}.text-\[1\.1875rem\]{font-size:1.1875rem}.text-\[1\.3125rem\]{font-size:1.3125rem}.text-\[1\.75rem\]{font-size:1.75rem}.text-\[10px\]{font-size:10px}.text-\[11\.5px\]{font-size:11.5px}.text-\[11px\]{font-size:11px}.text-\[12\.5px\]{font-size:12.5px}.text-\[13px\]{font-size:13px}.text-\[2\.5rem\]{font-size:2.5rem}.text-\[2rem\]{font-size:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.italic{font-style:italic}.tabular-nums{--tw-numeric-spacing:tabular-nums;font-variant-numeric:var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)}.leading-\[1\.08\]{line-height:1.08}.leading-\[1\.12\]{line-height:1.12}.leading-\[1\.15\]{line-height:1.15}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-\[\.2em\]{letter-spacing:.2em}.tracking-normal{letter-spacing:0}.text-alerta{--tw-text-opacity:1;color:rgb(var(--alerta)/var(--tw-text-opacity,1))}.text-humo{--tw-text-opacity:1;color:rgb(var(--humo)/var(--tw-text-opacity,1))}.text-oro{--tw-text-opacity:1;color:rgb(var(--oro)/var(--tw-text-opacity,1))}.text-tinta{--tw-text-opacity:1;color:rgb(var(--tinta)/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.line-through{text-decoration-line:line-through}.underline-offset-4{text-underline-offset:4px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.outline{outline-style:solid}.blur{--tw-blur:blur(8px)}.blur,.drop-shadow{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow{--tw-drop-shadow:drop-shadow(0 1px 2px rgba(0,0,0,.1)) drop-shadow(0 1px 1px rgba(0,0,0,.06))}.grayscale{--tw-grayscale:grayscale(100%)}.filter,.grayscale{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:374px){.max-\[374px\]\:hidden{display:none}}@media (min-width:640px){.sm\:bottom-3{bottom:.75rem}.sm\:left-3{left:.75rem}.sm\:right-3{right:.75rem}.sm\:top-3{top:.75rem}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-start{align-items:flex-start}.sm\:gap-3\.5{gap:.875rem}.sm\:gap-5{gap:1.25rem}.sm\:p-4{padding:1rem}.sm\:p-6{padding:1.5rem}.sm\:p-7{padding:1.75rem}.sm\:p-8{padding:2rem}.sm\:text-\[1\.375rem\]{font-size:1.375rem}.sm\:text-\[2rem\]{font-size:2rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width:768px){.md\:mt-16{margin-top:4rem}.md\:block{display:block}.md\:flex{display:flex}.md\:grid{display:grid}.md\:hidden{display:none}.md\:h-\[4\.5rem\]{height:4.5rem}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:grid-cols-\[minmax\(0\2c 1fr\)_minmax\(0\2c 24rem\)\]{grid-template-columns:minmax(0,1fr) minmax(0,24rem)}.md\:flex-row{flex-direction:row}.md\:flex-col{flex-direction:column}.md\:flex-wrap{flex-wrap:wrap}.md\:items-center{align-items:center}.md\:justify-between{justify-content:space-between}.md\:gap-10{gap:2.5rem}.md\:gap-16{gap:4rem}.md\:gap-6{gap:1.5rem}.md\:gap-8{gap:2rem}.md\:gap-x-3{column-gap:.75rem}.md\:gap-y-5{row-gap:1.25rem}.md\:px-10{padding-left:2.5rem;padding-right:2.5rem}.md\:py-0{padding-bottom:0;padding-top:0}.md\:py-20{padding-bottom:5rem;padding-top:5rem}.md\:py-8{padding-bottom:2rem;padding-top:2rem}.md\:pb-20{padding-bottom:5rem}.md\:pl-10{padding-left:2.5rem}.md\:pr-10{padding-right:2.5rem}.md\:pt-20{padding-top:5rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-\[4\.25rem\]{font-size:4.25rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}.md\:leading-\[1\.05\]{line-height:1.05}}@media (min-width:1024px){.lg\:ml-2{margin-left:.5rem}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:w-40{width:10rem}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:text-2xl{font-size:1.5rem;line-height:2rem}}@media (min-width:1280px){.xl\:w-60{width:15rem}.xl\:gap-8{gap:2rem}}
 /* TAILWIND:FIN */
 </style>
 
@@ -118,20 +134,21 @@ button, a, summary, label { touch-action: manipulation; }
   .carrusel > :only-child { flex-basis: 100%; }
 }
 .pegado { position: sticky; top: env(safe-area-inset-top, 0px); }
-.skip { position: absolute; left: 16px; top: -100px; z-index: 60; background: rgb(var(--tinta)); color: rgb(var(--papel)); padding: .6rem 1rem; }
+.skip { position: absolute; left: 16px; top: -100px; z-index: 60; background: rgb(var(--tinta)); color: rgb(var(--sobre)); padding: .6rem 1rem; }
 .skip:focus { top: 12px; }
 
 /* ---------- Texto ---------- */
 .eyebrow { font-size: .6875rem; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; color: rgb(var(--humo)); }
 .logo { font-family: var(--font-display); font-size: 1.4375rem; font-weight: 500; letter-spacing: .005em; line-height: 1; white-space: nowrap; }
 .logo span { color: rgb(var(--oro)); }
-.logo em { font-style: italic; font-weight: 400; }
+.logo em { font-style: italic; }
+.font-display { font-weight: 500; }
 @media (max-width: 359.98px) { .logo { font-size: 1.25rem; } }
 header.pegado { transition: box-shadow .3s; }
-header.pegado.bajando { box-shadow: 0 10px 28px -18px rgb(var(--tinta) / .45); }
+header.pegado.bajando { box-shadow: 0 12px 28px -16px rgb(0 0 0 / .6); }
 .navlink { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: rgb(var(--humo)); transition: color .2s; }
 @media (hover: hover) { .navlink:hover { color: rgb(var(--tinta)); } }
-.superior { background: rgb(var(--tinta)); color: rgb(var(--papel) / .92); font-size: .6875rem; letter-spacing: .03em; }
+.superior { background: rgb(17 27 50); color: rgb(var(--tinta) / .92); font-size: .6875rem; letter-spacing: .03em; }
 @media (max-width: 419.98px) { .superior { font-size: .625rem; letter-spacing: 0; } }
 
 /* ---------- Botones ---------- */
@@ -143,16 +160,14 @@ header.pegado.bajando { box-shadow: 0 10px 28px -18px rgb(var(--tinta) / .45); }
   -webkit-user-select: none; user-select: none; cursor: pointer;
 }
 .btn:active { transform: scale(.985); }
-.btn-negro { background: rgb(var(--tinta)); color: rgb(var(--papel)); }
-.btn-claro { background: rgb(var(--papel)); color: rgb(var(--tinta)); }
+.btn-negro { background: rgb(var(--tinta)); color: rgb(var(--sobre)); }
 .btn-line { border-color: rgb(var(--tinta) / .35); color: rgb(var(--tinta)); }
 .btn-chica { min-height: 2.625rem; padding: 0 1.1rem; font-size: .6875rem; letter-spacing: .12em; }
 .btn-tarjeta { min-height: 2.5rem; padding: 0 .25rem; font-size: .65625rem; letter-spacing: .06em; white-space: nowrap; }
 @media (min-width: 640px) { .btn-tarjeta { font-size: .71875rem; letter-spacing: .13em; } }
 .btn[disabled], .btn[aria-disabled="true"] { opacity: .4; pointer-events: none; }
 @media (hover: hover) {
-  .btn-negro:hover { background: #000; }
-  .btn-claro:hover { background: #fff; }
+  .btn-negro:hover { opacity: .88; }
   .btn-line:hover { border-color: rgb(var(--tinta)); }
 }
 .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; color: rgb(var(--tinta)); }
@@ -163,7 +178,7 @@ header.pegado.bajando { box-shadow: 0 10px 28px -18px rgb(var(--tinta) / .45); }
 @media (min-width: 768px) { .fila-cabecera { display: flex; gap: 1.5rem; } }
 .badge {
   position: absolute; top: 4px; right: 2px; min-width: 1.125rem; height: 1.125rem; padding: 0 .25rem;
-  border-radius: 999px; background: rgb(var(--tinta)); color: rgb(var(--papel));
+  border-radius: 999px; background: rgb(var(--dorado)); color: rgb(var(--carbon));
   font-size: .6875rem; font-weight: 600; line-height: 1.125rem; text-align: center; font-variant-numeric: tabular-nums;
 }
 .badge.salta { animation: salta .45s ease; }
@@ -176,27 +191,27 @@ header.pegado.bajando { box-shadow: 0 10px 28px -18px rgb(var(--tinta) / .45); }
   font-variant-numeric: tabular-nums; white-space: nowrap; cursor: pointer; transition: background-color .2s, color .2s;
 }
 .seg button:first-child { border-left: 0; }
-.seg button[aria-pressed="true"] { background: rgb(var(--tinta)); color: rgb(var(--papel)); font-weight: 500; }
+.seg button[aria-pressed="true"] { background: rgb(var(--tinta)); color: rgb(var(--sobre)); font-weight: 500; }
 @media (min-width: 640px) { .seg button { font-size: .8125rem; } }
 @media (max-width: 359.98px) { .seg button { font-size: .625rem; letter-spacing: -.01em; } }
 @media (hover: hover) { .seg button:not([aria-pressed="true"]):hover { color: rgb(var(--tinta)); background: rgb(var(--piedra) / .6); } }
 
 /* ---------- Filtros: categorías (píldoras) y marcas (círculos) ---------- */
 .chip {
-  min-height: 2.25rem; padding: 0 1rem; border: 1px solid rgb(var(--linea)); border-radius: 999px; background: rgb(var(--papel));
+  min-height: 2.25rem; padding: 0 1rem; border: 1px solid rgb(var(--humo) / .45); border-radius: 999px; background: transparent;
   font-size: .8125rem; color: rgb(var(--humo)); white-space: nowrap; cursor: pointer; transition: background-color .2s, border-color .2s, color .2s;
 }
-.chip[aria-pressed="true"] { background: rgb(var(--tinta)); border-color: rgb(var(--tinta)); color: rgb(var(--papel)); }
+.chip[aria-pressed="true"] { background: rgb(var(--tinta)); border-color: rgb(var(--tinta)); color: rgb(var(--sobre)); }
 .marca { display: flex; flex: none; flex-direction: column; align-items: center; gap: .5rem; width: 4.75rem; cursor: pointer; scroll-snap-align: start; }
 .marca-circulo {
-  display: flex; align-items: center; justify-content: center; width: 3.5rem; height: 3.5rem; border: 1px solid rgb(var(--linea)); border-radius: 50%;
-  background: rgb(var(--papel)); font-family: var(--font-display); font-size: 1.0625rem; line-height: 1; color: rgb(var(--tinta));
-  transition: background-color .2s, border-color .2s, color .2s;
+  display: flex; align-items: center; justify-content: center; width: 3.5rem; height: 3.5rem; border-radius: 50%;
+  background: rgb(var(--papel)); font-family: var(--font-display); font-size: .9375rem; font-weight: 500; line-height: 1; color: rgb(var(--carbon));
+  transition: background-color .2s, box-shadow .2s;
 }
 .marca-nombre { font-size: .625rem; line-height: 1.25; letter-spacing: .1em; text-transform: uppercase; text-align: center; color: rgb(var(--humo)); }
-.marca[aria-pressed="true"] .marca-circulo { background: rgb(var(--tinta)); border-color: rgb(var(--tinta)); color: rgb(var(--papel)); }
+.marca[aria-pressed="true"] .marca-circulo { background: rgb(var(--dorado)); }
 .marca[aria-pressed="true"] .marca-nombre { color: rgb(var(--tinta)); }
-@media (hover: hover) { .marca:hover .marca-circulo { border-color: rgb(var(--tinta)); } .chip:not([aria-pressed="true"]):hover { border-color: rgb(var(--tinta)); color: rgb(var(--tinta)); } }
+@media (hover: hover) { .marca:hover .marca-circulo { box-shadow: 0 0 0 2px rgb(var(--dorado)); } .chip:not([aria-pressed="true"]):hover { border-color: rgb(var(--tinta)); color: rgb(var(--tinta)); } }
 @media (max-width: 767.98px) { #marcas { gap: .25rem; } }
 
 /* ---------- Etiquetas ---------- */
@@ -204,8 +219,9 @@ header.pegado.bajando { box-shadow: 0 10px 28px -18px rgb(var(--tinta) / .45); }
 .tag-nicho { background: #c9a560; border-color: #c9a560; }
 .tag-arabe { background: #c88e66; border-color: #c88e66; }
 .tag-disenador { background: #d2d5da; border-color: #d2d5da; }
-.tag-oferta { background: rgb(var(--tinta)); border-color: rgb(var(--tinta)); color: rgb(var(--papel)); letter-spacing: .04em; font-size: .6563rem; font-variant-numeric: tabular-nums; }
-.tag-ahorro { border-color: rgb(var(--tinta) / .5); background: transparent; }
+.tag-oferta { background: rgb(var(--tinta)); border-color: rgb(var(--tinta)); color: rgb(var(--sobre)); letter-spacing: .04em; font-size: .6563rem; font-variant-numeric: tabular-nums; }
+.tag-ahorro { padding: .3rem .7rem; background: rgb(var(--dorado)); border-color: rgb(var(--dorado)); color: rgb(var(--carbon)); font-size: .75rem; font-weight: 600; letter-spacing: .08em; white-space: nowrap; }
+.borde-dorado { border-color: rgb(var(--dorado)); }
 .tag-top { background: rgb(var(--papel)); border-color: rgb(var(--tinta)); letter-spacing: .1em; }
 .chip-grande { min-height: 2.75rem; padding: 0 1.1rem; font-size: .875rem; }
 @media (max-width: 767.98px) { .carrusel-chico > * { flex-basis: 62%; } }
@@ -252,8 +268,6 @@ header.pegado.bajando { box-shadow: 0 10px 28px -18px rgb(var(--tinta) / .45); }
   transition: height .7s cubic-bezier(.22, .8, .2, 1);
 }
 @media (min-width: 640px) { .decant .vial { --h: 56px; } }
-.destacado .vial { --h: 76px; }
-@media (min-width: 640px) { .destacado .vial { --h: 100px; } }
 .mini-pack .vial { --h: 64px; }
 
 /* ---------- Acordeones (preguntas y políticas) ---------- */
@@ -273,14 +287,14 @@ textarea.campo { padding: .7rem .9rem; line-height: 1.5; resize: vertical; }
 select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var(--humo)) 50%), linear-gradient(135deg, rgb(var(--humo)) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 2.2rem; }
 .campo::placeholder { color: rgb(var(--humo) / .7); }
 .campo:focus { outline: none; border-color: rgb(var(--tinta)); }
-.campo-buscar { padding-left: 2.6rem; min-height: 2.5rem; border-radius: 999px; background: rgb(var(--papel) / .7); }
+.campo-buscar { padding-left: 2.6rem; min-height: 2.5rem; border-radius: 999px; border-color: transparent; }
 
 /* ---------- Carrito (panel lateral) ---------- */
-.velo { position: fixed; inset: 0; z-index: 50; background: rgb(var(--tinta) / .45); opacity: 0; visibility: hidden; transition: opacity .3s, visibility 0s .3s; touch-action: none; }
+.velo { position: fixed; inset: 0; z-index: 50; background: rgb(6 11 24 / .62); opacity: 0; visibility: hidden; transition: opacity .3s, visibility 0s .3s; touch-action: none; }
 .velo.abierto { opacity: 1; visibility: visible; transition: opacity .3s; }
 .panel {
   position: fixed; top: 0; right: 0; bottom: 0; z-index: 55; display: flex; flex-direction: column;
-  width: min(100%, 27rem); background: rgb(var(--fondo)); border-left: 1px solid rgb(var(--linea));
+  width: min(100%, 27rem); background: rgb(var(--crema)); border-left: 1px solid rgb(var(--linea));
   padding-top: env(safe-area-inset-top, 0px);
   transform: translateX(100%); visibility: hidden; transition: transform .35s cubic-bezier(.3, .7, .2, 1), visibility 0s .35s;
 }
@@ -298,10 +312,22 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
 .opcion:has(input:checked)::before { border: .28rem solid rgb(var(--tinta)); }
 .opcion:has(input:focus-visible) { outline: 2px solid rgb(var(--tinta)); outline-offset: 2px; }
 
+/* ---------- Ventana emergente del descuento ---------- */
+.popup {
+  position: fixed; left: 50%; top: 50%; z-index: 65; width: min(calc(100% - 2rem), 27rem); max-height: calc(100dvh - 2rem); overflow-y: auto;
+  background: rgb(var(--papel)); border: 1px solid rgb(var(--dorado)); box-shadow: 0 30px 60px -20px rgb(0 0 0 / .55), inset 0 0 0 5px rgb(var(--papel)), inset 0 0 0 6px rgb(var(--dorado) / .45);
+  padding: 2.25rem 1.5rem 1.6rem; opacity: 0; visibility: hidden; transform: translate(-50%, -46%);
+  transition: opacity .3s, transform .3s cubic-bezier(.3, .7, .2, 1), visibility 0s .3s;
+}
+#match-resultado > * { border: 1px solid rgb(var(--linea)); }
+.popup:focus { outline: none; }
+.popup.abierto { opacity: 1; visibility: visible; transform: translate(-50%, -50%); transition: opacity .3s, transform .3s cubic-bezier(.3, .7, .2, 1); }
+@media (min-width: 640px) { .popup { padding: 2.75rem 2.5rem 2.1rem; } }
+
 /* ---------- Barra inferior "Ver pedido" (solo celular) ---------- */
 .barra {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 35; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  min-height: 3.75rem; background: rgb(var(--tinta)); color: rgb(var(--papel));
+  min-height: 3.75rem; background: rgb(var(--tinta)); color: rgb(var(--sobre));
   padding: .6rem max(16px, env(safe-area-inset-right, 0px)) calc(.6rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
   font-size: .8125rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
 }
@@ -343,21 +369,22 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
 </p>
 
 <!-- ======================= CABECERA ======================= -->
-<header class="pegado z-40 border-b border-linea bg-fondo/90 backdrop-blur-md">
+<header class="pegado z-40 border-b border-linea bg-fondo/95 backdrop-blur-md">
   <div class="wrap fila-cabecera h-14 md:h-[4.5rem] xl:gap-8">
     <button id="btn-menu" type="button" class="icon-btn -ml-2.5" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil">
       <svg width="24" height="24"><use href="#i-menu"/></svg>
     </button>
     <a href="#inicio" class="logo justify-self-center" aria-label="decants_prime, ir al inicio">decants<span>_</span><em>prime</em></a>
     <nav class="hidden gap-6 lg:ml-2 lg:flex xl:gap-8" aria-label="Principal">
-      <a class="navlink" href="#packs">Packs</a>
+      <a class="navlink" href="#match">Test olfativo</a>
       <a class="navlink" href="#catalogo">Catálogo</a>
+      <a class="navlink" href="#packs">Packs</a>
       <a class="navlink" href="#resenas">Reseñas</a>
       <a class="navlink" href="#envios">Envíos</a>
       <a class="navlink" href="#contacto">Contacto</a>
     </nav>
     <!-- Buscador (computador) -->
-    <label class="relative ml-auto hidden w-64 min-w-0 md:block lg:w-40 xl:w-60">
+    <label class="claro relative ml-auto hidden w-64 min-w-0 md:block lg:w-40 xl:w-60">
       <span class="sr-only">Buscar perfume o marca</span>
       <svg class="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-humo" width="16" height="16"><use href="#i-lupa"/></svg>
       <input id="buscar" class="campo campo-buscar" type="search" placeholder="Buscar perfume" autocomplete="off" enterkeyhint="search" data-buscador>
@@ -374,7 +401,7 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
   </div>
   <!-- Buscador (celular): se abre con la lupa -->
   <div id="buscador-movil" class="border-t border-linea md:hidden" hidden>
-    <label class="wrap relative block py-2.5">
+    <label class="claro wrap relative block py-2.5">
       <span class="sr-only">Buscar perfume o marca</span>
       <svg class="pointer-events-none absolute top-1/2 -translate-y-1/2 text-humo" style="left:calc(max(var(--margen), env(safe-area-inset-left, 0px)) + .9rem)" width="16" height="16"><use href="#i-lupa"/></svg>
       <input id="buscar-movil" class="campo campo-buscar" type="search" placeholder="Buscar perfume o marca" autocomplete="off" enterkeyhint="search" data-buscador>
@@ -382,8 +409,9 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
   </div>
   <nav id="menu-movil" class="border-t border-linea lg:hidden" aria-label="Menú" hidden>
     <div class="wrap flex flex-col py-2">
-      <a class="navlink py-3.5" href="#packs">Packs</a>
+      <a class="navlink py-3.5" href="#match">Test olfativo</a>
       <a class="navlink border-t border-linea py-3.5" href="#catalogo">Catálogo</a>
+      <a class="navlink border-t border-linea py-3.5" href="#packs">Packs</a>
       <a class="navlink border-t border-linea py-3.5" href="#resenas">Reseñas</a>
       <a class="navlink border-t border-linea py-3.5" href="#envios">Envíos</a>
       <a class="navlink border-t border-linea py-3.5" href="#contacto">Contacto</a>
@@ -395,29 +423,24 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
 
   <!-- ======================= HERO ======================= -->
   <section aria-labelledby="titulo-hero">
-    <div class="wrap grid gap-10 pb-12 pt-11 md:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)] md:items-center md:gap-12 md:pb-20 md:pt-20">
-      <div>
-        <p class="text-[12.5px] leading-snug text-humo"><span class="text-oro" aria-hidden="true">★</span> Sellados con teflón anti-derrames · Extracción limpia con jeringa</p>
-        <h1 id="titulo-hero" class="mt-5 font-display text-[2.7rem] leading-[1.04] md:text-[4.5rem] md:leading-[1.02]">La Alta Perfumería, <em>a tu medida</em></h1>
-        <p class="mt-6 max-w-md text-[1.0625rem] text-humo">Perfumes nicho, árabes y de diseñador, extraídos de la botella original. Pruébalos en tu piel antes de invertir en el frasco completo.</p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#catalogo" class="btn btn-negro">Ver catálogo</a>
-          <a href="#packs" class="btn btn-line">Ver packs</a>
-        </div>
-        <!-- Acceso directo al descuento por correo (no es un pop-up) -->
-        <a href="#descuento" data-con-descuento class="mt-7 inline-flex items-center gap-2 border-b border-tinta/40 pb-1 text-sm">
-          <span><span data-pct>5</span>% de descuento dejando tu correo</span>
-          <svg width="16" height="16"><use href="#i-flecha"/></svg>
-        </a>
+    <div class="wrap pb-11 pt-10 md:pb-20 md:pt-20">
+      <p class="text-[12.5px] leading-snug text-humo"><span class="text-oro" aria-hidden="true">★</span> Sellados con teflón anti-derrames · Extracción limpia con jeringa</p>
+      <h1 id="titulo-hero" class="mt-5 max-w-3xl font-display text-[2.5rem] leading-[1.08] md:text-[4.25rem] md:leading-[1.05]">La Alta Perfumería, <em>a tu medida</em></h1>
+      <p class="mt-5 max-w-md text-[1.0625rem] text-humo">Perfumes nicho, árabes y de diseñador, extraídos de la botella original. Pruébalos en tu piel antes de invertir en el frasco completo.</p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="#match" class="btn btn-negro">Hacer test olfativo</a>
+        <a href="#catalogo" class="btn btn-line">Ver catálogo</a>
       </div>
-
-      <!-- Pack destacado: se elige en CONFIG.packDestacado -->
-      <div id="pack-destacado" class="w-full min-w-0 md:max-w-[26rem] md:justify-self-end"></div>
+      <!-- Abre la ventana del descuento por correo -->
+      <button type="button" data-abrir-descuento data-con-descuento class="mt-7 inline-flex items-center gap-2 border-b border-tinta/40 pb-1 text-sm">
+        <span><span data-pct>5</span>% de descuento dejando tu correo</span>
+        <svg width="16" height="16"><use href="#i-flecha"/></svg>
+      </button>
     </div>
   </section>
 
   <!-- ======================= SELLOS DE CONFIANZA ======================= -->
-  <section class="border-y border-linea bg-papel" aria-label="Por qué comprar con nosotros">
+  <section class="border-y border-linea" aria-label="Por qué comprar con nosotros">
     <ul class="wrap grid grid-cols-2 gap-x-4 gap-y-6 py-7 md:grid-cols-4 md:gap-8 md:py-8">
       <li class="flex flex-col gap-2.5 sm:flex-row sm:items-start sm:gap-3.5">
         <svg class="flex-none" width="26" height="26"><use href="#i-escudo"/></svg>
@@ -438,97 +461,39 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
     </ul>
   </section>
 
-  <!-- ======================= ¿POR QUÉ COMPRAR EN DECANT? ======================= -->
-  <section id="por-que" aria-labelledby="titulo-por-que">
-    <div class="wrap py-14 md:py-20">
-      <div class="max-w-xl">
-        <p class="eyebrow">La jugada inteligente</p>
-        <h2 id="titulo-por-que" class="mt-4 font-display text-[2rem] leading-[1.08] md:text-5xl">¿Por qué comprar en decant?</h2>
-      </div>
-      <div class="mt-8 grid gap-4 md:grid-cols-2 md:gap-6">
-        <div class="bg-piedra p-5 sm:p-7">
-          <p class="eyebrow">Comprar a ciegas</p>
-          <p class="mt-3 font-display text-2xl leading-tight">Frasco de 100 ml <span class="whitespace-nowrap text-humo">~$180.000</span></p>
-          <ul class="mt-5 flex flex-col gap-3 text-[.9375rem] text-humo">
-            <li class="flex gap-3"><span class="flex-none" aria-hidden="true">✕</span><span>Arriesgas tu dinero si no te gusta en tu piel.</span></li>
-            <li class="flex gap-3"><span class="flex-none" aria-hidden="true">✕</span><span>Pagas por un solo aroma para todo el año.</span></li>
-          </ul>
-        </div>
-        <div class="border-2 border-tinta bg-papel p-5 sm:p-7">
-          <p class="eyebrow text-tinta">La jugada inteligente</p>
-          <p class="mt-3 font-display text-2xl leading-tight">Decant de 2 a 10 ml <span class="whitespace-nowrap">desde <span data-precio-minimo>$2.990</span></span></p>
-          <ul class="mt-5 flex flex-col gap-3 text-[.9375rem]">
-            <li class="flex gap-3"><span class="flex-none" aria-hidden="true">✓</span><span>Pagas hasta 90% menos que por el frasco y lo pruebas una semana entera en tu piel.</span></li>
-            <li class="flex gap-3"><span class="flex-none" aria-hidden="true">✓</span><span>Armas una rotación de 4 o 5 perfumes de lujo por menos de lo que cuesta un frasco.</span></li>
-            <li class="flex gap-3"><span class="flex-none" aria-hidden="true">✓</span><span>Formato de bolsillo con atomizador de vidrio sellado.</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================= DESCUENTO POR CORREO ======================= -->
-  <section id="descuento" class="bg-tinta text-papel" aria-labelledby="titulo-descuento">
-    <div class="wrap grid gap-6 py-10 md:grid-cols-2 md:items-center md:gap-16 md:py-12">
-      <div>
-        <h2 id="titulo-descuento" class="font-display text-[1.75rem] leading-[1.1] md:text-4xl"><span data-pct>5</span>% de descuento en tu pedido</h2>
-        <p class="mt-2.5 max-w-md text-[.9375rem] text-papel/75">Déjanos tu correo y el descuento queda aplicado en tu carrito. También te avisamos cuando lleguen perfumes nuevos.</p>
-      </div>
-      <div>
-        <form id="form-correo" class="flex flex-col gap-2.5 sm:flex-row" novalidate>
-          <label class="sr-only" for="correo">Correo electrónico</label>
-          <input id="correo" name="email" class="campo sm:flex-1" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="tucorreo@ejemplo.com">
-          <button type="submit" class="btn btn-claro"><span>Quiero mi <span data-pct>5</span>%</span></button>
-        </form>
-        <p id="correo-msg" class="mt-2.5 text-sm" role="status" aria-live="polite"></p>
-        <p class="mt-1 text-xs text-papel/60">Usamos tu correo solo para tu pedido y nuestras novedades. Puedes darte de baja cuando quieras.</p>
-        <p id="aviso-correos" class="mt-3 text-xs leading-relaxed text-[#f0a090]" hidden>Aviso para el dueño de la tienda: los correos todavía no se guardan en ninguna parte. Pega tu link de Formspree en "guardarCorreosEn", dentro de index.html.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================= PACKS ======================= -->
-  <section id="packs" aria-labelledby="titulo-packs">
-    <div class="wrap py-14 md:py-20">
-      <div class="max-w-xl">
-        <p class="eyebrow">Packs</p>
-        <h2 id="titulo-packs" class="mt-4 font-display text-[2rem] leading-[1.08] md:text-5xl">Lleva más, paga menos</h2>
-        <p class="mt-3 text-humo">Combinaciones armadas con precio especial.</p>
-      </div>
-      <!-- Los packs se generan desde la lista PACKS -->
-      <div id="lista-packs" class="deslizable carrusel mt-8 md:grid md:grid-cols-3 md:gap-6"></div>
-    </div>
-  </section>
-
   <!-- ======================= MATCH OLFATIVO ======================= -->
-  <section id="match" class="border-t border-linea bg-papel" aria-labelledby="titulo-match">
-    <div class="wrap py-14 md:py-20">
+  <section id="match" aria-labelledby="titulo-match">
+    <div class="wrap py-12 md:py-20">
       <div class="max-w-2xl">
         <p class="eyebrow">Match olfativo</p>
-        <h2 id="titulo-match" class="mt-4 font-display text-[2rem] leading-[1.08] md:text-5xl">¿No sabes cuál elegir? Encuentra tu perfume en 3 toques</h2>
+        <h2 id="titulo-match" class="mt-4 font-display text-[2rem] leading-[1.12] md:text-5xl">Encuentra tu perfume en 3 toques</h2>
+        <p class="mt-3 text-humo">¿No sabes cuál elegir? Responde dos preguntas y te mostramos tus tres mejores opciones.</p>
       </div>
-      <div class="mt-8 grid gap-7 md:grid-cols-2 md:gap-10">
-        <fieldset>
-          <legend class="text-sm font-medium">1. ¿Cuándo lo usarás?</legend>
-          <div class="mt-3 flex flex-wrap gap-2">
-            <button type="button" class="chip chip-grande" data-match-momento="dia" aria-pressed="false">☀️ Día y calor</button>
-            <button type="button" class="chip chip-grande" data-match-momento="noche" aria-pressed="false">🌙 Noche y citas</button>
-            <button type="button" class="chip chip-grande" data-match-momento="todo" aria-pressed="false">💼 Todo terreno / Oficina</button>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend class="text-sm font-medium">2. ¿Qué aroma prefieres?</legend>
-          <div class="mt-3 flex flex-wrap gap-2">
-            <button type="button" class="chip chip-grande" data-match-aroma="citrico" aria-pressed="false">🍋 Cítrico y fresco</button>
-            <button type="button" class="chip chip-grande" data-match-aroma="dulce" aria-pressed="false">🍯 Dulce y vainilla</button>
-            <button type="button" class="chip chip-grande" data-match-aroma="frutal" aria-pressed="false">🍑 Frutal y tropical</button>
-            <button type="button" class="chip chip-grande" data-match-aroma="amaderado" aria-pressed="false">🪵 Amaderado y elegante</button>
-          </div>
-        </fieldset>
+      <!-- Recuadro claro con las preguntas y el resultado -->
+      <div class="claro mt-7 bg-papel p-5 sm:p-8">
+        <div class="grid gap-7 md:grid-cols-2 md:gap-10">
+          <fieldset>
+            <legend class="text-sm font-medium">1. ¿Cuándo lo usarás?</legend>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <button type="button" class="chip chip-grande" data-match-momento="dia" aria-pressed="false">☀️ Día y calor</button>
+              <button type="button" class="chip chip-grande" data-match-momento="noche" aria-pressed="false">🌙 Noche y citas</button>
+              <button type="button" class="chip chip-grande" data-match-momento="todo" aria-pressed="false">💼 Todo terreno / Oficina</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend class="text-sm font-medium">2. ¿Qué aroma prefieres?</legend>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <button type="button" class="chip chip-grande" data-match-aroma="citrico" aria-pressed="false">🍋 Cítrico y fresco</button>
+              <button type="button" class="chip chip-grande" data-match-aroma="dulce" aria-pressed="false">🍯 Dulce y vainilla</button>
+              <button type="button" class="chip chip-grande" data-match-aroma="frutal" aria-pressed="false">🍑 Frutal y tropical</button>
+              <button type="button" class="chip chip-grande" data-match-aroma="amaderado" aria-pressed="false">🪵 Amaderado y elegante</button>
+            </div>
+          </fieldset>
+        </div>
+        <p id="match-ayuda" class="mt-7 text-sm text-humo" role="status" aria-live="polite">3. Elige una opción de cada pregunta y te mostramos tus tres mejores opciones.</p>
+        <!-- Aquí aparecen las 3 tarjetas que mejor calzan -->
+        <div id="match-resultado" class="deslizable carrusel carrusel-chico mt-5 md:grid md:grid-cols-3 md:gap-6" hidden></div>
       </div>
-      <p id="match-ayuda" class="mt-7 text-sm text-humo" role="status" aria-live="polite">3. Elige una opción de cada pregunta y te mostramos tus tres mejores opciones.</p>
-      <!-- Aquí aparecen las 3 tarjetas que mejor calzan -->
-      <div id="match-resultado" class="deslizable carrusel carrusel-chico mt-5 md:grid md:grid-cols-3 md:gap-6" hidden></div>
     </div>
   </section>
 
@@ -558,8 +523,50 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
     </div>
   </section>
 
+  <!-- ======================= PACKS ======================= -->
+  <section id="packs" class="border-t border-linea" aria-labelledby="titulo-packs">
+    <div class="wrap py-14 md:py-20">
+      <div class="max-w-xl">
+        <p class="eyebrow">Packs</p>
+        <h2 id="titulo-packs" class="mt-4 font-display text-[2rem] leading-[1.08] md:text-5xl">Lleva más, paga menos</h2>
+        <p class="mt-3 text-humo">Combinaciones armadas con precio especial.</p>
+      </div>
+      <!-- Los packs se generan desde la lista PACKS -->
+      <div id="lista-packs" class="deslizable carrusel mt-8 md:grid md:grid-cols-3 md:gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ======================= ¿POR QUÉ COMPRAR EN DECANT? ======================= -->
+  <section id="por-que" class="border-t border-linea" aria-labelledby="titulo-por-que">
+    <div class="wrap py-14 md:py-20">
+      <div class="max-w-xl">
+        <p class="eyebrow">La jugada inteligente</p>
+        <h2 id="titulo-por-que" class="mt-4 font-display text-[2rem] leading-[1.08] md:text-5xl">¿Por qué comprar en decant?</h2>
+      </div>
+      <div class="mt-8 grid gap-4 md:grid-cols-2 md:gap-6">
+        <div class="claro bg-piedra p-5 sm:p-7">
+          <p class="eyebrow">Comprar a ciegas</p>
+          <p class="mt-3 font-display text-2xl leading-tight">Frasco de 100 ml <span class="whitespace-nowrap text-humo">~$180.000</span></p>
+          <ul class="mt-5 flex flex-col gap-3 text-[.9375rem] text-humo">
+            <li class="flex gap-3"><span class="flex-none" aria-hidden="true">✕</span><span>Arriesgas tu dinero si no te gusta en tu piel.</span></li>
+            <li class="flex gap-3"><span class="flex-none" aria-hidden="true">✕</span><span>Pagas por un solo aroma para todo el año.</span></li>
+          </ul>
+        </div>
+        <div class="claro borde-dorado border-2 bg-papel p-5 sm:p-7">
+          <p class="eyebrow text-tinta">La jugada inteligente</p>
+          <p class="mt-3 font-display text-2xl leading-tight">Decant de 2 a 10 ml <span class="whitespace-nowrap">desde <span data-precio-minimo>$2.990</span></span></p>
+          <ul class="mt-5 flex flex-col gap-3 text-[.9375rem]">
+            <li class="flex gap-3"><span class="flex-none" aria-hidden="true">✓</span><span>Pagas hasta 90% menos que por el frasco y lo pruebas una semana entera en tu piel.</span></li>
+            <li class="flex gap-3"><span class="flex-none" aria-hidden="true">✓</span><span>Armas una rotación de 4 o 5 perfumes de lujo por menos de lo que cuesta un frasco.</span></li>
+            <li class="flex gap-3"><span class="flex-none" aria-hidden="true">✓</span><span>Formato de bolsillo con atomizador de vidrio sellado.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ======================= RESEÑAS ======================= -->
-  <section id="resenas" class="border-t border-linea bg-papel" aria-labelledby="titulo-resenas">
+  <section id="resenas" class="border-t border-linea" aria-labelledby="titulo-resenas">
     <div class="wrap grid gap-10 py-14 md:grid-cols-[minmax(0,1fr)_minmax(0,24rem)] md:gap-16 md:py-20">
       <div>
         <p class="eyebrow">Reseñas</p>
@@ -576,7 +583,7 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
       </div>
 
       <!-- Formulario para que el cliente deje su reseña -->
-      <form id="form-resena" class="self-start border border-linea bg-fondo p-5 sm:p-6" novalidate>
+      <form id="form-resena" class="claro self-start bg-papel p-5 sm:p-6" novalidate>
         <h3 class="font-display text-2xl">Deja tu reseña</h3>
         <fieldset class="mt-4">
           <legend class="text-sm text-humo">Tu puntuación</legend>
@@ -657,7 +664,7 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
   </section>
 
   <!-- ======================= CONTACTO Y REDES ======================= -->
-  <section id="contacto" class="border-t border-linea bg-papel" aria-labelledby="titulo-contacto">
+  <section id="contacto" class="border-t border-linea" aria-labelledby="titulo-contacto">
     <div class="wrap grid gap-9 py-14 md:grid-cols-2 md:items-center md:gap-16 md:py-20">
       <div>
         <p class="eyebrow">Contacto y redes</p>
@@ -702,7 +709,7 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
       <a class="text-humo" href="#ayuda">Preguntas</a>
       <a class="text-humo" href="#resenas">Reseñas</a>
       <a class="text-humo" href="#politicas">Políticas</a>
-      <a class="text-humo" href="#descuento" data-con-descuento>Descuento</a>
+      <button type="button" class="text-left text-humo" data-abrir-descuento data-con-descuento><span data-pct>5</span>% de descuento</button>
       <a class="text-humo" href="#contacto">Contacto</a>
     </nav>
   </div>
@@ -719,7 +726,7 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
 
 <!-- ======================= CARRITO (panel lateral) ======================= -->
 <div id="velo" class="velo"></div>
-<aside id="carrito" class="panel" role="dialog" aria-modal="true" aria-labelledby="carrito-titulo" inert>
+<aside id="carrito" class="panel claro" role="dialog" aria-modal="true" aria-labelledby="carrito-titulo" inert>
   <div class="panel-lado flex items-center justify-between border-b border-linea py-3">
     <h2 id="carrito-titulo" class="font-display text-2xl">Tu pedido</h2>
     <button id="cerrar-carrito" type="button" class="icon-btn -mr-2.5" aria-label="Cerrar carrito"><svg width="24" height="24"><use href="#i-cerrar"/></svg></button>
@@ -794,6 +801,28 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
   </div>
 </aside>
 
+<!-- ======================= VENTANA DEL DESCUENTO POR CORREO ======================= -->
+<div id="popup" class="popup claro" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="popup-titulo" inert>
+  <button id="popup-cerrar" type="button" class="icon-btn absolute right-1.5 top-1.5" aria-label="Cerrar"><svg width="22" height="22"><use href="#i-cerrar"/></svg></button>
+  <p class="eyebrow">Beneficio de bienvenida</p>
+  <h2 id="popup-titulo" class="mt-3 font-display text-[1.75rem] leading-[1.12] sm:text-[2rem]"><span data-pct>5</span>% de descuento en tu primer pedido</h2>
+  <!-- Sin correo: formulario -->
+  <div id="popup-formulario">
+    <p class="mt-3 text-[.9375rem] text-humo">Déjanos tu correo y el descuento queda aplicado en tu carrito. También te avisamos cuando lleguen perfumes nuevos.</p>
+    <form id="form-correo" class="mt-5 flex flex-col gap-2.5" novalidate>
+      <label class="sr-only" for="correo">Correo electrónico</label>
+      <input id="correo" name="email" class="campo" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="tucorreo@ejemplo.com">
+      <button type="submit" class="btn btn-negro w-full"><span>Activar mi <span data-pct>5</span>%</span></button>
+    </form>
+    <p id="correo-msg" class="mt-2.5 text-sm text-alerta" role="status" aria-live="polite"></p>
+    <p class="mt-1 text-xs leading-relaxed text-humo">Usamos tu correo solo para tu pedido y nuestras novedades. Puedes darte de baja cuando quieras.</p>
+    <p id="aviso-correos" class="mt-3 text-xs leading-relaxed text-alerta" hidden>Aviso para el dueño de la tienda: los correos todavía no se guardan en ninguna parte. Pega tu link de Formspree en "guardarCorreosEn", dentro de index.html.</p>
+  </div>
+  <!-- Con correo: confirmación -->
+  <p id="popup-listo" class="mt-4 text-[.9375rem]" hidden>Listo. Tu <span data-pct>5</span>% ya está aplicado en el carrito.</p>
+  <button id="popup-no" type="button" class="mt-5 w-full py-2 text-center text-sm text-humo underline underline-offset-4">No gracias, ver catálogo</button>
+</div>
+
 <p id="anuncio" class="sr-only" role="status" aria-live="polite"></p>
 
 <script>
@@ -817,6 +846,7 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
 
    4) DESCUENTO POR CORREO
       CONFIG.descuentoCorreo es el porcentaje (5 = 5%). Pon 0 para apagarlo.
+      Se ofrece en una ventana que aparece a los pocos segundos de entrar.
       Para que los correos se guarden solos, pega tu link de Formspree en
       CONFIG.guardarCorreosEn (las instrucciones están ahí mismo).
 
@@ -848,6 +878,10 @@ const CONFIG = {
   // Porcentaje de descuento por dejar el correo (0 lo desactiva)
   descuentoCorreo: 5,
 
+  // La ventana del descuento aparece sola después de estos segundos (0 = nunca sola).
+  // No aparece si la persona ya dejó su correo o si la cerró en las últimas 24 horas.
+  ventanaDescuentoSegundos: 4,
+
   // ── PRECIO NORMAL TACHADO ──────────────────────────────────────────────────
   // Los precios de PRODUCTOS son los que paga el cliente. Si aquí pones un número
   // mayor que 0, cada tarjeta muestra además un "precio normal" tachado, calculado
@@ -856,9 +890,6 @@ const CONFIG = {
   // Con 0 se muestra un solo precio. También puedes escribir el precio normal
   // exacto de un perfume agregándole la línea  normal: { 3: 14990, 5: ... }
   ofertaPorcentaje: 15,
-
-  // Pack que se muestra al inicio de la página (escribe el "id" de uno de tus PACKS)
-  packDestacado: "trio-arabe",
 
   // Atomizaciones (sprays) aproximadas por cada ml. Con 10: 3 ml ≈ 30, 5 ml ≈ 50, 10 ml ≈ 100.
   // Pon 0 para no mostrar las atomizaciones.
@@ -1017,7 +1048,7 @@ const PRODUCTOS = [
     inspiracion: "ADN 100% Original",
     ocasion: ["Calor / Verano", "Citas"],
     etiqueta: "Más vendido",
-    precios: { 3: 7490, 5: 12990, 10: 19990 },
+    precios: { 3: 7990, 5: 11990, 10: 19990 },
     color: "#2f9e9a",
     imagen: "assets/perfumes/jean-paul-gaultier-le-beau.png",
   },
@@ -1027,7 +1058,7 @@ const PRODUCTOS = [
     inspiracion: "ADN 100% Original",
     ocasion: ["Calor / Verano", "Todo Terreno"],
     etiqueta: "Más vendido",
-    precios: { 3: 7490, 5: 12990, 10: 19990 },
+    precios: { 3: 7990, 5: 11990, 10: 19990 },
     color: "#6cc3b8",
     imagen: "assets/perfumes/jean-paul-gaultier-le-beau-flower-edition.png",
   },
@@ -1036,7 +1067,7 @@ const PRODUCTOS = [
     acordes: "Dulce · Vainilla · Especiado",
     inspiracion: "ADN 100% Original",
     ocasion: ["Citas", "Fiesta / Noche", "Modo Bestia"],
-    precios: { 3: 8490, 5: 17490, 10: 22990 },
+    precios: { 3: 7990, 5: 11990, 10: 20990 },
     color: "#c1622a",
     imagen: "assets/perfumes/armani-stronger-with-you-intensely.png",
   },
@@ -1198,7 +1229,7 @@ const PRODUCTOS = [
   {
     id: "rayhaan-aqua", nombre: "Aqua", marca: "Rayhaan", categoria: "Árabe",
     acordes: "Dulce · Cítrico · Fresco",
-    inspiracion: "",
+    inspiracion: "Inspirado en: Creed Virgin Island Water",
     ocasion: ["Calor / Verano"],
     precios: { 3: 4490, 5: 6990, 10: 11990 },
     color: "#35c0c4",
@@ -1207,7 +1238,7 @@ const PRODUCTOS = [
   {
     id: "tropical-vibe", nombre: "Tropical Vibe", marca: "Rayhaan", categoria: "Árabe",
     acordes: "Frutal · Tropical · Dulce",
-    inspiracion: "",
+    inspiracion: "Inspirado en: LP Summer Hammer",
     ocasion: ["Calor / Verano"],
     precios: { 3: 4490, 5: 6990, 10: 11990 },
     color: "#f2703a",
@@ -1473,7 +1504,7 @@ const POLITICAS = [
     const pct = ahorroDe(p, ml);
     const recortada = fotoRecortada(p.imagen);
     const r = resenasDe(p.id);
-    return '<article class="relative flex min-w-0 flex-col border border-linea bg-papel" data-tarjeta="' + esc(p.id) + '" data-categoria="' + esc(p.categoria) + '" data-marca="' + esc(p.marca) + '" data-ocasion="' + esc((p.ocasion || []).join("|")) + '" data-buscar="' + esc(normalizar([titulo, p.acordes, p.categoria, p.inspiracion, (p.ocasion || []).join(" ")].join(" "))) + '">' +
+    return '<article class="claro relative flex min-w-0 flex-col bg-papel" data-tarjeta="' + esc(p.id) + '" data-categoria="' + esc(p.categoria) + '" data-marca="' + esc(p.marca) + '" data-ocasion="' + esc((p.ocasion || []).join("|")) + '" data-buscar="' + esc(normalizar([titulo, p.acordes, p.categoria, p.inspiracion, (p.ocasion || []).join(" ")].join(" "))) + '">' +
       // Foto de la botella y, en la esquina, el decant que se llena según el tamaño elegido
       '<div class="escenario relative aspect-square overflow-hidden" style="--tint:' + tinte(p.color) + '">' +
         '<img class="foto ' + (recortada ? "foto-recortada" : "foto-llena") + '" data-foto src="' + esc(p.imagen || SIN_FOTO) + '" alt="' + esc("Perfume " + titulo) + '" loading="lazy" decoding="async">' +
@@ -1614,12 +1645,12 @@ const POLITICAS = [
     $("#packs").hidden = validos.length === 0;
     $("#lista-packs").innerHTML = validos.map((pack) => {
       const d = ahorroPack(pack);
-      return '<article class="flex flex-col border border-linea bg-papel p-5 sm:p-6" data-pack="' + esc(pack.id) + '">' +
+      return '<article class="claro flex flex-col bg-papel p-5 sm:p-6" data-pack="' + esc(pack.id) + '">' +
         '<div class="mini-pack flex items-end justify-between gap-4">' +
           '<div class="flex h-[4.5rem] items-end gap-2.5">' + pack.incluye.map((it) => frasco(porId[it.id].color, nivel(it.ml))).join("") + "</div>" +
           etiquetasPack(pack, d) +
         "</div>" +
-        '<h3 class="mt-5 font-display text-2xl leading-tight">' + esc(pack.nombre) + "</h3>" +
+        '<h3 class="mt-5 font-display text-2xl leading-tight md:text-xl lg:text-2xl">' + esc(pack.nombre) + "</h3>" +
         (pack.descripcion ? '<p class="mt-1.5 text-sm text-humo">' + esc(pack.descripcion) + "</p>" : "") +
         '<ul class="mt-4 border-t border-linea text-sm">' +
           pack.incluye.map((it) => '<li class="flex justify-between gap-3 border-b border-linea py-2.5"><span class="min-w-0">' + esc(porId[it.id].marca + " " + porId[it.id].nombre) + '</span><span class="flex-none text-humo tabular-nums">' + it.ml + " ml</span></li>").join("") +
@@ -1630,27 +1661,6 @@ const POLITICAS = [
       "</article>";
     }).join("");
 
-    // Pack destacado del inicio de la página
-    const cont = $("#pack-destacado");
-    const elegido = packPorId[CONFIG.packDestacado];
-    const pack = packValido(elegido) ? elegido : validos[0];
-    cont.hidden = !pack;
-    if (!pack) return;
-    const d = ahorroPack(pack);
-    cont.innerHTML = '<article class="destacado border border-linea bg-papel p-5 sm:p-7" data-pack="' + esc(pack.id) + '">' +
-      '<div class="flex items-center justify-between gap-3"><p class="eyebrow">Pack destacado</p>' +
-        etiquetasPack(pack, d) + "</div>" +
-      '<div class="mt-5 flex items-end gap-5">' +
-        '<div class="flex flex-none items-end gap-2">' + pack.incluye.map((it) => frasco(porId[it.id].color, nivel(it.ml))).join("") + "</div>" +
-        '<div class="min-w-0"><h2 class="font-display text-[1.75rem] leading-[1.1] sm:text-4xl">' + esc(pack.nombre) + "</h2>" +
-          (pack.descripcion ? '<p class="mt-1.5 text-sm text-humo">' + esc(pack.descripcion) + "</p>" : "") + "</div>" +
-      "</div>" +
-      '<p class="mt-5 border-t border-linea pt-4 text-sm leading-relaxed text-humo">' +
-        pack.incluye.map((it) => esc(porId[it.id].marca + " " + porId[it.id].nombre) + " " + it.ml + " ml").join(" · ") + "</p>" +
-      '<div class="mt-5 flex items-end justify-between gap-4">' + precioPackHtml(d) +
-        '<button type="button" class="btn btn-negro" data-agregar-pack>Agregar pack</button>' +
-      "</div>" +
-    "</article>";
   }
 
   /* ---------- Reseñas ---------- */
@@ -1675,7 +1685,7 @@ const POLITICAS = [
     }
     $("#lista-resenas").innerHTML = RESENAS_OK.map((r) => {
       const detalle = [nombreDe(r.perfume), fechaLegible(r.fecha)].filter(Boolean).join(" · ");
-      return '<figure class="flex flex-col gap-3 border border-linea bg-fondo p-5">' +
+      return '<figure class="claro flex flex-col gap-3 bg-papel p-5">' +
         estrellas(Number(r.estrellas)) +
         '<blockquote class="text-[.9375rem] leading-relaxed">' + esc(r.texto) + "</blockquote>" +
         '<figcaption class="mt-auto text-xs text-humo"><span class="block text-sm font-medium text-tinta">' + esc(r.nombre || "Cliente") + "</span>" + esc(detalle) + "</figcaption>" +
@@ -1905,16 +1915,52 @@ const POLITICAS = [
       }).then((r) => { if (r.ok) listo(); }).catch(() => {});
     }
   }
+  // Muestra el formulario o la confirmación dentro de la ventana del descuento
   function pintarFormularioCorreo() {
-    const msg = $("#correo-msg");
-    if (estado.correo && PCT) {
-      $("#correo").value = estado.correo;
-      msg.className = "mt-2.5 text-sm";
-      msg.textContent = "Listo. Tu " + PCT + "% ya está aplicado en el carrito.";
-    } else {
-      msg.textContent = "";
-    }
+    const listo = Boolean(estado.correo && PCT);
+    $("#popup-formulario").hidden = listo;
+    $("#popup-listo").hidden = !listo;
+    $("#popup-no").textContent = listo ? "Ver catálogo" : "No gracias, ver catálogo";
+    $("#correo").value = estado.correo;
+    $("#correo-msg").textContent = "";
   }
+
+  /* ---------- Ventana emergente del descuento ---------- */
+  const popup = $("#popup");
+  let popupPor = null;
+  function abrirPopup(origen) {
+    if (!PCT || popup.classList.contains("abierto")) return;
+    popupPor = origen || null;
+    pintarFormularioCorreo();
+    popup.inert = false;
+    popup.classList.add("abierto");
+    velo.classList.add("abierto");
+    document.documentElement.classList.add("bloqueado");
+    // Si la abrió la persona, el cursor queda en el correo; si apareció sola, no se abre el teclado.
+    (origen && !estado.correo ? $("#correo") : popup).focus({ preventScroll: true });
+  }
+  function cerrarPopup() {
+    if (!popup.classList.contains("abierto")) return;
+    popup.classList.remove("abierto");
+    popup.inert = true;
+    if (!panel.classList.contains("abierto")) {
+      velo.classList.remove("abierto");
+      document.documentElement.classList.remove("bloqueado");
+    }
+    guardar("dp_popup_cerrado", Date.now());   // no vuelve a aparecer sola por 24 horas
+    if (popupPor && popupPor.focus) popupPor.focus({ preventScroll: true });
+  }
+  function programarPopup() {
+    const segundos = Number(CONFIG.ventanaDescuentoSegundos) || 0;
+    if (!PCT || !segundos) return;
+    setTimeout(function intentar() {
+      const cerrado = Number(leer("dp_popup_cerrado", 0)) || 0;
+      if (estado.correo || Date.now() - cerrado < 24 * 60 * 60 * 1000) return;
+      if (panel.classList.contains("abierto")) return setTimeout(intentar, 4000);   // espera a que cierre el carrito
+      abrirPopup(null);
+    }, segundos * 1000);
+  }
+
   function enviarCorreo(input, msg, clasesError) {
     const correo = input.value.trim().toLowerCase();
     if (!correoValido(correo)) {
@@ -1971,7 +2017,6 @@ const POLITICAS = [
       $$('[data-usuario="tiktok"]').forEach((e) => { e.textContent = "@" + CONFIG.tiktok; });
     }
     $$("[data-pct]").forEach((e) => { e.textContent = PCT; });
-    $("#descuento").hidden = !PCT;
     $$("[data-con-descuento]").forEach((e) => { e.hidden = !PCT; });
     $("#aviso-wa").hidden = waListo;
     $("#aviso-correos").hidden = Boolean(String(CONFIG.guardarCorreosEn || "").trim());
@@ -2137,7 +2182,24 @@ const POLITICAS = [
       if (abrir) abrirCarrito(abrir);
     });
     $("#cerrar-carrito").addEventListener("click", cerrarCarrito);
-    velo.addEventListener("click", cerrarCarrito);
+    velo.addEventListener("click", () => { cerrarCarrito(); cerrarPopup(); });
+    // Ventana del descuento
+    document.addEventListener("click", (e) => {
+      const abrir = e.target.closest("[data-abrir-descuento]");
+      if (abrir) abrirPopup(abrir);
+    });
+    $("#popup-cerrar").addEventListener("click", cerrarPopup);
+    $("#popup-no").addEventListener("click", () => {
+      cerrarPopup();
+      $("#catalogo").scrollIntoView({ behavior: suave() ? "smooth" : "auto", block: "start" });
+    });
+    popup.addEventListener("keydown", (e) => {   // el foco no sale de la ventana
+      if (e.key !== "Tab") return;
+      const foco = $$("button, input", popup).filter((el) => el.offsetParent !== null);
+      const primero = foco[0], ultimo = foco[foco.length - 1];
+      if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+      else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
+    });
     $("#btn-whatsapp").addEventListener("click", (e) => { if (faltaEntrega()) e.preventDefault(); });
     $("#btn-mp").addEventListener("click", (e) => {
       if (faltaEntrega()) return e.preventDefault();
@@ -2172,12 +2234,12 @@ const POLITICAS = [
       if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
       else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
     });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") { cerrarCarrito(); cerrarMenu(); } });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") { cerrarPopup(); cerrarCarrito(); cerrarMenu(); } });
 
     // Descuento por correo (sección y carrito)
     $("#form-correo").addEventListener("submit", (e) => {
       e.preventDefault();
-      enviarCorreo($("#correo"), $("#correo-msg"), "mt-2.5 text-sm text-[#f0a090]");
+      enviarCorreo($("#correo"), $("#correo-msg"), "mt-2.5 text-sm text-alerta");
     });
     $("#form-correo-carrito").addEventListener("submit", (e) => {
       e.preventDefault();
@@ -2275,6 +2337,7 @@ const POLITICAS = [
   actualizarCarrito();
   datosEstructurados();
   conectar();
+  programarPopup();
 })();
 </script>
 </body>
