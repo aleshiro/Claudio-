@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aleshiro.github.io/Claudio-/sitemap.xml
+Sitemap: https://decants-prime.vercel.app/sitemap.xml

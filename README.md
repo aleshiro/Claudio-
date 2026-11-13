@@ -180,7 +180,7 @@ En `CONFIG` escribe tu usuario de `instagram` y de `tiktok`, sin `@`. Aparecen e
 1. En GitHub entra a este repositorio → **Settings** → **Pages**.
 2. En *Source* elige **Deploy from a branch**.
 3. En *Branch* elige la rama que contiene `index.html` y la carpeta **/ (root)**. Guarda.
-4. Espera uno o dos minutos. La página queda en `https://aleshiro.github.io/Claudio-/`.
+4. Espera uno o dos minutos. La página queda en `https://decants-prime.vercel.app/`.
 
 En el plan gratuito de GitHub el repositorio debe ser público.
 
@@ -190,9 +190,9 @@ En el plan gratuito de GitHub el repositorio debe ser público.
 2. **Add New → Project**, elige este repositorio y presiona **Deploy**. No hay nada que configurar.
 3. Vercel te da una dirección del tipo `tu-proyecto.vercel.app` y permite conectar un dominio propio.
 
-### Si la dirección final no es `aleshiro.github.io/Claudio-`
+### Si la dirección final no es `decants-prime.vercel.app`
 
-Busca `https://aleshiro.github.io/Claudio-/` y reemplázalo por tu dirección real en `index.html` (parte superior), `robots.txt` y `sitemap.xml`. Es importante para Google y para la vista previa al compartir el link.
+Busca `https://decants-prime.vercel.app/` y reemplázalo por tu dirección real en `index.html` (parte superior), `robots.txt` y `sitemap.xml`. Es importante para Google y para la vista previa al compartir el link.
 
 ## 9. SEO: qué ya está hecho y qué te toca a ti
 
