@@ -956,7 +956,7 @@ const CONFIG = {
   mercadopago: {
     activo: true,
     linkDePago: "",
-    servidor: "",
+    servidor: "/api/pagar",
   },
 
   // Letras que se muestran dentro del círculo de cada marca en el filtro del catálogo.
@@ -1373,6 +1373,7 @@ const POLITICAS = [
     amaderado: ["amaderad", "ahumad", "ambarad", "especiad"],
   };
   const PAGOS = ["Transferencia bancaria"].concat(MP.activo ? ["Mercado Pago"] : []);
+  const PAGO_INICIAL = MP.activo ? "Mercado Pago" : PAGOS[0];   // viene seleccionado al abrir el carrito
   const numeroWa = String(CONFIG.whatsapp).replace(/\D/g, "");
   const waListo = numeroWa.length >= 10 && !/x/i.test(String(CONFIG.whatsapp));
 
@@ -1417,7 +1418,7 @@ const POLITICAS = [
     match: { momento: "", aroma: "" },
     correo: "",
     entrega: "",
-    pago: PAGOS[0],
+    pago: PAGO_INICIAL,
   };
 
   /* ---------- Packs: precios ---------- */
@@ -2328,7 +2329,7 @@ const POLITICAS = [
   const entregaGuardada = leer("dp_entrega", "");
   estado.entrega = ENTREGAS.some((e) => e.nombre === entregaGuardada) ? entregaGuardada : "";
   const pagoGuardado = leer("dp_pago", "");
-  estado.pago = PAGOS.indexOf(pagoGuardado) !== -1 ? pagoGuardado : PAGOS[0];
+  estado.pago = PAGOS.indexOf(pagoGuardado) !== -1 ? pagoGuardado : PAGO_INICIAL;
 
   pintarCatalogo();
   pintarPacks();
