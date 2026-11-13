@@ -156,7 +156,18 @@ En el carrito el cliente elige **Transferencia bancaria** o **Mercado Pago**, y 
 
 Para dejar solo transferencia, pon `activo: false`.
 
-**Sobre la forma C, para quien la programe:** la clave secreta de Mercado Pago no puede vivir en `index.html` porque cualquiera podría verla. La página envía por `POST` a `servidor` un JSON con `items` (`tipo`, `id`, `ml`, `cantidad`), `correo` y `entrega`. El servidor recalcula los precios con su propia lista (nunca confía en montos que vengan del navegador), crea la preferencia de Checkout Pro y responde `{ "url": "<init_point>" }`. En Vercel puede ser una función gratuita dentro de este repositorio (carpeta `api/`).
+**Forma C, paso a paso.** El servidor ya está escrito en `api/pagar.js`. Solo funciona si publicas la página en **Vercel** (GitHub Pages no ejecuta ese archivo).
+
+1. Publica el repositorio en Vercel (punto "Publicar la página gratis", opción B).
+2. En Vercel entra a **Settings → Environment Variables**, crea una variable llamada `MP_ACCESS_TOKEN`, pega tu Access Token de producción de Mercado Pago y guarda. Luego ve a **Deployments** y vuelve a desplegar.
+3. En `index.html`, dentro de `CONFIG.mercadopago`, escribe `servidor: "/api/pagar",`.
+4. Haz una compra de prueba por un monto bajo.
+
+El Access Token nunca va escrito en `index.html` ni en `api/pagar.js`: cualquiera podría verlo.
+
+**⚠ Los precios están en dos lugares.** `api/pagar.js` calcula el total con su propia lista de precios, para que nadie pueda pagar menos manipulando la página. Si cambias un precio, un pack, el porcentaje de descuento o el costo de envío en `index.html`, cámbialo también en `api/pagar.js`.
+
+El pago queda registrado en tu cuenta de Mercado Pago con el detalle del pedido. El cliente igual debe enviarte el pedido por WhatsApp para coordinar la entrega.
 
 ## 7. Redes sociales
 
