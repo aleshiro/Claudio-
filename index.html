@@ -2124,6 +2124,17 @@ const POLITICAS = [
         if (p.imagen) producto.image = new URL(p.imagen, url).href;
         const r = resenasDe(p.id);
         if (r.total) producto.aggregateRating = { "@type": "AggregateRating", ratingValue: +r.promedio.toFixed(1), reviewCount: r.total, bestRating: 5 };
+        // Reseñas reales de ese perfume (solo las publicadas en RESENAS)
+        if (r.total) producto.review = RESENAS_OK.filter((x) => x.perfume === p.id).map((x) => {
+          const resena = {
+            "@type": "Review",
+            author: { "@type": "Person", name: x.nombre || "Cliente" },
+            reviewRating: { "@type": "Rating", ratingValue: Number(x.estrellas), bestRating: 5, worstRating: 1 },
+            reviewBody: x.texto,
+          };
+          if (/^\d{4}-\d{2}/.test(String(x.fecha || ""))) resena.datePublished = String(x.fecha).slice(0, 7);
+          return resena;
+        });
         return { "@type": "ListItem", position: i + 1, item: producto };
       }),
     };
