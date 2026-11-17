@@ -1255,6 +1255,19 @@ const PRODUCTOS = [
     color: "#f2703a",
     imagen: "assets/perfumes/rayhaan-tropical-vibe.png",
   },
+  // ───────────── PRODUCTO DE PRUEBA ─────────────
+  // Solo aparece si abres la página con ?prueba al final: https://www.decantsprime.cl/?prueba
+  // Sirve para probar un pago real con Mercado Pago. Bórralo (y también en api/pagar.js) cuando ya no lo uses.
+  {
+    id: "caja-premium-prueba", nombre: "Caja Premium (prueba)", marca: "decantsprime", categoria: "Nicho",
+    acordes: "Producto de prueba para Mercado Pago",
+    inspiracion: "",
+    ocasion: [],
+    soloPrueba: true,
+    precios: { 2: 100 },
+    color: "#c5a059",
+    imagen: "",
+  },
 ];
 
 /* PACKS
@@ -1365,6 +1378,10 @@ const POLITICAS = [
   const guardar = (clave, valor) => { try { localStorage.setItem(clave, JSON.stringify(valor)); } catch (e) {} };
   const leer = (clave, porDefecto) => { try { const v = JSON.parse(localStorage.getItem(clave)); return v == null ? porDefecto : v; } catch (e) { return porDefecto; } };
 
+  // Los productos de prueba solo se muestran si la dirección termina en ?prueba
+  if (!/[?&]prueba\b/.test(location.search)) {
+    for (let i = PRODUCTOS.length - 1; i >= 0; i--) if (PRODUCTOS[i].soloPrueba) PRODUCTOS.splice(i, 1);
+  }
   const porId = Object.fromEntries(PRODUCTOS.map((p) => [p.id, p]));
   const packPorId = Object.fromEntries(PACKS.map((p) => [p.id, p]));
   const PCT = Math.max(0, Number(CONFIG.descuentoCorreo) || 0);
