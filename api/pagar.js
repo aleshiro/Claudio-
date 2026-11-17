@@ -25,11 +25,11 @@ const MAX_UNIDADES = 99;
 
 // ── Precios por tamaño (ml: pesos). Los mismos del catálogo. ──
 const PRODUCTOS = {
-  "erba-gold": { nombre: "Xerjoff Erba Gold", precios: { 2: 10490, 3: 12490, 5: 19990, 10: 34990 } },
-  "torino-21": { nombre: "Xerjoff Torino 21", precios: { 2: 10490, 3: 12490, 5: 19990, 10: 34990 } },
-  "cherry-ink": { nombre: "Lorenzo Pazzaglia Cherry Ink", precios: { 2: 15490, 3: 17490, 5: 28990, 10: 54990 } },
-  "summer-hammer": { nombre: "Lorenzo Pazzaglia Summer Hammer", precios: { 2: 16000, 3: 18000, 5: 28000, 10: 52000 } },
-  "by-the-fireplace": { nombre: "Maison Margiela By the Fireplace", precios: { 2: 9000, 3: 11000, 5: 17000, 10: 31000 } },
+  "erba-gold": { nombre: "Xerjoff Erba Gold", precios: { 2: 9990, 3: 12490, 5: 19990, 10: 34990 } },
+  "torino-21": { nombre: "Xerjoff Torino 21", precios: { 2: 9990, 3: 12490, 5: 19990, 10: 34990 } },
+  "cherry-ink": { nombre: "Lorenzo Pazzaglia Cherry Ink", precios: { 2: 12490, 3: 17490, 5: 28990, 10: 54990 } },
+  "summer-hammer": { nombre: "Lorenzo Pazzaglia Summer Hammer", precios: { 2: 14990, 3: 18000, 5: 28000, 10: 52000 } },
+  "by-the-fireplace": { nombre: "Maison Margiela By the Fireplace", precios: { 2: 10990, 3: 11000, 5: 17000, 10: 31000 } },
   "le-beau": { nombre: "Jean Paul Gaultier Le Beau Clásico", precios: { 3: 7990, 5: 11990, 10: 19990 } },
   "le-beau-flower": { nombre: "Jean Paul Gaultier Le Beau Flower Edition", precios: { 3: 7990, 5: 11990, 10: 19990 } },
   "stronger-with-you-intensely": { nombre: "Armani Stronger With You Intensely", precios: { 3: 7990, 5: 11990, 10: 20990 } },
