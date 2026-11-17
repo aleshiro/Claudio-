@@ -40,8 +40,6 @@ const PRODUCTOS = {
   "1-million-lucky": { nombre: "Paco Rabanne 1 Million Lucky", precios: { 3: 6990, 5: 10490, 10: 18990 } },
   "sauvage-edp": { nombre: "Dior Sauvage EDP", precios: { 3: 11990, 5: 17490, 10: 26990 } },
   "starwalker-extreme": { nombre: "Montblanc Starwalker Extreme", precios: { 3: 4490, 5: 5990, 10: 9990 } },
-  // Producto de prueba (se ve solo en https://www.decantsprime.cl/?prueba). Bórralo cuando ya no lo uses.
-  "caja-premium-prueba": { nombre: "Caja Premium (prueba)", precios: { 2: 100 } },
   "asad-zanzibar": { nombre: "Lattafa Asad Zanzibar", precios: { 3: 4490, 5: 5990, 10: 9990 } },
   "khamrah-qahwa": { nombre: "Lattafa Khamrah Qahwa", precios: { 3: 4490, 5: 5990, 10: 9990 } },
   "opulent-dubai": { nombre: "Lattafa Opulent Dubai", precios: { 3: 2990, 5: 4490, 10: 7490 } },
