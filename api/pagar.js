@@ -55,6 +55,9 @@ const PRODUCTOS = {
   "fragaby-2": { nombre: "Risala Fragaby 2", precios: { 3: 3990, 5: 6490, 10: 9990 } },
   "rayhaan-aqua": { nombre: "Rayhaan Aqua", precios: { 3: 4490, 5: 6990, 10: 10990 } },
   "tropical-vibe": { nombre: "Rayhaan Tropical Vibe", precios: { 3: 4490, 5: 6990, 10: 10990 } },
+  "vulcan-feu": { nombre: "French Avenue Vulcan Feu", precios: { 3: 4990, 5: 7990, 10: 12990 } },
+  "beach-party": { nombre: "Armaf Beach Party", precios: { 3: 4490, 5: 6990, 10: 10990 } },
+  "rayhaan-elixir": { nombre: "Rayhaan Elixir", precios: { 3: 4490, 5: 6990, 10: 10990 } },
 };
 
 const PACKS = {
