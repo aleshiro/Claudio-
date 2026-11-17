@@ -180,7 +180,7 @@ En `CONFIG` escribe tu usuario de `instagram` y de `tiktok`, sin `@`. Aparecen e
 1. En GitHub entra a este repositorio → **Settings** → **Pages**.
 2. En *Source* elige **Deploy from a branch**.
 3. En *Branch* elige la rama que contiene `index.html` y la carpeta **/ (root)**. Guarda.
-4. Espera uno o dos minutos. La página queda en `https://decantsprime.cl/`.
+4. Espera uno o dos minutos. La página queda en `https://www.decantsprime.cl/`.
 
 En el plan gratuito de GitHub el repositorio debe ser público.
 
@@ -192,7 +192,7 @@ En el plan gratuito de GitHub el repositorio debe ser público.
 
 ### Si la dirección final no es `decantsprime.cl`
 
-Busca `https://decantsprime.cl/` y reemplázalo por tu dirección real en `index.html` (parte superior), `robots.txt` y `sitemap.xml`. Es importante para Google y para la vista previa al compartir el link.
+Busca `https://www.decantsprime.cl/` y reemplázalo por tu dirección real en `index.html` (parte superior), `robots.txt` y `sitemap.xml`. Es importante para Google y para la vista previa al compartir el link.
 
 ## 9. SEO: qué ya está hecho y qué te toca a ti
 
