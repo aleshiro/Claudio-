@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """
-Prepara la foto de una botella para la tienda: quita el fondo blanco (si la foto
-no viene ya con fondo transparente), recorta al contorno de la botella y la guarda
-como PNG transparente en assets/perfumes/.
+Prepara la foto de una botella para la tienda: quita el fondo blanco o negro (si la
+foto no viene ya con fondo transparente), recorta al contorno de la botella y la
+guarda como PNG transparente en assets/perfumes/. Detecta sola si el fondo es claro
+u oscuro mirando los bordes de la foto.
 
 Uso (desde la carpeta del repositorio):
     python3 tools/recortar-fotos.py FOTO NOMBRE [UMBRAL]
 
-    FOTO    archivo original (jpg, png, webp) con la botella sobre fondo blanco
+    FOTO    archivo original (jpg, png, webp) con la botella sobre fondo blanco o negro
     NOMBRE  nombre final sin extensión, por ejemplo  dior-sauvage-edp
     UMBRAL  opcional, 0-255. Qué tan blanco debe ser un punto para contarlo como
             fondo. 246 sirve para fondos blancos limpios; usa cerca de 200 si la
-            foto trae una sombra gris alrededor de la botella.
+            foto trae una sombra gris alrededor de la botella. Con fondo negro se
+            usa 225 por defecto (puntos con brillo de 30 o menos).
 
 Después, en index.html, escribe en el perfume:
     imagen: "assets/perfumes/NOMBRE.png",
@@ -28,7 +30,7 @@ ALTO_FINAL = 480  # alto en píxeles; suficiente para pantallas de celular y com
 DESTINO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "perfumes")
 
 
-def recortar(origen, nombre, umbral=246):
+def recortar(origen, nombre, umbral=None):
     imagen = Image.open(origen).convert("RGBA")
     # Si la foto ya viene con fondo transparente, solo se recorta al contorno y se ajusta el tamaño.
     canal_alfa = np.asarray(imagen.getchannel("A"))
@@ -39,6 +41,13 @@ def recortar(origen, nombre, umbral=246):
     plana.alpha_composite(imagen)
     datos = np.asarray(plana.convert("RGB")).astype(np.float32)
     alto, ancho, _ = datos.shape
+    # Fondo oscuro: se invierte la foto, se quita el fondo como si fuera blanco y al final se vuelve a invertir.
+    bordes = np.concatenate([datos[0], datos[-1], datos[:, 0], datos[:, -1]])
+    oscuro = bordes.mean() < 70
+    if oscuro:
+        datos = 255.0 - datos
+    if umbral is None:
+        umbral = 225 if oscuro else 246
     minimo = datos.min(axis=2)
     saturacion = datos.max(axis=2) - minimo
 
@@ -62,6 +71,8 @@ def recortar(origen, nombre, umbral=246):
     color = datos.copy()
     k = np.clip(alfa, 0.05, 1)[..., None]
     color[borde] = np.clip((datos[borde] - 255.0 * (1 - k[borde])) / k[borde], 0, 255)
+    if oscuro:
+        color = 255.0 - color
     resultado = Image.fromarray(np.dstack([color, alfa * 255]).round().astype(np.uint8), "RGBA")
 
     # 4) Recorte al contorno con un pequeño margen y tamaño final.
@@ -87,4 +98,4 @@ def guardar(resultado, nombre):
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         raise SystemExit(__doc__)
-    recortar(sys.argv[1], sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 246)
+    recortar(sys.argv[1], sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else None)
