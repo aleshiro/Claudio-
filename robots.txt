@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://decants-prime.vercel.app/sitemap.xml
+Sitemap: https://decantsprime.cl/sitemap.xml

@@ -1,5 +1,5 @@
 /*
- * api/pagar.js — cobro automático con Mercado Pago (Checkout Pro) para decants_prime.
+ * api/pagar.js — cobro automático con Mercado Pago (Checkout Pro) para decantsprime.
  *
  * Qué hace: recibe el carrito desde la página, calcula el total CON SUS PROPIOS PRECIOS
  * (nunca confía en montos enviados por el navegador), crea el cobro en Mercado Pago y
@@ -113,7 +113,7 @@ module.exports = async function pagar(req, res) {
 
   const preferencia = {
     // Un solo ítem por el total exacto, para que coincida al peso con lo que vio el cliente.
-    items: [{ title: "Pedido decants_prime", description: detalle.slice(0, 250), quantity: 1, currency_id: "CLP", unit_price: pedido.total }],
+    items: [{ title: "Pedido decantsprime", description: detalle.slice(0, 250), quantity: 1, currency_id: "CLP", unit_price: pedido.total }],
     statement_descriptor: "DECANTS PRIME",
     back_urls: { success: sitio + "/?pago=aprobado", pending: sitio + "/?pago=pendiente", failure: sitio + "/?pago=rechazado" },
     auto_return: "approved",
