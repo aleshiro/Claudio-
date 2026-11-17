@@ -165,6 +165,12 @@ Para dejar solo transferencia, pon `activo: false`.
 
 El Access Token nunca va escrito en `index.html` ni en `api/pagar.js`: cualquiera podría verlo.
 
+**Aviso automático de cada venta.** Cuando un pago con Mercado Pago queda aprobado, `api/aviso-pago.js` te manda un correo (por Formspree) con qué compró, el total, cómo lo recibe y los datos del cliente: nombre, teléfono y, si es Blue Express, correo, RUT, dirección, comuna, región e indicaciones. Esos datos los pide el carrito: nombre y teléfono para pagar en línea, y todo lo del despacho cuando elige Blue Express.
+
+- Por defecto el aviso llega al mismo formulario de Formspree de los correos del descuento. Si prefieres separarlos, crea otro formulario en Formspree y guarda su link en Vercel como variable `AVISO_FORMSPREE`.
+- Para recibir además una notificación en el celular: instala la app gratuita **ntfy**, suscríbete a un nombre difícil de adivinar (por ejemplo `decantsprime-ventas-8k2p9x`) y guarda ese mismo nombre en Vercel como variable `NTFY_TOPIC`.
+- Después de crear o cambiar una variable en Vercel, vuelve a desplegar.
+
 **⚠ Los precios están en dos lugares.** `api/pagar.js` calcula el total con su propia lista de precios, para que nadie pueda pagar menos manipulando la página. Si cambias un precio, un pack, el porcentaje de descuento o el costo de envío en `index.html`, cámbialo también en `api/pagar.js`.
 
 El pago queda registrado en tu cuenta de Mercado Pago con el detalle del pedido. El cliente igual debe enviarte el pedido por WhatsApp para coordinar la entrega.

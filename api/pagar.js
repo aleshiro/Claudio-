@@ -5,6 +5,9 @@
  * (nunca confía en montos enviados por el navegador), crea el cobro en Mercado Pago y
  * devuelve la dirección de pago:  { "url": "https://www.mercadopago.cl/checkout/..." }
  *
+ * Aviso de venta: al crear el cobro se le indica a Mercado Pago que avise a /api/aviso-pago
+ * cuando se apruebe un pago. Ese archivo te manda un correo con el detalle (ver api/aviso-pago.js).
+ *
  * Cómo se activa (en Vercel):
  *   1. Publica este repositorio en Vercel. Este archivo queda disponible en /api/pagar.
  *   2. En Vercel: Settings > Environment Variables, crea MP_ACCESS_TOKEN con tu Access Token
@@ -57,9 +60,9 @@ const PRODUCTOS = {
 };
 
 const PACKS = {
-  "trio-arabe": { nombre: "Trío Árabe", precio: 17990 },
-  "duo-xerjoff": { nombre: "Dúo Xerjoff", precio: 40990 },
-  "descubrimiento": { nombre: "Pack Descubrimiento", precio: 24990 },
+  "trio-arabe": { nombre: "Trío Árabe", precio: 17990, contenido: "Hawas Tropical 5 ml + Turathi Blue 5 ml + Club de Nuit Intense Man 5 ml" },
+  "duo-xerjoff": { nombre: "Dúo Xerjoff", precio: 40990, contenido: "Torino 21 5 ml + Erba Gold 5 ml" },
+  "descubrimiento": { nombre: "Pack Descubrimiento", precio: 24990, contenido: "Torino 21 3 ml + Le Beau Clásico 3 ml + Hawas Tropical 3 ml" },
 };
 
 const correoValido = (c) => typeof c === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c.trim());
@@ -75,7 +78,7 @@ function calcularPedido(cuerpo) {
     if (item.tipo === "pack") {
       const pack = Object.prototype.hasOwnProperty.call(PACKS, item.id) ? PACKS[item.id] : null;
       if (!pack) throw new Error("Pack no disponible.");
-      return { titulo: pack.nombre, cantidad, unitario: pack.precio };
+      return { titulo: pack.nombre + (pack.contenido ? " (" + pack.contenido + ")" : ""), cantidad, unitario: pack.precio };
     }
     const producto = Object.prototype.hasOwnProperty.call(PRODUCTOS, item.id) ? PRODUCTOS[item.id] : null;
     const precio = producto && Object.prototype.hasOwnProperty.call(producto.precios, String(item.ml)) ? producto.precios[String(item.ml)] : 0;
@@ -112,6 +115,10 @@ module.exports = async function pagar(req, res) {
     (pedido.conEnvio ? " | Envío Blue Express: " + (pedido.envio ? clp(pedido.envio) : "gratis") : "") +
     (pedido.vialGratis ? " | Regalo: vial sorpresa 2 ml" : "");
   const sitio = "https://" + (req.headers["x-forwarded-host"] || req.headers.host || "");
+  // Datos de contacto que el cliente escribió en el carrito (para el aviso de venta)
+  const c = (cuerpo && typeof cuerpo.cliente === "object" && cuerpo.cliente) || {};
+  const texto = (v, max) => String(v || "").replace(/\s+/g, " ").trim().slice(0, max);
+  const referencia = "DP-" + Date.now().toString(36).toUpperCase() + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
 
   const preferencia = {
     // Un solo ítem por el total exacto, para que coincida al peso con lo que vio el cliente.
@@ -119,7 +126,17 @@ module.exports = async function pagar(req, res) {
     statement_descriptor: "DECANTS PRIME",
     back_urls: { success: sitio + "/?pago=aprobado", pending: sitio + "/?pago=pendiente", failure: sitio + "/?pago=rechazado" },
     auto_return: "approved",
+    notification_url: sitio + "/api/aviso-pago",
+    external_reference: referencia,
     metadata: {
+      // Pedido línea por línea, para el aviso de venta
+      productos: pedido.lineas.map((l) => "• " + l.cantidad + " x " + l.titulo + " — " + clp(l.unitario * l.cantidad)).join("\n"),
+      cliente_nombre: texto(c.nombre, 60),
+      cliente_telefono: texto(c.telefono, 20),
+      cliente_correo: correoValido(c.correo) ? texto(c.correo, 80).toLowerCase() : "",
+      cliente_rut: texto(c.rut, 12),
+      cliente_direccion: texto(c.direccion, 220),
+      cliente_notas: texto(c.notas, 120),
       detalle: detalle,
       entrega: String(cuerpo.entrega || "").slice(0, 120),
       correo: correoValido(cuerpo.correo) ? cuerpo.correo.trim().toLowerCase() : "",

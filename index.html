@@ -773,6 +773,53 @@ select.campo { background-image: linear-gradient(45deg, transparent 50%, rgb(var
         <div id="carrito-pago" class="mt-3 flex flex-col gap-2"></div>
       </fieldset>
 
+      <!-- Datos de contacto y despacho: se piden en la página para que el cliente no tenga que escribirte -->
+      <fieldset id="datos-cliente" class="mt-6" hidden>
+        <legend id="datos-cliente-titulo" class="eyebrow">Tus datos</legend>
+        <div class="mt-3 flex flex-col gap-2.5">
+          <label class="sr-only" for="cliente-nombre">Nombre y apellido</label>
+          <input id="cliente-nombre" class="campo" type="text" autocomplete="name" maxlength="60" placeholder="Nombre y apellido">
+          <label class="sr-only" for="cliente-telefono">Teléfono o WhatsApp (+56 9 …)</label>
+          <input id="cliente-telefono" class="campo" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="Teléfono o WhatsApp (+56 9 …)">
+          <!-- Solo para envío por Blue Express -->
+          <div id="datos-despacho" class="flex flex-col gap-2.5" hidden>
+            <label class="sr-only" for="cliente-correo">Correo (para el seguimiento)</label>
+            <input id="cliente-correo" class="campo" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="80" placeholder="Correo (para el seguimiento)">
+            <label class="sr-only" for="cliente-rut">RUT (opcional)</label>
+            <input id="cliente-rut" class="campo" type="text" inputmode="text" autocomplete="off" maxlength="12" placeholder="RUT (opcional)">
+            <label class="sr-only" for="cliente-calle">Calle y número</label>
+            <input id="cliente-calle" class="campo" type="text" autocomplete="address-line1" maxlength="100" placeholder="Calle y número">
+            <label class="sr-only" for="cliente-depto">Depto, casa o block (opcional)</label>
+            <input id="cliente-depto" class="campo" type="text" autocomplete="address-line2" maxlength="40" placeholder="Depto, casa o block (opcional)">
+            <label class="sr-only" for="cliente-comuna">Comuna</label>
+            <input id="cliente-comuna" class="campo" type="text" autocomplete="address-level2" maxlength="40" placeholder="Comuna">
+            <label class="sr-only" for="cliente-region">Región</label>
+            <select id="cliente-region" class="campo" autocomplete="address-level1">
+              <option value="">Región</option>
+              <option>Arica y Parinacota</option>
+              <option>Tarapacá</option>
+              <option>Antofagasta</option>
+              <option>Atacama</option>
+              <option>Coquimbo</option>
+              <option>Valparaíso</option>
+              <option>Metropolitana de Santiago</option>
+              <option>O'Higgins</option>
+              <option>Maule</option>
+              <option>Ñuble</option>
+              <option>Biobío</option>
+              <option>La Araucanía</option>
+              <option>Los Ríos</option>
+              <option>Los Lagos</option>
+              <option>Aysén</option>
+              <option>Magallanes</option>
+            </select>
+            <label class="sr-only" for="cliente-notas">Indicaciones para el despacho (opcional)</label>
+            <input id="cliente-notas" class="campo" type="text" maxlength="120" placeholder="Indicaciones para el despacho (opcional)">
+          </div>
+        </div>
+        <p id="cliente-msg" class="mt-2.5 text-sm text-alerta" role="alert" hidden></p>
+      </fieldset>
+
       <div class="my-6 border border-linea bg-papel p-4">
         <!-- Sin correo: formulario. Con correo: confirmación. -->
         <form id="form-correo-carrito" novalidate>
@@ -1452,6 +1499,7 @@ const POLITICAS = [
     correo: "",
     entrega: "",
     pago: PAGO_INICIAL,
+    cliente: { nombre: "", telefono: "", correo: "", rut: "", calle: "", depto: "", comuna: "", region: "", notas: "" },
   };
 
   /* ---------- Packs: precios ---------- */
@@ -1518,6 +1566,7 @@ const POLITICAS = [
     const beneficios = [].concat(t.vialGratis ? ["Vial sorpresa de 2 ml GRATIS"] : [], t.envioGratis && conEnvio ? ["Envío GRATIS"] : []);
     if (beneficios.length) m.push("*Beneficios desbloqueados:* " + beneficios.join(" + "));
     m.push("*Forma de pago:* " + estado.pago);
+    datosParaMensaje().forEach((l) => m.push(l));
     m.push("", conMP ? "Quedo atento al link de pago de Mercado Pago. ¡Gracias!" : "Quedo atento a los datos de transferencia. ¡Gracias!");
     return m.join("\n");
   }
@@ -1871,6 +1920,7 @@ const POLITICAS = [
         : "¡Felicidades! Tienes " + [].concat(META_VIAL ? ["un Vial Sorpresa GRATIS"] : [], META_ENVIO ? ["ENVÍO GRATIS"] : []).join(" + ");
     }
     $("#t-pago").textContent = estado.pago;
+    pintarDatosCliente();
     if (estado.entrega) $("#entrega-msg").hidden = true;
     $("#btn-whatsapp").href = enlaceWhatsApp(mensajePedido());
 
@@ -2017,6 +2067,54 @@ const POLITICAS = [
        { "url": "https://www.mercadopago.cl/checkout/v1/redirect?pref_id=..." }
      El servidor debe calcular los precios por su cuenta (nunca confiar en montos
      enviados desde el navegador). */
+  // Datos del cliente: nombre y teléfono para pagar en línea; con Blue Express, todo lo del despacho
+  const CAMPOS_CLIENTE = ["nombre", "telefono", "correo", "rut", "calle", "depto", "comuna", "region", "notas"];
+  const conDespacho = () => /blue express/i.test(estado.entrega || "");
+  const pagaEnLinea = () => estado.pago === "Mercado Pago" && Boolean(MP.servidor);
+  function pintarDatosCliente() {
+    const despacho = conDespacho();
+    $("#datos-cliente").hidden = !(despacho || pagaEnLinea());
+    $("#datos-despacho").hidden = !despacho;
+    $("#datos-cliente-titulo").textContent = despacho ? "Datos para el envío" : "Tus datos para la entrega";
+    if (despacho && !estado.cliente.correo && estado.correo) { estado.cliente.correo = estado.correo; $("#cliente-correo").value = estado.correo; }
+  }
+  function direccionCompleta() {
+    const c = estado.cliente;
+    return [c.calle, c.depto, c.comuna, c.region].map((v) => String(v || "").trim()).filter(Boolean).join(", ");
+  }
+  // Devuelve true (y marca el campo) si falta algo obligatorio
+  function faltanDatosCliente() {
+    const c = estado.cliente, msg = $("#cliente-msg");
+    const t = (k) => String(c[k] || "").trim();
+    const despacho = conDespacho();
+    const falta = !t("nombre") ? ["nombre", "Escribe tu nombre y apellido."]
+      : t("telefono").replace(/\D/g, "").length < 8 ? ["telefono", "Escribe un teléfono de contacto."]
+      : despacho && !correoValido(t("correo")) ? ["correo", "Escribe un correo válido para enviarte el seguimiento."]
+      : despacho && t("calle").length < 4 ? ["calle", "Escribe la calle y el número para el envío."]
+      : despacho && t("comuna").length < 3 ? ["comuna", "Escribe la comuna."]
+      : despacho && !t("region") ? ["region", "Elige la región."]
+      : null;
+    msg.hidden = !falta;
+    if (!falta) return false;
+    msg.textContent = falta[1];
+    $("#datos-cliente").scrollIntoView({ behavior: suave() ? "smooth" : "auto", block: "center" });
+    $("#cliente-" + falta[0]).focus({ preventScroll: true });
+    return true;
+  }
+  // Líneas de datos del cliente para el mensaje de WhatsApp
+  function datosParaMensaje() {
+    const c = estado.cliente, t = (k) => String(c[k] || "").trim();
+    if (!t("nombre") && !t("telefono")) return [];
+    const m = ["", "*Mis datos:*", "Nombre: " + t("nombre"), "Teléfono: " + t("telefono")];
+    if (conDespacho()) {
+      m.push("Correo: " + t("correo"));
+      if (t("rut")) m.push("RUT: " + t("rut"));
+      m.push("Dirección: " + direccionCompleta());
+      if (t("notas")) m.push("Indicaciones: " + t("notas"));
+    }
+    return m;
+  }
+
   async function pagarEnLinea(boton) {
     const error = $("#pago-error");
     error.hidden = true;
@@ -2030,6 +2128,7 @@ const POLITICAS = [
           correo: estado.correo,
           entrega: estado.entrega,
           envio: totales().envio,
+          cliente: Object.assign({}, estado.cliente, { direccion: conDespacho() ? direccionCompleta() : "" }),
         }),
       });
       const datos = await r.json();
@@ -2270,9 +2369,10 @@ const POLITICAS = [
       if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
       else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
     });
-    $("#btn-whatsapp").addEventListener("click", (e) => { if (faltaEntrega()) e.preventDefault(); });
+    $("#btn-whatsapp").addEventListener("click", (e) => { if (faltaEntrega() || (conDespacho() && faltanDatosCliente())) e.preventDefault(); });
     $("#btn-mp").addEventListener("click", (e) => {
       if (faltaEntrega()) return e.preventDefault();
+      if (MP.servidor && faltanDatosCliente()) return e.preventDefault();
       if (MP.servidor) { e.preventDefault(); pagarEnLinea(e.currentTarget); }
     });
     $("#carrito-lineas").addEventListener("click", (e) => {
@@ -2290,6 +2390,17 @@ const POLITICAS = [
       estado.entrega = e.target.value;
       guardar("dp_entrega", estado.entrega);
       actualizarCarrito();
+    });
+    CAMPOS_CLIENTE.forEach((k) => {
+      const campo = $("#cliente-" + k);
+      const alCambiar = () => {
+        estado.cliente[k] = campo.value;
+        guardar("dp_cliente", estado.cliente);
+        $("#cliente-msg").hidden = true;
+        $("#btn-whatsapp").href = enlaceWhatsApp(mensajePedido());
+      };
+      campo.addEventListener("input", alCambiar);
+      campo.addEventListener("change", alCambiar);
     });
     $("#carrito-pago").addEventListener("change", (e) => {
       estado.pago = e.target.value;
@@ -2396,6 +2507,12 @@ const POLITICAS = [
   if (estado.correo && PCT) registrarCorreo(estado.correo);   // reintento si antes no se pudo enviar
   const entregaGuardada = leer("dp_entrega", "");
   estado.entrega = ENTREGAS.some((e) => e.nombre === entregaGuardada) ? entregaGuardada : "";
+  const clienteGuardado = leer("dp_cliente", {});
+  CAMPOS_CLIENTE.forEach((k) => {
+    const v = clienteGuardado && typeof clienteGuardado[k] === "string" ? clienteGuardado[k].slice(0, 160) : "";
+    estado.cliente[k] = v;
+    $("#cliente-" + k).value = v;
+  });
   const pagoGuardado = leer("dp_pago", "");
   estado.pago = PAGOS.indexOf(pagoGuardado) !== -1 ? pagoGuardado : PAGO_INICIAL;
 
