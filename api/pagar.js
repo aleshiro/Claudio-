@@ -134,7 +134,6 @@ module.exports = async function pagar(req, res) {
       cliente_nombre: texto(c.nombre, 60),
       cliente_telefono: texto(c.telefono, 20),
       cliente_correo: correoValido(c.correo) ? texto(c.correo, 80).toLowerCase() : "",
-      cliente_rut: texto(c.rut, 12),
       cliente_direccion: texto(c.direccion, 220),
       cliente_notas: texto(c.notas, 120),
       detalle: detalle,

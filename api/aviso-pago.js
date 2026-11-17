@@ -56,7 +56,6 @@ async function enviarAvisos(pago) {
     "DATOS DEL CLIENTE",
     "Cliente: " + (m.cliente_nombre || [pago.payer && pago.payer.first_name, pago.payer && pago.payer.last_name].filter(Boolean).join(" ") || "sin nombre"),
     "Teléfono: " + (m.cliente_telefono || "sin teléfono"),
-    m.cliente_rut ? "RUT: " + m.cliente_rut : "",
     m.cliente_direccion ? "Dirección: " + m.cliente_direccion : "",
     m.cliente_notas ? "Indicaciones: " + m.cliente_notas : "",
     "Correo: " + (m.cliente_correo || m.correo || (pago.payer && pago.payer.email) || "sin correo"),
