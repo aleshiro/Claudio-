@@ -142,6 +142,12 @@ const RESENAS = [
 
 - `perfume` es el `id` del perfume o pack (déjalo `""` si opina de la tienda en general).
 - Con las reseñas publicadas se calculan solos el promedio de la tienda y las estrellas de cada tarjeta, con la cantidad entre paréntesis. Google también recibe esas puntuaciones.
+- **Mini página por perfume:** al tocar las estrellas de una tarjeta se abre una ventana con todas las reseñas de ese perfume, el promedio, cuántas hay de cada puntuación y las fotos de clientes. También se puede abrir con un link, por ejemplo `https://www.decantsprime.cl/#opiniones-erba-gold` (sirve para compartir en historias).
+- **Fotos de clientes:** el formulario tiene la casilla "Tengo una foto de mi decant"; el cliente te la envía por WhatsApp. Para publicarla:
+  1. `python3 tools/preparar-foto-resena.py foto-original.jpg camila-erba-gold` (la achica y le quita la ubicación GPS y los demás datos ocultos).
+  2. Sube el archivo que queda en `assets/resenas/`.
+  3. En la reseña agrega `fotos: ["assets/resenas/camila-erba-gold.jpg"],`. Puede llevar varias fotos.
+  Publica solo fotos de clientes que te dieron permiso.
 - Mientras la lista esté vacía no aparecen estrellas. **Publica solo reseñas reales:** las puntuaciones inventadas son publicidad engañosa y, si un cliente lo nota, cuestan más confianza de la que dan.
 
 ## 6. Mercado Pago

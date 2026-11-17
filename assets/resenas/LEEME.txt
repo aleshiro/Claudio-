@@ -1,0 +1,8 @@
+Aquí van las fotos que te mandan los clientes para sus reseñas.
+
+1. Prepara cada foto con:  python3 tools/preparar-foto-resena.py foto-original.jpg camila-erba-gold
+   (la achica y le quita la ubicación GPS y los demás datos ocultos).
+2. En index.html, en la lista RESENAS, agrega a la reseña de ese cliente:
+   fotos: ["assets/resenas/camila-erba-gold.jpg"],
+
+Publica solo fotos de clientes que te dieron permiso para mostrarlas.
