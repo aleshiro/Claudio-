@@ -37,7 +37,11 @@ async function main() {
 
   const config = {
     ...baseConfig,
-    content: [{ raw: fuente, extension: "html" }],
+    content: [
+      { raw: fuente, extension: "html" },
+      // Las páginas de cada perfume usan este mismo CSS: también se leen sus clases.
+      { raw: fs.readFileSync(path.join(__dirname, "generar-paginas.js"), "utf8"), extension: "js" },
+    ],
   };
 
   const resultado = await postcss([

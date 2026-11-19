@@ -1,18 +1,38 @@
 # decants_prime · tienda web
 
-Página de una sola pantalla con catálogo, packs, reseñas, carrito y pedido por WhatsApp.
-Funciona sola, sin servidor: se puede publicar gratis en GitHub Pages o Vercel.
+Tienda con catálogo, packs, reseñas, carrito, pago con Mercado Pago y pedido por WhatsApp,
+más una página propia para cada perfume (para Google y para compartir).
+Se publica en Vercel; la página en sí no necesita servidor.
 
 ## Qué hay en esta carpeta
 
 | Archivo | Para qué sirve |
 | --- | --- |
-| `index.html` | **La página completa.** Es lo único que necesitas editar. |
-| `assets/` | Imágenes: ícono e imagen que se ve al compartir el link. En `assets/perfumes/` van las fotos de las botellas. |
-| `robots.txt`, `sitemap.xml` | Ayudan a Google a encontrar la página. |
+| `index.html` | **La página principal.** Es lo único que necesitas editar. |
+| `decant/` | Una página por perfume (por ejemplo `decant/xerjoff-erba-gold/`). **Se crean solas**: no se editan a mano. |
+| `404.html` | La página que aparece si alguien abre una dirección que no existe. También se crea sola. |
+| `assets/` | Imágenes: ícono e imagen que se ve al compartir el link. En `assets/perfumes/` van las fotos de las botellas y en `assets/compartir/` la vista previa de cada perfume. |
+| `api/` | El cobro con Mercado Pago (`pagar.js`) y el aviso de cada venta (`aviso-pago.js`). |
+| `robots.txt`, `sitemap.xml` | Ayudan a Google a encontrar la página. El sitemap se actualiza solo. |
 | `tools/` | Herramientas para quien programe. Puedes ignorarla. |
 
 Todo lo editable está al inicio del bloque `<script>` de `index.html`, con explicaciones en español: `CONFIG` (tus datos), `PRODUCTOS`, `PACKS` y `RESENAS`.
+
+### Después de cambiar perfumes, precios, packs o reseñas
+
+Las páginas de cada perfume, el sitemap y la lista de precios del cobro (`api/pagar.js`) se arman con los datos de `index.html`. Después de cada cambio hay que volver a crearlas, con un solo comando (o pídeselo a Claude):
+
+```bash
+node tools/generar-paginas.js
+```
+
+Si agregaste un perfume o le cambiaste la foto o el nombre, crea también su imagen para compartir (necesita Playwright):
+
+```bash
+node tools/imagenes-compartir.js
+```
+
+Si no lo haces, la portada igual muestra los cambios, pero la página de ese perfume queda con los datos antiguos y Mercado Pago cobra los precios antiguos.
 
 ## 1. Lo primero: tu número de WhatsApp
 
@@ -177,7 +197,7 @@ El Access Token nunca va escrito en `index.html` ni en `api/pagar.js`: cualquier
 - Para recibir además una notificación en el celular: instala la app gratuita **ntfy**, suscríbete a un nombre difícil de adivinar (por ejemplo `decantsprime-ventas-8k2p9x`) y guarda ese mismo nombre en Vercel como variable `NTFY_TOPIC`.
 - Después de crear o cambiar una variable en Vercel, vuelve a desplegar.
 
-**⚠ Los precios están en dos lugares.** `api/pagar.js` calcula el total con su propia lista de precios, para que nadie pueda pagar menos manipulando la página. Si cambias un precio, un pack, el porcentaje de descuento o el costo de envío en `index.html`, cámbialo también en `api/pagar.js`.
+**Precios del cobro.** `api/pagar.js` calcula el total con su propia lista de precios, para que nadie pueda pagar menos manipulando la página. Esa lista la escribe `node tools/generar-paginas.js` con los precios, packs, descuento y costo de envío de `index.html`: ejecútalo después de cada cambio de precios y los dos quedan iguales.
 
 El pago queda registrado en tu cuenta de Mercado Pago con el detalle del pedido. El cliente igual debe enviarte el pedido por WhatsApp para coordinar la entrega.
 
@@ -210,10 +230,17 @@ Busca `https://www.decantsprime.cl/` y reemplázalo por tu dirección real en `i
 
 **Ya incluido:** título y descripción con las palabras que la gente busca, vista previa para WhatsApp e Instagram, datos estructurados para Google (tienda, productos con precios, puntuaciones reales y preguntas frecuentes), carga rápida y diseño para celular.
 
+**Una página por perfume.** Cada perfume tiene su dirección, por ejemplo `https://www.decantsprime.cl/decant/xerjoff-erba-gold/`, con título propio ("Decant Xerjoff Erba Gold en 2, 3, 5 y 10 ml"), descripción, precios por tamaño, reseñas, perfumes parecidos y botón para agregar al carrito. Así Google puede mostrar cada perfume cuando alguien busca "decant erba gold", y el link que compartes muestra la botella de ese perfume.
+
+- La portada enlaza a todas: desde la foto y el nombre de cada tarjeta y desde la lista "Decants por perfume" del pie.
+- Para Google cada perfume lleva sus tamaños con precio, el envío por Blue Express ($3.990, gratis desde $35.000) y la política de devoluciones de la sección Políticas (por higiene no se aceptan devoluciones de decants abiertos). Si cambias esa política, avísale a quien mantenga la página.
+- `?ml=10` al final de la dirección abre la página con ese tamaño elegido.
+- El carrito es el mismo en todas las páginas: "Ver pedido" y "Comprar ahora" llevan al carrito de la portada.
+
 **Te toca a ti (gratis, 15 minutos):**
 
 1. Publica la página y pon el link en la biografía de Instagram y TikTok.
-2. Regístrala en [Google Search Console](https://search.google.com/search-console) y envía `sitemap.xml`. Sin este paso Google puede tardar semanas en encontrarla.
+2. Regístrala en [Google Search Console](https://search.google.com/search-console) y envía `sitemap.xml`. Sin este paso Google puede tardar semanas en encontrarla. Cuando agregues perfumes, vuelve a enviarlo.
 3. Completa las fotos que faltan.
 4. Un dominio propio (por ejemplo `decantsprime.cl`) da más confianza y mejora el posicionamiento.
 
@@ -231,11 +258,13 @@ Recomendación: parte con esta página gratuita y WhatsApp. Cuando los pedidos p
 La página usa Tailwind CSS ya compilado e incrustado dentro de `index.html`, por eso carga rápido y no depende de nada externo salvo las tipografías.
 
 - Colores y tipografías: variables en el bloque `:root` al inicio de `index.html`. El fondo es azul y las superficies claras (tarjetas, packs, recuadros, carrito) llevan la clase `claro`, que cambia solos los colores de texto y bordes.
-- Editar productos, precios o textos **no** requiere recompilar.
-- Si agregas o cambias clases de Tailwind, regenera el CSS:
+- Editar productos, precios o textos **no** requiere recompilar el CSS (sí ejecutar `node tools/generar-paginas.js`, ver arriba).
+- Si agregas o cambias clases de Tailwind (en `index.html` o en `tools/generar-paginas.js`), regenera el CSS y las páginas:
 
 ```bash
 cd tools
-npm install   # solo la primera vez
-npm run css
+npm install    # solo la primera vez
+npm run todo   # CSS + páginas de cada perfume
 ```
+
+- Las páginas de `decant/` copian los estilos, los íconos y la cabecera de `index.html`. Su estructura está en `tools/generar-paginas.js`.

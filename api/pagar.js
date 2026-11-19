@@ -14,12 +14,16 @@
  *      de producción de Mercado Pago y vuelve a desplegar. El token NUNCA va en el código.
  *   3. En index.html, dentro de CONFIG.mercadopago, escribe:  servidor: "/api/pagar",
  *
- * ⚠ IMPORTANTE: si cambias un precio, un pack, el descuento o el costo de envío en
- *   index.html, cámbialo TAMBIÉN aquí. Si no coinciden, el cliente verá un total en la
- *   página y pagará otro.
+ * Precios: la tabla de precios y las reglas de cobro de más abajo (entre CATALOGO:INICIO y
+ *   CATALOGO:FIN) las escribe  node tools/generar-paginas.js  con los datos de index.html.
+ *   Si cambias un precio, un pack, el descuento o el costo de envío, cámbialo en index.html
+ *   y vuelve a ejecutar ese comando: así la página y el cobro siempre coinciden.
  */
 
-// ── Reglas (deben coincidir con CONFIG en index.html) ──
+// CATALOGO:INICIO — lo escribe tools/generar-paginas.js con los datos de index.html. No lo edites aquí:
+// cambia los precios en index.html y vuelve a ejecutar  node tools/generar-paginas.js
+
+// ── Reglas de cobro (vienen de CONFIG en index.html) ──
 const DESCUENTO_CORREO = 5;          // % de descuento si el cliente dejó su correo
 const ENVIO_BLUE_EXPRESS = 3990;     // costo del envío por Blue Express
 const ENVIO_GRATIS_DESDE = 35000;    // subtotal desde el que el envío es gratis
@@ -65,6 +69,7 @@ const PACKS = {
   "duo-xerjoff": { nombre: "Dúo Xerjoff", precio: 40990, contenido: "Torino 21 5 ml + Erba Gold 5 ml" },
   "descubrimiento": { nombre: "Pack Descubrimiento", precio: 24990, contenido: "Torino 21 3 ml + Le Beau Clásico 3 ml + Hawas Tropical 3 ml" },
 };
+// CATALOGO:FIN
 
 const correoValido = (c) => typeof c === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c.trim());
 const clp = (n) => "$" + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ".");

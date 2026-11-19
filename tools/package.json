@@ -1,9 +1,11 @@
 {
   "name": "decants-prime-herramientas",
   "private": true,
-  "description": "Herramientas opcionales para regenerar el CSS de Tailwind dentro de ../index.html",
+  "description": "Herramientas para regenerar el CSS de ../index.html y las páginas de cada perfume",
   "scripts": {
-    "css": "node build-css.js"
+    "css": "node build-css.js",
+    "paginas": "node generar-paginas.js",
+    "todo": "node build-css.js && node generar-paginas.js"
   },
   "devDependencies": {
     "autoprefixer": "10.4.20",
